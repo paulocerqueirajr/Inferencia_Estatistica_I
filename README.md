@@ -25,7 +25,7 @@ Intervalos de Confiança: definição, método da quantidade pivotal, erro na es
 Confiança no Caso da Distrbuição Normal. Intervalo para Proporções.
 
 5. TESTES DE HIPÓTESES
-6. 
+ 
 Erros Tipo I e Tipo II. Nível de Significância. Teste para Proporção. Testes para parâmetros da
 Distribuição Normal. Probabilidade de significância. Poder de um teste. Formulação de Neyman–
 Pearson. Testes Uniformemente mais Poderosos. Teste para duas populações Normais.
