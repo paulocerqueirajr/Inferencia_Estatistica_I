@@ -1,0 +1,1754 @@
+<!DOCTYPE html>
+<html lang="pt"><head>
+<script src="Inf_estat_aula_1_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Inf_estat_aula_1_files/libs/quarto-html/tabby.min.js"></script>
+<script src="Inf_estat_aula_1_files/libs/quarto-html/popper.min.js"></script>
+<script src="Inf_estat_aula_1_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="Inf_estat_aula_1_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Inf_estat_aula_1_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="Inf_estat_aula_1_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="Inf_estat_aula_1_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.4.549">
+
+  <title>inf_estat_aula_1</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="Inf_estat_aula_1_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="Inf_estat_aula_1_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #767676;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #767676;  padding-left: 4px; }
+    div.sourceCode
+      { color: #545454; background-color: #fefefe; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #545454; } /* Normal */
+    code span.al { color: #7928a1; } /* Alert */
+    code span.an { color: #696969; } /* Annotation */
+    code span.at { color: #a55a00; } /* Attribute */
+    code span.bn { color: #7928a1; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #d91e18; } /* ControlFlow */
+    code span.ch { color: #008000; } /* Char */
+    code span.cn { color: #d91e18; } /* Constant */
+    code span.co { color: #696969; } /* Comment */
+    code span.cv { color: #696969; font-style: italic; } /* CommentVar */
+    code span.do { color: #696969; font-style: italic; } /* Documentation */
+    code span.dt { color: #7928a1; } /* DataType */
+    code span.dv { color: #7928a1; } /* DecVal */
+    code span.er { color: #7928a1; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #a55a00; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #696969; } /* Information */
+    code span.kw { color: #d91e18; } /* Keyword */
+    code span.op { color: #00769e; } /* Operator */
+    code span.ot { color: #d91e18; } /* Other */
+    code span.pp { color: #7928a1; } /* Preprocessor */
+    code span.sc { color: #00769e; } /* SpecialChar */
+    code span.ss { color: #008000; } /* SpecialString */
+    code span.st { color: #008000; } /* String */
+    code span.va { color: #a55a00; } /* Variable */
+    code span.vs { color: #008000; } /* VerbatimString */
+    code span.wa { color: #696969; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="Inf_estat_aula_1_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="Inf_estat_aula_1_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="Inf_estat_aula_1_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="Inf_estat_aula_1_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="Inf_estat_aula_1_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+
+<section class="slide level2">
+
+<h1>
+Inferência Estatística I
+</h1>
+<h2>
+Amostra aleatória
+</h2>
+<hr>
+<p><br></p>
+<h3>
+Prof.&nbsp;Paulo Cerqueira Jr <br> Faculdade de Estatística - FAEST <br> Instituto de Ciências Exatas e Naturais - ICEN
+</h3>
+<h3>
+</h3>
+<p><br></p>
+<h3>
+<p><a href="https://https://github.com/paulocerqueirajr">https://github.com/paulocerqueirajr</a></p>
+<p><img data-src="github.jpg" class="absolute" style="top: 560px; left: 845px; height: 80px; "></p>
+<p><img data-src="faest.png" class="absolute" style="top: 5px; left: 1400px; height: 200px; "></p>
+<!-- ![](https://www.faest.icen.ufpa.br/images/110.png){.absolute top=5 left=1400 height="200"} -->
+</h3></section>
+<section>
+<section id="introdução" class="title-slide slide level1" data-background-color="#027eb6">
+<h1><span style="float:right;text-align:right;">Introdução</span></h1>
+
+</section>
+<section id="introdução-1" class="slide level2">
+<h2>Introdução</h2>
+<ul>
+<li><p>Os avanços científicos são, na maioria das vezes, atribuídos aos experimentos realizados.</p></li>
+<li><p>Um pesquisador realiza o experimento e obtém dados.</p></li>
+<li><p>Baseado nos dados, algumas conclusões podem ser retiradas.</p></li>
+<li><p>Estas conclusões vão, geralmente, além dos que foi observado nos dados.</p></li>
+<li><p>Dessa forma, o pesquisador generaliza, partindo de um experimentos para os demais que são similares.</p></li>
+<li><p>Esta generalização é denominada de <code>Inferência</code>.</p></li>
+</ul>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Uma função da Estatística:</strong></p>
+</div>
+<div class="callout-content">
+<p>Fornecer um conjunto de metodologias para realizar a inferência e medir o grau de incerteza dessa inferência, através da <code>teoria das probabilidades</code>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="introdução-2" class="slide level2">
+<h2>Introdução</h2>
+<div id="exm-ex1" class="theorem example">
+<p><span class="theorem-title"><strong>Exemplo 1</strong></span> &nbsp;</p>
+<ul>
+<li><p>Suponha um recepiente com 10 milhões de sementes de flores.</p></li>
+<li><p>Cada semente pode produzir flores brancas ou vermelhas.</p></li>
+<li><p>Pergunta-se: Qual a porcentagem de flores brancas que serão geradas?</p></li>
+<li><p>Para saber o resultado real, teríamos que plantar todas as sementes.</p></li>
+<li><p>Seria uma tarefa muito trabalhosa!</p></li>
+<li><p>Solução: Plantar algumas sementes, e baseando-se nos resultados podemos obter alguma informação para a porcentagem de flores brancas.</p></li>
+</ul>
+</div>
+</section>
+<section id="população-e-amostra" class="slide level2">
+<h2>População e amostra</h2>
+<div id="def-def1" class="theorem definition">
+<p><span class="theorem-title"><strong>Definição 1 (População)</strong></span> É um conjunto que contém todos os elementos do problema a ser discutido, com pelo menos uma característica em comum. Desejamos obter informação sobre esta população.</p>
+</div>
+<div id="exm-ex2" class="theorem example">
+<p><span class="theorem-title"><strong>Exemplo 2</strong></span> &nbsp;</p>
+<ul>
+<li><p>Preços da carne em um mês na região metropolitana de Belém.</p></li>
+<li><p>Preços do pão em certo dia em Belém.</p></li>
+<li><p>Produção de leite por animal em uma fazenda.</p></li>
+<li><p>Queremos estudar a proporção de votos para um determinado candidato ao governo do Estado do Pará.</p></li>
+<li><p>Queremos estudar o grau de satisfação dos usuários de uma determinada operadora de telefonia celular.</p></li>
+</ul>
+</div>
+</section></section>
+<section>
+<section id="população-e-amostra-1" class="title-slide slide level1" data-background-color="#027eb6">
+<h1><span style="float:right;text-align:right;">População e amostra</span></h1>
+
+</section>
+<section id="população-e-amostra-2" class="slide level2">
+<h2>População e amostra</h2>
+<div id="def-def2" class="theorem definition">
+<p><span class="theorem-title"><strong>Definição 2 (Amostra aleatória - a.a)</strong></span> Sejam <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> uma sequência de variáveis aleatórias com distribuição conjunta <span class="math inline">\(f_{X_1, \dots, X_n}(x_1, \dots, x_n)\)</span> que fatora como na seguinte igualdade:</p>
+<p><span class="math display">\[f_{X_1, \dots, X_n}(x_1, \dots, x_n)= f_{X_{1}}(x_{1})\times f_{X_{2}}(x_{2})\times \dots \times f_{X_{n}}(x_{n})=\prod\limits_{i=1}^{n}f_{X_{i}}(x_{i}),\]</span></p>
+<p>em que <span class="math inline">\(f(\cdot)\)</span> é a função de probabilidade (f.p) ou função de densidade de probabilidade (f.d) para cada <span class="math inline">\(X_i\)</span> . Então, <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> é uma amostra aleatória de tamanho <span class="math inline">\(n\)</span> retirada de uma população com p.d/f.d.</p>
+</div>
+</section>
+<section id="população-e-amostra-3" class="slide level2">
+<h2>População e amostra</h2>
+<div id="exm-ex3" class="theorem example">
+<p><span class="theorem-title"><strong>Exemplo 3</strong></span> Imagine 10 milhões de sementes em um recepiente e a produção de flores brancas e vermelhas.</p>
+<ul>
+<li><p><code>População:</code> Sementes dentro do recipiente.</p></li>
+<li><p><code>Unidade experimental:</code> Uma semente.</p></li>
+<li><p><code>Característica:</code> Flor branca ou vermelha.</p></li>
+</ul>
+</div>
+<ul>
+<li>Não temos um valor numérico associado a cada elemento, mas podemos definir o seguinte tipo de resposta:</li>
+</ul>
+<p><span class="math display">\[\text{Flor branca} =1\  \text{e} \ \text{Flor vermelha} =0.\]</span></p>
+<p><code>Variável aleatória:</code> <span class="math inline">\(X_{i}=1\)</span> ou <span class="math inline">\(X_{i}=0\)</span>, para <span class="math inline">\(i=1,2, \dots, n\)</span>.</p>
+</section>
+<section id="poupulação-e-amostra" class="slide level2">
+<h2>Poupulação e amostra</h2>
+<ul>
+<li><p>A variável aleatória <span class="math inline">\(X_i\)</span> é uma representação do valor numérico que a <span class="math inline">\(i-\)</span>ésima unidade amostral irá assumir.</p></li>
+<li><p>Depois que a amostra <span class="math inline">\(X_1,X_2,\dots, X_n\)</span> observada os valores serão conhecidos e denotados por <span class="math inline">\(x_1,x_2,\dots, x_n\)</span>.</p></li>
+<li><p>Logo:</p></li>
+</ul>
+<p>Suponha que <span class="math inline">\(X\)</span> pode assumir apenas os valores 0 ou 1 com probabilidades <span class="math inline">\(1-\theta\)</span> e <span class="math inline">\(\theta\)</span>, respectivamente. Então, sejam <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> uma a.a de <span class="math inline">\(X\sim Ber(\theta)\)</span>, sua distribuição conjunta <span class="math inline">\(P(X_{1}=x_{1};X_{2}=x_{2};\dots; X_{n}=x_{n})\)</span> é dada por</p>
+<p><span class="math display">\[=\theta^{x_{1}}(1-\theta)^{1-x_{1}}\times \theta^{x_{2}}(1-\theta)^{1-x_{2}}\times \dots \times \theta^{x_{n}}(1-\theta)^{1-x_{n}}\]</span> <span class="math display">\[=\theta^{x_{1}+x_{2}+\dots+x_{n}}(1-\theta)^{(1-x_{1})+(1-x_{2})+\dots+(1-x_{n})}\]</span> <span class="math display">\[=\theta^{\sum_{i=1}^{n}x_{i}}(1-\theta)^{\sum_{i=1}^{n}(1-x_{i})}\]</span> <span class="math display">\[=\theta^{\sum_{i=1}^{n}x_{i}}(1-\theta)^{(n-\sum_{i=1}^{n}x_{i})}\]</span></p>
+</section></section>
+<section>
+<section id="estatísticas-e-parâmetros" class="title-slide slide level1" data-background-color="#027eb6">
+<h1><span style="float:right;text-align:right;">Estatísticas e Parâmetros</span></h1>
+
+</section>
+<section id="estatísticas-e-parâmetros---introdução" class="slide level2">
+<h2>Estatísticas e Parâmetros - Introdução</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Um dos problemas principais da Estatística envolve o seguinte:</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>Estudar uma população com f.p/f.d <span class="math inline">\(f (\cdot\mid \theta)\)</span>, onde a forma da f.p/f.d é conhecida com parêmetro desconhecido <span class="math inline">\(\theta\)</span>.</p></li>
+<li><p>Se <span class="math inline">\(\theta\)</span> fosse conhecido f.p/f.d estaria completamente especificada.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Procedimento de inferência envolverá:</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>A obtenção de uma amostra aleatória <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> desta f.p/f.d.</p></li>
+<li><p>O uso de uma função <span class="math inline">\(T(x_1, x_2, \dots, x_n)\)</span> como estimativa para o parâmetro <span class="math inline">\(\theta\)</span> (desconhecido).</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="estatísticas" class="slide level2">
+<h2>Estatísticas</h2>
+<ul>
+<li><p>O problema aqui consiste em determinar qual será a melhor função para estimar <span class="math inline">\(\theta\)</span>.</p></li>
+<li><p>Iremos avaliar certas funções (funções amostrais) de uma amostra aleatória.</p></li>
+</ul>
+<div id="def-def3" class="theorem definition">
+<p><span class="theorem-title"><strong>Definição 3 (Estatísticas)</strong></span> É uma função da amostra, <span class="math inline">\(T(x) = f (X_1, X_2, \dots, X_n)\)</span>, representando uma característica da amostra.</p>
+</div>
+<div class="fragment">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Importante:</strong></p>
+</div>
+<div class="callout-content">
+<p>A formulação de uma estatística <code>não pode envolver quantidades desconhecidas</code>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="estatísticas-2" class="slide level2">
+<h2>Estatísticas</h2>
+<blockquote>
+<p>Os exemplos mais comuns:</p>
+</blockquote>
+<ul>
+<li><p>Média amostral: <span class="math inline">\(\overline{X}=\dfrac{1}{n}\sum\limits_{i=1}^{n}X_{i}.\)</span></p></li>
+<li><p>Variância amostral: <span class="math inline">\(\hat{\sigma^{2}}=\dfrac{1}{n}\sum\limits_{i=1}^{n}(X_{i}-\overline{X})^{2}.\)</span></p></li>
+<li><p>Mediana amostral: <span class="math inline">\(\tilde{X}=\text{med}(X_1, X_2, \dots, X_n).\)</span></p></li>
+<li><p>Mínimo amostral: <span class="math inline">\(X_{(1)}=\min(X_1, X_2, \dots, X_n).\)</span></p></li>
+<li><p>Máximo amostral: <span class="math inline">\(X_{(n)}=\max(X_1, X_2, \dots, X_n).\)</span></p></li>
+<li><p>Ponto médio amostral: <span class="math inline">\(\dfrac{1}{n}(X_{(1)}+X_{(n)}).\)</span></p></li>
+</ul>
+</section>
+<section id="parâmetros" class="slide level2">
+<h2>Parâmetros</h2>
+<div id="def-def4" class="theorem definition">
+<p><span class="theorem-title"><strong>Definição 4 (Parâmetro)</strong></span> Uma parâmetro é uma medida (desconhecida) usada para descrever uma característica da população.</p>
+</div>
+<div class="fragment">
+<ul>
+<li>As relação das estatísticas com seus respectivos parâmetros:</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>Medida</th>
+<th style="text-align: center;">Estatística</th>
+<th style="text-align: center;">Parâmetro</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Média</td>
+<td style="text-align: center;"><span class="math inline">\(\overline{X}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mu\)</span></td>
+</tr>
+<tr class="even">
+<td>Variância</td>
+<td style="text-align: center;"><span class="math inline">\(\hat{\sigma^{2}}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\sigma^2\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(N\)</span> de elementos</td>
+<td style="text-align: center;"><span class="math inline">\(n\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(N\)</span></td>
+</tr>
+<tr class="even">
+<td>Proporção</td>
+<td style="text-align: center;"><span class="math inline">\(\hat{\theta}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\theta\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="estatísticas-e-parâmetros-1" class="slide level2">
+<h2>Estatísticas e Parâmetros</h2>
+<div id="exm-exm4" class="theorem example">
+<p><span class="theorem-title"><strong>Exemplo 4</strong></span> Considere uma variável aleatória observável com f.d:</p>
+</div>
+<ul>
+<li><p><span class="math inline">\(f(x)=N\left[ x \mid \mu, \sigma^2 \right]\)</span>, com <span class="math inline">\(\mu\)</span> e <span class="math inline">\(\sigma\)</span> desconhecidos.</p></li>
+<li><p>Logo,</p></li>
+</ul>
+<p><span class="math display">\[X-\mu \ \text{e}\ X/\sigma\ \text{são Estatísticas??}\]</span></p>
+<div class="fragment">
+<ul>
+<li><code>Não são</code>, pois contém elementos desconhecidos.</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><span class="math inline">\(X\)</span>, <span class="math inline">\(X+3\)</span> e <span class="math inline">\(X^2+\log X^2\)</span> <code>são estatísticas</code>.</li>
+</ul>
+</div>
+</section>
+<section id="estatísticas-e-parâmetros-2" class="slide level2">
+<h2>Estatísticas e Parâmetros</h2>
+<div id="exm-exm5" class="theorem example">
+<p><span class="theorem-title"><strong>Exemplo 5</strong></span> Seja <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> uma amostra aleatória com f.p/f.d <span class="math inline">\(f(\cdot;\theta)\)</span> então:</p>
+<p><span class="math display">\[\overline{X}_{n}=\dfrac{1}{n}\sum_{i=1}^{n}X_{i} \quad \text{e} \quad\dfrac{1}{2}\left\{\min(X_1,\dots, X_n)+\max(X_1, \dots, X_n)\right\}\]</span></p>
+<p><code>são exemplos</code> de estatísticas.</p>
+</div>
+<div class="fragment">
+<div id="exm-exm6" class="theorem example">
+<p><span class="theorem-title"><strong>Exemplo 6</strong></span> Se <span class="math inline">\(f(x;\theta)=N\left[ x \mid \theta, 1 \right]\)</span>, com <span class="math inline">\(\theta\)</span> desconhecido.</p>
+</div>
+<p><span class="math display">\[\overline{X}_{n}-\theta \quad \text{é uma Estatística?}\]</span></p>
+</div>
+<div class="fragment">
+<ul>
+<li><code>Não</code> é uma estatística, pois depende de <span class="math inline">\(\theta\)</span>.</li>
+</ul>
+</div>
+</section></section>
+<section>
+<section id="momentos-amostrais" class="title-slide slide level1" data-background-color="#027eb6">
+<h1><span style="float:right;text-align:right;">Momentos amostrais</span></h1>
+
+</section>
+<section id="momentos-amostrais-1" class="slide level2">
+<h2>Momentos amostrais</h2>
+<p>Seja <span class="math inline">\(X_1, \dots, X_n\)</span> uma a.a com f.p/f.d <span class="math inline">\(f(\cdot)\)</span>. O r-ésimo momento amostral em relação à <span class="math inline">\(0\)</span> é definido por</p>
+<p><span class="math display">\[M_{r}^{'}=\dfrac{1}{n}\sum\limits_{i=1}^{n}\left(X_{i}-0\right)^r=\dfrac{1}{n}\sum\limits_{i=1}^{n}\left(X_{i}\right)^r.\]</span></p>
+<ul>
+<li>Em particular, quando <span class="math inline">\(r=1\)</span>, temos a média amostral <span class="math inline">\(\overline{X}\)</span> ou <span class="math inline">\(\overline{X}_{n}\)</span>, em que</li>
+</ul>
+<p><span class="math display">\[\overline{X}_{n}=\dfrac{1}{n}\sum\limits_{i=1}^{n}\left(X_{i}\right).\]</span></p>
+<p>O r-ésimo momento em relação à <span class="math inline">\(\overline{X}_{n}\)</span> é dado por</p>
+<p><span class="math display">\[M_{r}=\dfrac{1}{n}\sum\limits_{i=1}^{n}\left(X_{i}-\overline{X}_{n}\right)^r\]</span></p>
+</section>
+<section id="momentos-amostrais-2" class="slide level2">
+<h2>Momentos amostrais</h2>
+<blockquote>
+<p>Momentos amostrais são exemplos de estatísticas!</p>
+</blockquote>
+<div id="thm-thm1" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 1 (Momentos Amostrais)</strong></span> Seja <span class="math inline">\(X_1, \dots, X_n\)</span> uma a.a com f.p/f.d <span class="math inline">\(f(\cdot)\)</span>. O valor esperado do r-ésimo momento amostral (em relação à <span class="math inline">\(0\)</span>) é igual ao r-ésimo momento populacional, isto é,</p>
+<p><span class="math display">\[E(M_{r}^{'})=\mu_{r}^{'}, \ \text{se} \ \mu_{r}^{'}\  \text{existir}.\]</span></p>
+</div>
+<ul>
+<li><p>Temos que <span class="math inline">\(\mu_{r}^{'}=E(X^{r})\)</span> é o r-ésimo momento populacional de uma população com f.p/f.d <span class="math inline">\(f(x)=f_{X}(x)\)</span>.</p></li>
+<li><p>Além disso:</p></li>
+</ul>
+<p><span class="math display">\[Var(M_{r}^{'})=\dfrac{1}{n}\left[ E(X^{2r})-E^{2}(X^{r}) \right]\]</span></p>
+<p><span class="math display">\[=\dfrac{1}{n}\left[ \mu_{2r}^{'}-(\mu_{r}^{'})^{2} \right].\]</span></p>
+</section>
+<section id="momentos-amostrais-4" class="slide level2">
+<h2>Momentos amostrais</h2>
+<p><code>Demonstração:(cont.)</code></p>
+<blockquote>
+<p>A média:</p>
+</blockquote>
+<p><span class="math display">\[E(M_{r}^{'})=E\left[\dfrac{1}{n}\sum\limits_{i=1}^{n}\left(X_{i}\right)^r\right]=\dfrac{1}{n}E\left[\sum\limits_{i=1}^{n}\left(X_{i}\right)^r\right]=\]</span> <span class="math display">\[=\dfrac{1}{n}\sum\limits_{i=1}^{n}E\left[\left(X_{i}\right)^r\right]=\dfrac{1}{n}\sum\limits_{i=1}^{n}\mu_{r}^{'}=\mu_{r}^{'}.\]</span></p>
+<blockquote>
+<p>A variância:</p>
+</blockquote>
+<p><span class="math display">\[Var(M_{r}^{'})=Var\left[\dfrac{1}{n}\sum\limits_{i=1}^{n}\left(X_{i}\right)^r\right]=\dfrac{1}{n^2}Var\left[\sum\limits_{i=1}^{n}\left(X_{i}\right)^r\right]\]</span></p>
+</section>
+<section id="momentos-amostrais-5" class="slide level2">
+<h2>Momentos amostrais</h2>
+<p><code>Demonstração:(cont.)</code></p>
+<p>Supondo independência, temos</p>
+<p><span class="math display">\[Var(M_{r}^{'})=\dfrac{1}{n^2}\sum\limits_{i=1}^{n}Var\left[\left(X_{i}\right)^r\right]=\dfrac{1}{n^2}\sum\limits_{i=1}^{n}\left[E\left(X_{i}\right)^{2r}-E^2\left(X_{i}^{r}\right)\right]\]</span></p>
+<p><span class="math display">\[=\dfrac{1}{n^2}\sum\limits_{i=1}^{n}\left[\mu_{2r}^{'}-(\mu_{r}^{'})^2\right]=\dfrac{1}{n}\left[\mu_{2r}^{'}-(\mu_{r}^{'})^2\right].\]</span></p>
+</section>
+<section id="momentos-amostrais-6" class="slide level2">
+<h2>Momentos amostrais</h2>
+<p>Quando <span class="math inline">\(r=1\)</span>, temos o seguinte corolário.</p>
+<div id="cor-cor1" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corolário 1</strong></span> Seja <span class="math inline">\(X_1, \dots, X_n\)</span> uma a.a com f.p/f.d <span class="math inline">\(f(\cdot)\)</span> e se <span class="math inline">\(\overline{X}_{n}=\dfrac{1}{n}\sum\limits_{i=1}^{n}\left(X_{i}\right)\)</span> é a média amostral, então,</p>
+<p><span class="math display">\[E(\overline{X}_{n})=\mu, \ \text{e} \ Var(\overline{X}_{n})=\dfrac{\sigma^2}{n}.\]</span> em que <span class="math inline">\(\mu\)</span> e <span class="math inline">\(\sigma^2\)</span> são a média e a variância de <span class="math inline">\(f(\cdot)\)</span>.</p>
+</div>
+</section>
+<section id="momentos-amostrais-7" class="slide level2">
+<h2>Momentos amostrais</h2>
+<ul>
+<li><p>O <a href="#/momentos-amostrais-2" class="quarto-xref">Teorema&nbsp;1</a> fornece a média e a variância, em termos de momentos populacionais, do r-ésimo momento amostral em relação a 0.</p></li>
+<li><p>Um resultado similar, porém mais complicado, pode ser derivado para a média e variância do r-ésimo momento amostral em relação a média amostral.</p></li>
+<li><p>Considere <span class="math inline">\(r=2\)</span>, tal que <span class="math inline">\(M_{2}=\dfrac{1}{n}\sum\limits_{i}(X_{i}-\overline{X})^2.\)</span></p></li>
+<li><p><span class="math inline">\(M_2\)</span> as vezes é chamado de <code>variância amostral</code>.</p></li>
+<li><p>Entretanto, definiremos a variância amostral de outra forma.</p></li>
+</ul>
+</section>
+<section id="momentos-amostrais-8" class="slide level2">
+<h2>Momentos amostrais</h2>
+<div id="def-def6" class="theorem definition">
+<p><span class="theorem-title"><strong>Definição 5</strong></span> Seja <span class="math inline">\(X_1, \dots, X_n\)</span> uma a.a com f.p/f.d <span class="math inline">\(f(\cdot)\)</span>,</p>
+<p><span class="math display">\[S^2_{n}=S^{2}=\dfrac{1}{n-1}\sum\limits_{i}(X_{i}-\overline{X})^2, \ \text{para} \ n&gt;1,\]</span></p>
+<p>é definida como <strong>variância amostral</strong>.</p>
+</div>
+<blockquote>
+<p>A razão para considerarmos <span class="math inline">\(S^2\)</span> ao invés de <span class="math inline">\(M_{2}\)</span> como variância é devido <span class="math display">\[E(S^2)=\sigma^2 \ \text{e} \ E(M_2)\neq\sigma^2\]</span></p>
+</blockquote>
+<ul>
+<li>Revisando: <span class="math inline">\(\mu_{r}^{'}=E(X^r)\)</span> é o r-ésimo momento de <span class="math inline">\(X\)</span> (em relação a 0).</li>
+</ul>
+</section>
+<section id="momentos-amostrais-9" class="slide level2">
+<h2>Momentos amostrais</h2>
+<div id="def-def7" class="theorem definition">
+<p><span class="theorem-title"><strong>Definição 6 (Momento central)</strong></span> O r-ésimo momento central de uma variável aleatória <span class="math inline">\(X\)</span> com relação ao ponto <span class="math inline">\(\textbf{a}\)</span> é definido por</p>
+<p><span class="math display">\[\mu_r=E\left[(X-\textbf{a})^r\right]\]</span></p>
+</div>
+<ul>
+<li>Se <span class="math inline">\(\textbf{a}=E(X)=\mu\)</span>, temos <span class="math inline">\(\mu_r=E\left[(X-\textbf{a})^r\right]\)</span>, então</li>
+</ul>
+<p><span class="math display">\[\mu_{1}=E\left[(X-\mu)^1\right]=0 \quad \text{e} \quad \mu_{2}=E\left[(X-\mu)^2\right]=Var(X)=\sigma^2.\]</span></p>
+<div id="thm-thm2" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 2</strong></span> Seja <span class="math inline">\(X_1, \dots, X_n\)</span> uma a.a com f.p/f.d <span class="math inline">\(f(\cdot)\)</span> e seja <span class="math display">\[S^{2}=\dfrac{1}{n-1}\sum\limits_{i}(X_{i}-\overline{X})^2,\]</span>Então, <span class="math display">\[E(S^2)=\sigma^2 \quad \text{e} \quad Var(S^2)=\dfrac{1}{n}\left[\mu_{4}-\dfrac{n-3}{n-1}\sigma^2\right].\]</span></p>
+</div>
+</section>
+<section id="momentos-amostrais-10" class="slide level2">
+<h2>Momentos amostrais</h2>
+<p><strong>Prova:</strong> Para <span class="math inline">\(E(S^2)=\sigma^2\)</span>, temos que <span class="math inline">\(\sigma^{2}=E\left[ (X-\mu)^2\right]\)</span> e <span class="math inline">\(\mu_{r}=E\left[(X-\mu)^r\right]\)</span>. Note que,</p>
+<p><span class="math display">\[
+\begin{array}{lll}
+\sum\limits_{i}(X_{i}-\mu)^2 &amp; = &amp;  \sum\limits_{i}\left(X_{i}+\overline{X}-\overline{X}-\mu\right)^2\\
+&amp;=&amp; \sum\limits_{i}\left[\left(X_{i}-\overline{X}\right)^2-2\left(X_{i}-\overline{X}\right)\left(\overline{X}-\mu\right)+\left(\overline{X}-\mu\right)^2\right]\\
+&amp;=&amp;\sum\limits_{i}\left(X_{i}-\overline{X}\right)^2-2\left(\overline{X}-\mu\right)\sum\limits_{i}\left(X_{i}-\overline{X}\right)+n\left(\overline{X}-\mu\right)^2\\
+&amp;=&amp; \sum\limits_{i}\left(X_{i}-\overline{X}\right)^2-2\left(\overline{X}-\mu\right)\underbrace{\left(n\overline{X}-n\overline{X}\right)}_{0}+n\left(\overline{X}-\mu\right)^2\\
+&amp;=&amp; \sum\limits_{i}\left(X_{i}-\overline{X}\right)^2+n\left(\overline{X}-\mu\right)^2\\
+\end{array}
+\]</span></p>
+</section>
+<section id="momentos-amostrais-11" class="slide level2">
+<h2>Momentos amostrais</h2>
+<p><strong>Prova (cont.):</strong></p>
+<p>Assim,</p>
+<p><span class="math display">\[
+\begin{array}{lll}
+E(S^2)&amp;=&amp; E\left[ \dfrac{1}{n-1}\sum\limits_{i}(X_{i}-\overline{X})^2\right]\\
+&amp;=&amp; E\left[ \dfrac{1}{n-1}\sum\limits_{i}\left(X_{i}-\mu\right)^2-n\left(\overline{X}-\mu\right)^2\right]\\
+&amp;=&amp; \dfrac{1}{n-1}E\left[ \sum\limits_{i}\left(X_{i}-\mu\right)^2-n\left(\overline{X}-\mu\right)^2\right]\\
+&amp;=&amp; \dfrac{1}{n-1}E\left[ \sum\limits_{i}\left(X_{i}-\mu\right)^2\right]-\dfrac{n}{n-1}E\left[\left(\overline{X}-\mu\right)^2\right]\\
+&amp;=&amp; \dfrac{n}{n-1}\sigma^2-\dfrac{n}{n-1}Var(\overline{X})\\
+&amp;=&amp; \dfrac{n}{n-1}\sigma^2-\dfrac{n}{n-1}\dfrac{\sigma^2}{n}\\
+&amp;=&amp; \sigma^2
+\end{array}
+\]</span></p>
+</section>
+<section id="momentos-amostrais-12" class="slide level2">
+<h2>Momentos amostrais</h2>
+<ul>
+<li>De forma similar,</li>
+</ul>
+<p><span class="math display">\[
+\begin{array}{lll}
+E(M_2)&amp;=&amp; E\left[ \dfrac{1}{n}\sum\limits_{i}(X_{i}-\overline{X})^2\right]\\
+&amp;=&amp; \dfrac{1}{n}\sigma^2-\dfrac{n}{n}Var(\overline{X})\\
+&amp;=&amp; \sigma^2\left(\dfrac{n-1}{n}\right)
+\end{array}
+\]</span></p>
+<ul>
+<li><p>Momentos amostrais são exemplos de <strong>exemplos de estatísticas</strong> que podem ser usados para estimar quantidades populacionais.</p></li>
+<li><p>Por exemplo:</p>
+<ul>
+<li><span class="math inline">\(M_{r}^{'}\)</span> para estimar <span class="math inline">\(\mu_{r}^{'}\)</span>;</li>
+<li><span class="math inline">\(\overline{X}\)</span> para estimar <span class="math inline">\(\mu\)</span>;</li>
+<li><span class="math inline">\(S^2\)</span> para estimar <span class="math inline">\(\sigma^2\)</span>.</li>
+</ul></li>
+</ul>
+</section></section>
+<section>
+<section id="função-de-verossimilhança" class="title-slide slide level1" data-background-color="#027eb6">
+<h1><span style="float:right;text-align:right;">Função de verossimilhança</span></h1>
+
+</section>
+<section id="função-de-verossimilhança-1" class="slide level2">
+<h2>Função de verossimilhança</h2>
+<div id="def-def5" class="theorem definition">
+<p><span class="theorem-title"><strong>Definição 7 (Função de verossimilhança)</strong></span> A f.p/p.d.f conjunta é denominada função de verossimilhança de <span class="math inline">\(\theta\)</span>, correspondente a amostra observada <span class="math inline">\(\textbf{x} = (x_1, x_2, \dots, x_n)\)</span> e será denotada por</p>
+<p><span class="math display">\[L(\theta\mid \textbf{x})=\prod\limits_{i=1}^{n}f(x_{i}\mid\theta)=f(x_{1}\mid \theta)\times f(x_{2}\mid \theta)\times \dots \times f(x_{n}\mid \theta).\]</span></p>
+</div>
+<p>Dada a amostra <span class="math inline">\(\textbf{x} = (x_1, x_2, \dots, x_n)\)</span>, podemos encontrar o <code>ponto mais verossímil</code> para <span class="math inline">\(\theta\)</span>.</p>
+</section>
+<section id="função-de-verossimilhança-3" class="slide level2">
+<h2>Função de verossimilhança</h2>
+<div id="exm-exm7" class="theorem example">
+<p><span class="theorem-title"><strong>Exemplo 7 (Caso discreto)</strong></span> Sejam <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> uma a.a de <span class="math inline">\(X\sim Pois(\theta)\)</span>. Temos que a função de verossimilhança é dada por</p>
+</div>
+<p><span class="math display">\[\begin{equation*}
+    \begin{array}{ccl}
+              L(\theta\mid \textbf{x})&amp;=  &amp; \prod\limits_{i=1}^{n}\dfrac{\exp\{-\lambda\}\lambda^{x_{i}}}{x_i!} \\
+              &amp; = &amp;\dfrac{\exp\{-\lambda\}\lambda^{x_{1}}}{x_1!}\times \dfrac{\exp\{-\lambda\}\lambda^{x_{2}}}{x_2!}\times \dots \times \dfrac{\exp\{-\lambda\}\lambda^{x_{n}}}{x_n!}\\
+              &amp; = &amp; \dfrac{\exp\{-n\lambda\}\lambda^{\sum_{i=1}^{n}x_{i}}}{\prod_{i=1}^{n}x_i!}.
+          \end{array}
+\end{equation*}\]</span></p>
+</section>
+<section id="função-de-verossimilhança-4" class="slide level2">
+<h2>Função de verossimilhança</h2>
+<div id="exm-exm8" class="theorem example">
+<p><span class="theorem-title"><strong>Exemplo 8 (Caso contínuo)</strong></span> Sejam <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> uma a.a de <span class="math inline">\(X\sim N(\mu, \sigma^2)\)</span>. Temos que a função de verossimilhança é dada por</p>
+</div>
+<p><span class="math display">\[\begin{equation*}
+    \begin{array}{cl}
+              = &amp; \prod\limits_{i=1}^{n} \dfrac{1}{\sqrt{2\pi \sigma^2}}\exp\left\{ \dfrac{1}{2\sigma^2} (x_i - \mu)^2 \right\}\\
+              = &amp; \dfrac{1}{\sqrt{2\pi \sigma^2}}\exp\left\{ \dfrac{1}{2\sigma^2} (x_1 - \mu)^2 \right\}\times \dots \times \dfrac{1}{\sqrt{2\pi \sigma^2}}\exp\left\{ \dfrac{1}{2\sigma^2} (x_n - \mu)^2 \right\}\\
+              = &amp; \left(\dfrac{1}{\sqrt{2\pi \sigma^2}}\right)^n \exp\left\{ \dfrac{1}{2\sigma^2} \sum_{i=1}^{n}(x_i - \mu)^2 \right\}\\
+              = &amp; \left(\dfrac{1}{2\pi \sigma^2}\right)^{n/2} \exp\left\{ \dfrac{1}{2\sigma^2} \sum_{i=1}^{n}(x_i - \mu)^2 \right\}\\
+              = &amp; \left(2\pi \sigma^2\right)^{-n/2} \exp\left\{ \dfrac{1}{2\sigma^2} \sum_{i=1}^{n}(x_i - \mu)^2 \right\}
+          \end{array}
+\end{equation*}\]</span></p>
+</section></section>
+<section>
+<section id="distribuição-amostral" class="title-slide slide level1" data-background-color="#027eb6">
+<h1><span style="float:right;text-align:right;">Distribuição amostral</span></h1>
+
+</section>
+<section id="introdução-3" class="slide level2">
+<h2>Introdução</h2>
+<div class="columns">
+<div class="column">
+<p><code>Para este caso temos:</code></p>
+<ul>
+<li><p><span class="math inline">\(X:\)</span> Variável de interesse;</p></li>
+<li><p><span class="math inline">\(\theta:\)</span> parâmetro de interesse;</p></li>
+<li><p><span class="math inline">\(T=f(X_1, X_2, \dots, X_n)\)</span> Função da amostra que vai fornecer informação sobre <span class="math inline">\(\theta\)</span>.</p></li>
+</ul>
+</div><div class="column">
+<p><img data-src="pop_amostra.png"></p>
+<p><span class="math inline">\(T\)</span> é uma variável aleatória.</p>
+<p><code>Pergunta:</code> Qual a distribuição de <span class="math inline">\(T\)</span> quando <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> assume valores observados?</p>
+</div>
+</div>
+</section></section>
+<section>
+<section id="distribuição-amostral-da-média" class="title-slide slide level1" data-background-color="#027eb6">
+<h1><span style="float:right;text-align:right;">Distribuição amostral da média</span></h1>
+
+</section>
+<section id="distribuição-amostral-da-média-1" class="slide level2">
+<h2>Distribuição amostral da média</h2>
+<div id="exm-exm9" class="theorem example">
+<p><span class="theorem-title"><strong>Exemplo 9</strong></span> Suponha que selecionamos todas as amostras de tamanho 2, com reposição, da população <span class="math inline">\(\{1, 3, 5, 5, 7\}\)</span></p>
+</div>
+<!-- \begin{center} -->
+<!--   \begin{tabular}{ccccc}\hline -->
+<!--   $X$ & 1& 3& 5 & 7\\ \hline -->
+<!--   $P(X=x)$ &1/5 &1/5 &2/5 &1/5\\ \hline -->
+<!--   \end{tabular} -->
+<!-- \end{center} -->
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(X\)</span></th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">5</th>
+<th style="text-align: center;">7</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(P(X=x)\)</span></td>
+<td style="text-align: center;">1/5</td>
+<td style="text-align: center;">1/5</td>
+<td style="text-align: center;">2/5</td>
+<td style="text-align: center;">1/5</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>Encontrar a distribuição conjunta da v.a. <span class="math inline">\((X_1, X2)\)</span>, sendo <span class="math inline">\(X_1\)</span> sendo o número selecionado na primeira extração e <span class="math inline">\(X_2\)</span> o número da segunda.</p></li>
+<li><p>Encontre a distribuição de <span class="math inline">\(\overline{X}=\dfrac{X_1 + X_2}{2}\)</span>.</p></li>
+</ul>
+</section>
+<section id="distribuição-amostral-da-média-2" class="slide level2">
+<h2>Distribuição amostral da média</h2>
+<div class="columns">
+<div class="column">
+<!-- \begin{center} -->
+<!--   \scalebox{0.7}{\begin{tabular}{ccccc}\hline -->
+<!--   Combinação & Prob.& $X_1$ & $X_2$ & $\overline{X}$\\ \hline -->
+<!--   $(1,1)$ & 1/25 &1 &1 &1\\ -->
+<!--   $(1,3)$ & 1/25 &1 &3 &2\\ -->
+<!--   $(1,5)$ & 2/25 &1 &5 &3\\ -->
+<!--   $(1,7)$ & 1/25 &1 &7 &4\\ -->
+<!--   $(3,1)$ & 1/25 &3 &1 &2\\ -->
+<!--   $(3,3)$ & 1/25 &3 &3 &3\\ -->
+<!--   $(3,5)$ & 2/25 &3 &5 &4\\ -->
+<!--   $(3,7)$ & 1/25 &3 &7 &5\\ -->
+<!--   $(5,1)$ & 2/25 &5 &1 &3\\ -->
+<!--   $(5,3)$ & 4/25 &5 &3 &4\\ -->
+<!--   $(5,5)$ & 2/25 &5 &5 &5\\ -->
+<!--   $(5,7)$ & 1/25 &5 &7 &6\\ -->
+<!--   $(7,1)$ & 1/25 &5 &7 &4\\ -->
+<!--   $(7,3)$ & 1/25 &5 &7 &5\\ -->
+<!--   $(7,5)$ & 1/25 &5 &7 &6\\ -->
+<!--   $(7,7)$ & 1/25 &5 &7 &7\\\hline -->
+<!--   \end{tabular}} -->
+<!-- \end{center} -->
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Combinação</th>
+<th style="text-align: center;">Prob.</th>
+<th style="text-align: center;"><span class="math inline">\(X_1\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(X_2\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\overline{X}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\((1,1)\)</span></td>
+<td style="text-align: center;">1/25</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\((1,3)\)</span></td>
+<td style="text-align: center;">1/25</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\((1,5)\)</span></td>
+<td style="text-align: center;">2/25</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\((1,7)\)</span></td>
+<td style="text-align: center;">1/25</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\((3,1)\)</span></td>
+<td style="text-align: center;">1/25</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\((3,3)\)</span></td>
+<td style="text-align: center;">1/25</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\((3,5)\)</span></td>
+<td style="text-align: center;">2/25</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\((3,7)\)</span></td>
+<td style="text-align: center;">1/25</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\((5,1)\)</span></td>
+<td style="text-align: center;">2/25</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\((5,3)\)</span></td>
+<td style="text-align: center;">4/25</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\((5,5)\)</span></td>
+<td style="text-align: center;">2/25</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\((5,7)\)</span></td>
+<td style="text-align: center;">1/25</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\((7,1)\)</span></td>
+<td style="text-align: center;">1/25</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\((7,3)\)</span></td>
+<td style="text-align: center;">1/25</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\((7,5)\)</span></td>
+<td style="text-align: center;">1/25</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\((7,7)\)</span></td>
+<td style="text-align: center;">1/25</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">7</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column">
+<p><code>Distribuição conjunta:</code></p>
+<!-- \begin{center} -->
+<!--   \scalebox{0.7}{\begin{tabular}{c|ccccc} \hline -->
+<!--   $X_{1}/X_{2}$ & 1& 3 & 5 & 7 & Total \\ \hline -->
+<!--   1 & 1/25& 1/25 & 2/25 & 1/25 & 1/5 \\ \hline -->
+<!--   3 & 1/25& 1/25 & 2/25 & 1/25 & 1/5 \\ \hline -->
+<!--   5 & 2/25& 2/25 & 4/25 & 2/25 & 2/5 \\ \hline -->
+<!--   7 & 1/25& 1/25 & 2/25 & 1/25 & 1/5 \\ \hline -->
+<!--   Total & 1/5& 1/5 & 2/5 & 1/5 & Total \\ \hline -->
+<!--   \end{tabular}} -->
+<!-- \end{center} -->
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(X_{1}/X_{2}\)</span></th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">5</th>
+<th style="text-align: center;">7</th>
+<th style="text-align: center;">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1/25</td>
+<td style="text-align: center;">1/25</td>
+<td style="text-align: center;">2/25</td>
+<td style="text-align: center;">1/25</td>
+<td style="text-align: center;">1/5</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">1/25</td>
+<td style="text-align: center;">1/25</td>
+<td style="text-align: center;">2/25</td>
+<td style="text-align: center;">1/25</td>
+<td style="text-align: center;">1/5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">2/25</td>
+<td style="text-align: center;">2/25</td>
+<td style="text-align: center;">4/25</td>
+<td style="text-align: center;">2/25</td>
+<td style="text-align: center;">2/5</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">1/25</td>
+<td style="text-align: center;">1/25</td>
+<td style="text-align: center;">2/25</td>
+<td style="text-align: center;">1/25</td>
+<td style="text-align: center;">1/5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Total</td>
+<td style="text-align: center;">1/5</td>
+<td style="text-align: center;">1/5</td>
+<td style="text-align: center;">2/5</td>
+<td style="text-align: center;">1/5</td>
+<td style="text-align: center;">Total</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="distribuição-amostral-da-média-3" class="slide level2">
+<h2>Distribuição amostral da média</h2>
+<!-- ::: columns -->
+<!-- ::: column -->
+<p><code>Distribuição amostral da média</code> <span class="math inline">\(\overline{X}\)</span>:</p>
+<!-- \scalebox{0.65}{ -->
+<!-- \begin{tabular}{cccccccc}\hline -->
+<!--   $\overline{X}$ & 1 & 2& 3 & 4 & 5 & 6 & 7\\ \hline -->
+<!--   $P(\overline{X}=\overline{x})$ & 1/25 &2/25 &5/25 & 6/25 & 6/25 & 4/25 & 1/25\\ \hline -->
+<!-- \end{tabular}} -->
+<table>
+<colgroup>
+<col style="width: 16%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 13%">
+<col style="width: 11%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(\overline{X}\)</span></th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5</th>
+<th style="text-align: center;">6</th>
+<th style="text-align: center;">7</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(P(\overline{X}=\overline{x})\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\dfrac{1}{25}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\dfrac{2}{25}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\dfrac{5}{25}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\dfrac{6}{25}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\dfrac{6}{25}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\dfrac{4}{25}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\dfrac{1}{25}\)</span></td>
+</tr>
+</tbody>
+</table>
+<!-- ::: -->
+<!-- ::: column -->
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">require</span>(ggplot2)</span>
+<span id="cb1-2"><a href=""></a>mx    <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>)</span>
+<span id="cb1-3"><a href=""></a>pmx   <span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">25</span>, <span class="dv">2</span><span class="sc">/</span><span class="dv">25</span>, <span class="dv">5</span><span class="sc">/</span><span class="dv">25</span>, <span class="dv">6</span><span class="sc">/</span><span class="dv">25</span>, <span class="dv">6</span><span class="sc">/</span><span class="dv">25</span>, <span class="dv">4</span><span class="sc">/</span><span class="dv">25</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">25</span>)</span>
+<span id="cb1-4"><a href=""></a>dados <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(mx, pmx)</span>
+<span id="cb1-5"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data=</span>dados, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(mx), <span class="at">ymin=</span><span class="dv">0</span>, <span class="at">ymax=</span>pmx))<span class="sc">+</span><span class="fu">geom_linerange</span>()<span class="sc">+</span></span>
+<span id="cb1-6"><a href=""></a>  <span class="fu">scale_x_discrete</span>(<span class="at">breaks=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="st">"P(X=x)"</span>)<span class="sc">+</span></span>
+<span id="cb1-7"><a href=""></a>  <span class="fu">xlab</span>(<span class="st">"Média amostral"</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<!-- ::: -->
+<!-- ::: -->
+<img data-src="Inf_estat_aula_1_files/figure-revealjs/fig1-1.png" class="quarto-figure quarto-figure-center r-stretch" width="384"></section>
+<section id="distribuição-amostral-da-média-4" class="slide level2">
+<h2>Distribuição amostral da média</h2>
+<ul>
+<li>O primeiro momento amostral é a média definida como:</li>
+</ul>
+<p><span class="math display">\[\overline{X}=\overline{X}_{n}=\dfrac{1}{n}\sum\limits_{i=1}^{n}\left(X_{i}\right).\]</span></p>
+<p>onde <span class="math inline">\(X_{1}, X_{2}, \dots, X_{n}\)</span> é uma amostra aleatória com f.p/f.d <span class="math inline">\(f(\cdot)\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\(\overline{X}\)</span> é função das v.a <span class="math inline">\(X_{1}, X_{2}, \dots, X_{n}\)</span> e, portanto a distribuição pode ser encontrada teoricamente.</p></li>
+<li><p>Pode ser útil pensar na média amostral <span class="math inline">\(\overline{X}\)</span> como uma estimativa da média <span class="math inline">\(\mu\)</span> da f.p/f.d <span class="math inline">\(f(\cdot)\)</span> a partir de qual amostra foi selecionada.</p></li>
+</ul>
+<blockquote>
+<p>Um dos objetivos da amostragem é estimar <span class="math inline">\(\mu\)</span> a partir de <span class="math inline">\(\overline{X}\)</span>.</p>
+</blockquote>
+</section>
+<section id="distribuição-amostral-da-média-5" class="slide level2">
+<h2>Distribuição amostral da média</h2>
+<div id="thm-thm3" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 3</strong></span> Seja <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> uma a.a com f.p/f.d <span class="math inline">\(f(\cdot)\)</span>, média <span class="math inline">\(\mu\)</span> e variância <span class="math inline">\(\sigma^2\)</span>. Considere:</p>
+<p><span class="math display">\[\overline{X}=\dfrac{1}{n}\sum\limits_{i=1}^{n}\left(X_{i}\right).\]</span> Então, <span class="math inline">\(E(\overline{X})=\mu_{\overline{X}}=\mu\)</span> e <span class="math inline">\(Var(\overline{X})=\sigma_{\overline{X}}^{2}=\dfrac{\sigma^2}{n}\)</span>.</p>
+<p><span class="math inline">\(E(\overline{X})=\mu\)</span>: diz que em média <span class="math inline">\(\overline{X}\)</span> é igual ao parâmetro <span class="math inline">\(\mu\)</span> sendo estimado ou que a distribuição de <span class="math inline">\(\overline{X}\)</span> está centrada em <span class="math inline">\(\mu\)</span>.</p>
+<p><span class="math inline">\(Var(\overline{X})=\dfrac{\sigma^2}{n}\)</span>: diz que a dispersão dos valoers de <span class="math inline">\(\overline{X}\)</span> em torno de <span class="math inline">\(\mu\)</span> é pequena para amostras grandes em comparação com tamanhos menores.</p>
+</div>
+</section></section>
+<section>
+<section id="teoremas-de-convergência" class="title-slide slide level1" data-background-color="#027eb6">
+<h1><span style="float:right;text-align:right;">Teoremas de convergência</span></h1>
+
+</section>
+<section id="teoremas-de-convergência-1" class="slide level2">
+<h2>Teoremas de convergência</h2>
+<ul>
+<li><p>Para amostras grandes, os valores de <span class="math inline">\(\overline{X}\)</span> (que são usados para estimar <span class="math inline">\(\mu\)</span>) tendem a estar mais concentrados de <span class="math inline">\(\mu\)</span> do que em amostras pequenas.</p></li>
+<li><p>Esta noção será definida pela <strong>Lei dos Grandes Números</strong></p></li>
+<li><p>Seja <span class="math inline">\(E(X) = \mu\)</span> para a f.p/f.d <span class="math inline">\(f(\cdot)\)</span>. Desejamos estimar <span class="math inline">\(\mu\)</span>.</p></li>
+<li><p>De maneira não rigorosa, <span class="math inline">\(E(X)\)</span> é a média de um número infinito de valores da variável aleatória <span class="math inline">\(X\)</span>.</p></li>
+<li><p>Em qualquer problema real podemos observar apenas um número finito de valores da variável aleatória <span class="math inline">\(X\)</span>.</p></li>
+<li><p>Questão: Usando apenas um número finito de valores de <span class="math inline">\(X\)</span> (uma amostra aleatória de tamanho <span class="math inline">\(n\)</span>) pode ser feita qualquer inferência confiável sobre <span class="math inline">\(E(X)\)</span>? <strong>A resposta é sim</strong>.</p></li>
+<li><p>Usaremos isso através da Lei Fraca dos Grandes Números.</p></li>
+</ul>
+</section>
+<section id="teoremas-de-convergência-2" class="slide level2">
+<h2>Teoremas de convergência</h2>
+<div id="thm-thm4" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 4 (Lei fraca dos Grandes Números)</strong></span> Seja <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> uma a.a de tamanho <span class="math inline">\(n\)</span> de uma população com variável <span class="math inline">\(X\)</span>, com média <span class="math inline">\(E(X)=\mu\)</span> e <span class="math inline">\(Var(X)=\sigma^2&lt;\infty\)</span>. Sejam, <span class="math inline">\(\epsilon&gt;0\)</span> e <span class="math inline">\(0&lt;\delta&lt;1\)</span>. Se, <span class="math inline">\(n&gt;\dfrac{\sigma^{2}\epsilon^2}{\delta}\)</span>, então,</p>
+<p><span class="math display">\[P(\mid \overline{X}_{n}-\mu \mid  &lt;\epsilon)\geq 1-\delta,\]</span></p>
+<p>ou seja, <span class="math inline">\(\overline{X}_n\)</span> converge em probabilidade para <span class="math inline">\(\mu\)</span>.</p>
+</div>
+</section>
+<section id="teorema-de-convergência" class="slide level2">
+<h2>Teorema de convergência</h2>
+<p>Seja <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> uma a.a. de <span class="math inline">\(X\sim Ber(0.5)\)</span>. Observe que, <span class="math display">\[
+X_{i}=\left\{
+\begin{array}{cc}
+0, &amp; \text{fracasso}\\
+1, &amp; \text{sucesso}\\
+\end{array}
+\right.,
+i=1,2, \dots, n.
+\]</span></p>
+<p>A proporção amostral é determinada por <span class="math display">\[\hat{p}_{n}=\overline{X}_{n}=\dfrac{\sum_{i=1}^{n}X_{i}}{n}=\dfrac{X_{1}+X_{2}+\dots+X_{n}}{n}\]</span> </p>
+<p>Para <span class="math inline">\(n=1 \quad \Rightarrow \quad  \hat{p}_{1}=\dfrac{X_{1}}{1}.\)</span></p>
+<p>Para <span class="math inline">\(n=2 \quad \Rightarrow \quad  \hat{p}_{2}=\dfrac{X_{1}+X_{2}}{2}.\)</span></p>
+<p><span class="math inline">\(\vdots\)</span></p>
+<p>Para <span class="math inline">\(n=n \quad \Rightarrow \quad  \hat{p}_{n}=\dfrac{X_{1}+X_{2}+\dots+X_{n}}{n}.\)</span></p>
+</section>
+<section id="teorema-de-convergência-1" class="slide level2">
+<h2>Teorema de convergência</h2>
+<!-- %\centering -->
+
+<!-- \begin{center}  -->
+<!-- \scalebox{0.65}{\includegraphics{LGN.png}} -->
+<!-- \end{center} -->
+<img data-src="LGN.png" style="width:100.0%" class="r-stretch"></section>
+<section id="teorema-central-do-limite" class="slide level2">
+<h2>Teorema central do limite</h2>
+<blockquote>
+<p>O Teorema Central do Limite é um dos mais importantes resultados em toda área de Probabilidade e Estatística. Ele nos diz aproximadamente como a <strong>média amostral</strong> é distribuída.</p>
+</blockquote>
+<div id="thm-thm5" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 5 (Teorema Central do Limite - TCL)</strong></span> Seja <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> uma sequência de v.a.’s independentes com <span class="math inline">\(E(X_i)=\mu_{i}\)</span> e <span class="math inline">\(Var(X_i)=\sigma^2)&lt;\infty\)</span>, <span class="math inline">\(i=1, 2,\dots, n\)</span>. Tome <span class="math inline">\(S_n = X_1 + X_2 + \dots + X_n\)</span>, então, sob determinadas condições gerais,</p>
+<p><span class="math display">\[Z_{n}=\dfrac{S_{n}-E(S_{n})}{\sqrt{Var(S_{n})}}=\dfrac{S_{n}-\sum_{i=1}^{n}\mu_{i}}{\sqrt{\sum_{i=1}^{n}\sigma^{2}_{i}}} \rightarrow N(0,1).\]</span> A distribuição de <span class="math inline">\(Z_{n}\)</span> se aproxima da <span class="math inline">\(N(0,1)\)</span> quando <span class="math inline">\(n\rightarrow \infty\)</span>.</p>
+</div>
+<p>O <a href="#/teorema-central-do-limite" class="quarto-xref">Teorema&nbsp;5</a> nos diz que a ditribuição limite de <span class="math inline">\(Z_{n}\)</span> (<span class="math inline">\(S_{n}\)</span> padronizado) será a distribuição <span class="math inline">\(N(0,1)\)</span>.</p>
+</section>
+<section id="distribuição-amostral-da-média-6" class="slide level2">
+<h2>Distribuição amostral da média</h2>
+<div id="cor-cor2" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corolário 2</strong></span> Seja <span class="math inline">\((X_1, X_2, \dots, X_n)\)</span> uma a.a. de <span class="math inline">\(X\)</span> com <span class="math inline">\(E(X) = \mu\)</span> e <span class="math inline">\(Var(X) = \sigma^2 &lt;\infty\)</span>. Então, para <span class="math inline">\(n\rightarrow \infty\)</span>,</p>
+<p><span class="math display">\[Z_{n}=\dfrac{\overline{X}_{n}-\mu}{\sqrt{\sigma^2 /n}}\rightarrow N(0,1).\]</span></p>
+</div>
+<ul>
+<li><p>Em outras palavras <span class="math inline">\(\overline{X}_{n}\)</span> é assintoticamente distribuído como uma Normal com média <span class="math inline">\(\mu\)</span> e variância <span class="math inline">\(\sigma^2/n\)</span>.</p></li>
+<li><p>Um aspecto importante sobre o <a href="#/teorema-central-do-limite" class="quarto-xref">Teorema&nbsp;5</a> é o fato de que nada é dito sobre a forma da <strong>f.p ou f.d original</strong>. Qualquer que seja a distribuição, dado que possui variância <strong>finita</strong>, a média amostral terá <strong>aproximadamente</strong> distribuição Normal para amostras grandes.</p></li>
+</ul>
+</section>
+<section id="representação-do-tcl-graficamente" class="slide level2">
+<h2>Representação do TCL graficamente</h2>
+<!-- \centering -->
+
+<!-- \begin{center}  -->
+<!-- \scalebox{0.8}{\includegraphics{TCL.png}} -->
+<!-- \end{center} -->
+<img data-src="TCL.png" style="width:90.0%" class="r-stretch"></section>
+<section id="algumas-distribuições-exatas" class="slide level2">
+<h2>Algumas distribuições exatas</h2>
+<ul>
+<li><p>Se <span class="math inline">\(X\sim Ber(\theta)\)</span>, então: <span class="math display">\[P(\bar{X}=\bar{x}_{n})={n\choose n\bar{x}_{n}}  \theta^{n\bar{x}_{n}}(1-\theta)^{n-n\bar{x}_{n}}, \bar{x}_{n}=0,1/n, 2/n, \dots, 1.\]</span></p></li>
+<li><p>Se <span class="math inline">\(X\sim Pois(\theta)\)</span>, então: <span class="math display">\[P(\bar{X}=\bar{x}_{n})=\dfrac{e^{-n\theta} \theta^{n\bar{x}_{n}}}{n\bar{x}_{n}!}, \bar{x}_{n}=0,1/n, 2/n, \dots\]</span></p></li>
+<li><p>Se <span class="math inline">\(X\sim Normal(\mu, \sigma^2)\)</span>, então: <span class="math display">\[\bar{X}_{n}\sim N(\mu, \sigma^2).\]</span></p></li>
+<li><p>Se <span class="math inline">\(X\sim Exp(\theta)\)</span>, então: <span class="math display">\[\bar{X}_{n}\sim Gama(n, n\theta).\]</span></p></li>
+</ul>
+</section>
+<section id="distribuição-amostral-da-proporção" class="slide level2">
+<h2>Distribuição amostral da proporção</h2>
+<ul>
+<li><p>Seja <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> uma a.a. de <span class="math inline">\(X \sim Ber(\theta)\)</span>.</p></li>
+<li><p>Em que <span class="math inline">\(\theta\)</span> representa a proporção de elementos com uma determinada característica na população.</p></li>
+<li><p>Temos que</p></li>
+</ul>
+<p><span class="math display">\[E(X_{i})=\theta \quad \text{e} \quad Var(X_{i})=\theta(1-\theta).\]</span></p>
+<ul>
+<li>Seja <span class="math inline">\(S_{n}=X_{1}+X_{2}+\dots+X_{n}\)</span>, então a proporção amostral é definida por</li>
+</ul>
+<p><span class="math display">\[\hat{p}=\dfrac{S_{n}}{n}=\dfrac{X_{1}+X_{2}+\dots+X_{n}}{n}=\bar{X}.\]</span></p>
+</section>
+<section id="distribuição-amostral-da-proporção-1" class="slide level2">
+<h2>Distribuição amostral da proporção</h2>
+<p><code>Distribuição exata:</code></p>
+<ul>
+<li>Temos que <span class="math inline">\(S_{n}=X_{1}+X_{2}+\dots+X_{n}\sim Bin(n, \theta)\)</span>, então</li>
+</ul>
+<p><span class="math display">\[P\left( \hat{p}=\dfrac{k}{n} \right) = {n \choose k} \theta^{k}(1-\theta)^{n-k}, k=0,1,2, \dots, n.\]</span></p>
+<p><code>Distribuição aproximada pelo TCL:</code></p>
+<ul>
+<li>Temos que <span class="math inline">\(\hat{p}=\dfrac{S_{n}}{n}=\dfrac{X_{1}+X_{2}+\dots+X_{n}}{n}=\bar{X}_{n}.\)</span>, então</li>
+</ul>
+<p><span class="math display">\[\hat{p}\sim N\left( \theta, \dfrac{\theta(1-\theta)}{n}\right).\]</span></p>
+<div class="quarto-auto-generated-content">
+<div class="footer footer-default">
+
+</div>
+</div>
+</section></section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="Inf_estat_aula_1_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="Inf_estat_aula_1_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="Inf_estat_aula_1_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="Inf_estat_aula_1_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="Inf_estat_aula_1_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="Inf_estat_aula_1_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="Inf_estat_aula_1_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="Inf_estat_aula_1_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="Inf_estat_aula_1_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="Inf_estat_aula_1_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 1080,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copiada");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copiada");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      });
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          return note.innerHTML;
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
