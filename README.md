@@ -4,33 +4,20 @@ Disciplina ministrada pelo professor Paulo Cerqueira dos Santos Junior, da Facul
 
 ## EMENTA
 
-1. AMOSTRA ALEATÓRIA
-Distribuições Amostrais: Conceito, Distribuição da Média Amostral, Distribuição da Variância
+1. AMOSTRA ALEATÓRIA: Distribuições Amostrais: Conceito, Distribuição da Média Amostral, Distribuição da Variância
 Amostral . Distribuição da Proporção Amostral. Estatísticas de Ordem.
 
-2. ESTIMAÇÃO PARAMÉTRICA
-
-Estimação Pontual. Erro Quadrático Médio. Estmadores Eficientes. Estatísticas Suficientes. Família
+2. ESTIMAÇÃO PARAMÉTRICA: Estimação Pontual. Erro Quadrático Médio. Estmadores Eficientes. Estatísticas Suficientes. Família
 Exponencial. Propriedadades dos Estimadores (Não Tendenciosidade e Consistência). Estimador Não
 Viciado de Variância Mínima.
 
-3. MÉTODOS DE ESTIMAÇÃO
-
-O Método da Máxima Verossimilhança. Propriedades Assintóticas dos Estimadores de Máxima
+3. MÉTODOS DE ESTIMAÇÃO: O Método da Máxima Verossimilhança. Propriedades Assintóticas dos Estimadores de Máxima
 Verossimilhança. Método dos Momentos. Método dos Mínimos Quadrados.
 
-4. ESTIMAÇÃO PARAMÉTRICA POR INTERVALOS DE CONFIANÇA
+4. ESTIMAÇÃO PARAMÉTRICA POR INTERVALOS DE CONFIANÇA: Intervalos de Confiança: definição, método da quantidade pivotal, erro na estimação. Intervalos de Confiança no Caso da Distrbuição Normal. Intervalo para Proporções.
 
-Intervalos de Confiança: definição, método da quantidade pivotal, erro na estimação. Intervalos de
-Confiança no Caso da Distrbuição Normal. Intervalo para Proporções.
-
-5. TESTES DE HIPÓTESES
- 
-Erros Tipo I e Tipo II. Nível de Significância. Teste para Proporção. Testes para parâmetros da
-Distribuição Normal. Probabilidade de significância. Poder de um teste. Formulação de Neyman–
-Pearson. Testes Uniformemente mais Poderosos. Teste para duas populações Normais.
-  
- 
+5. TESTES DE HIPÓTESES: Erros Tipo I e Tipo II. Nível de Significância. Teste para Proporção. Testes para parâmetros da
+Distribuição Normal. Probabilidade de significância. Poder de um teste. Formulação de Neyman–Pearson. Testes Uniformemente mais Poderosos. Teste para duas populações Normais.
 
 # Bibliografia
 
