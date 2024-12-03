@@ -1,0 +1,200 @@
+---
+title: "Inferência Estatística I"
+subtitle: "Lista 1"
+author: 
+  - name: Paulo Cerqueira Jr
+    affiliations:
+      - name: Faculdade de Estatística - FAEST
+        address: 500 Lafayette Road Saint Paul, MN 55155
+      - name: Universidade Federal do Pará - UFPA
+        department: Instituto de Ciências Exatas e Naturais - ICEN
+    email: cerqueirajr@ufpa.br
+    orcid: "https://orcid.org/0000-0002-6310-5040"
+    url: "https://github.com/paulocerqueirajr"
+format: html
+editor: visual
+lang: pt
+---
+
+
+`1-Questão:` Uma v.a $X$ assume os valores $-1$, $0$ e $1$ com igual probabilidade. Para uma amostra de tamanho 2, obtenha a distribuicao de probabilidade de $\bar{X}$ e verifique que ele não e viciado para a média de $X$.
+
+
+`2-Questão:` Para uma $\text{Normal}(5,10)$ coletou-se uma amostra de tamanho 25. Calcule:
+
+a. $P(\bar{X}\leq 48)$.
+
+b. $P(45\leq \bar{X}\leq 53)$.
+
+c. $P( \bar{X}\leq 47\quad ou\quad \bar{X}\geq 47)$.
+
+`3-Questão:` A duracão do *tonner* de uma máquina de fotocópia pode ser modelado
+como Normal com média 15 e desvio padrão 2 (em milhares de cópias). Para uma amostra de 12 fotocopiadoras a duração do *tonner* sera observada e pergunta-se a probabilidade de, em média, durar:
+
+a. Menos de 16 mil cópias?
+
+b. Mais de 13 mil cópias?
+
+c. Entre 12 e 14 mil cópias?
+
+`4-Questão:` A dosagem de certa substância no sangue distribuicao Normal com média $\mu$
+ e desvio padrão 15 mg/l. Se uma amostra de tamanho 25 for coletada, determine, a
+ probabilidade de $\mid \bar{X}-\mu\mid$ ser inferior a 5.
+ 
+ 
+`5-Questão:` A vida de uma lâmpada elétrica pode ser considerada uma variável aleatória com distribuicão normal com media de 50 dias e desvio padrão de 10 dias. Retirando-se da populacao de lâmpadas todas as amostras aleatórias possíveis com 25 lâmpadas, quais serão os valores, respectivamente, da média e do erro padrão da distribuição amostral da média?
+
+
+`6-Questão:` Uma máquina de empacotar leite em pó, o faz segundo uma Normal com
+média $\mu$ e desvio padrão 10g.
+
+
+a. Encontre o valor de $\mu$, tal que o valor do peso médio $\mu$ deve ser regulado para que apenas 5,5\% dos pacotes tenham menos do que 1000g.
+
+b. Com a máquina assim regulada, qual a probabilidade de que o peso total de 4 pacotes escolhidos ao acaso seja inferior a 4040g?
+ 
+ 
+`7-Questão:` Trinta observações de uma distribuição Normal com média $\mu$ e variância 36 são coletadas. Então,
+ 
+a. Calcule $P(\mid\bar{X}-\mu\mid \leq 3)$.
+
+b. Determine o valor de $a$ tal que $P(\mid\bar{X}-\mu\mid \leq a)=0,9$.
+ 
+ 
+`8-Questão:` O tempo de reação de uma pessoa a uma droga e considerado uma variável
+aleatória com média 5 minutos e desvio padrão de 3 minutos. Esse tempo foi medido
+em uma amostra de 80 pessoas escolhidas, sem reposição, em Belem. Pergunta-se a
+probabilidade de:
+
+a. O tempo médio amostral ser inferior a 5,5?
+
+b. O tempo médio na mostra não diferir da verdadeira média por mais de 0,4?
+
+
+`9-Questão:` Sendo $X\sim Binon(n = 10; p = 0.5)$, pergunta-se:
+
+a. Para uma amostra de tamanho 2 desta variável, qual a probabilidade da média amostral ser superior a 9?
+
+b. Para uma amostra de tamanho 100, qual a probabilidade da média amostral ser superior a 4,7?
+ 
+ 
+
+`10-Questão:` O tempo de emissão de extratos, em segundos, pelo caixa eletrônico de um
+banco foi modelado por uma distribuição Exponencial com parametro $1/40$. Para uma
+amostra aleatória com 50 clientes que solicitaram extratos:
+
+a. Qual a probabilidade do segundo cliente sorteado na amostra demorar mais de 30 segundos na sua solicitacao?
+
+b. Determine a probabilidade de que o intervalo médio de emissão, entre os clientes amostrados, seja inferior a 35 segundos?
+ 
+
+ 
+`11-Questão:` O tempo de espera, em minutos, na fila de votacao numa certa zona eleitoral
+com urna eletrônica, foi modelado segundo uma distribuição uniforme no intervalo de 0 a 30. Para uma amostra aleatória de tamanho 100:
+
+a. Qual a probabilidade de um eleitor demorar mais de 20 minutos?
+
+b. Obtenha o valor de $s$ para que a média da amostra seja inferior a esse valor com probabilidade de 0,8.
+
+
+`12-Questão:` Considere $X_1 ,X_2 , \dots, X_n$ uma amostra aleatoria da distribuição $Bernoulli(p)$. Então temos $E(X_i) = p$ e $Var(X_i) = p(1-p)$. Defina $Y=\sum_{i=1}^{n}X_{i}$.
+ 
+ 
+a. Qual é a distribuição de $Y$?
+
+b. Seja $n = 100$ e $p = 0,5$. Utilize o Teorema Central do Limite para calcular uma aproximação para a seguinte probabilidade $P(47,5 < Y < 52,5)$.
+
+
+`13-Questão:` Verifique que se $X_1 ,X_2 , \dots, X_n$ forem v.a.s independentes, cada uma tendo distribuição exponencial com parametro $\alpha_i$, para $i = 1, 2\dots, n$, e se $K = \min(X_1 ,X_2 , \dots, X_n)$ então $K$ terá distribuicao exponencial com parâmetro  $\sum_{i=1}^{n}\alpha_i$.
+
+
+
+
+`13-Questão:` Seja $X_i$ uma v.a. com distribuicao $N(i i^2),\ i = 1,\ 2,\ 3$. Suponha que as
+v.a.s $X_1$, $X_2$ e $X_3$ são independentes. Usando apenas as v.a.s $X_1$, $X_2$ e $X_3$:
+ 
+a. Dê um exemplo de uma estatística que tenha distribuição $\chi_{3}^{2}$;
+
+b. Dê um exemplo de uma estatística que tenha distribuição $F_{(1,2)}$;
+
+c. Dê um exemplo de uma estatística que tenha distribuição $t_2$.
+
+
+
+`14-Questão:` Sejam $X_1$, $X_2$, uma a.a. da distribuição $N(0,1)$.Obtenha a distribuição amostral das seguintes estatísticas: 
+
+a. $\dfrac{X_{2}-X_{1}}{\sqrt{2}}$;
+
+b. $\dfrac{(X_{1}+X_{2})^2}{(X_{2}-X_{1})^2}$;
+
+c. $\dfrac{(X_{1}+X_{2})}{\sqrt{(X_{2}-X_{1})^2}}$;
+
+d. $\dfrac{X_{1}^2}{X_{2}^2}$.
+
+
+`15-Questão:` Sejam $X_1 ,X_2 , \dots, X_n$, uma a.a. da distribuição $N(0,1)$. Considere as seguintes va's: 
+
+
+\begin{equation*}
+  \begin{array}{ccc}
+    \bar{X}=\dfrac{1}{k}\sum_{i=1}^{k}X_i  &  & \bar{X}=\dfrac{1}{n-k}\sum_{i=1}^{n-k}X_i  \\
+    \bar{X}=\dfrac{1}{n}\sum_{i=1}^{n}X_i & &  S^2=\dfrac{1}{n-1}\sum_{i=1}^{n}(X_i -\bar{X})^2\\
+   S_k^2=\dfrac{1}{k-1}\sum_{i=1}^{k}(X_i -\bar{X}_k)^2 &&S_(n-k)^2=\dfrac{1}{(n-k-1)}\sum_{i=1}^{n-k}(X_i -\bar{X}_(n-k))^2\\
+  \end{array}
+\end{equation*}
+
+
+Determine as distribuições de:
+
+a. $\sigma^{-2}\left[  (k-1)S_{k}^{2} +(n-k-1)S_{n-k}^{2} \right]$;
+
+b. $\dfrac{1}{2}(\bar{X}_k - \bar{X}_{n-k})$;
+
+c. $\sigma^{-2}\left(  X_i -\mu \right)^2$;
+
+d. $\dfrac{S_{k}^{2}}{S_{n-k}^{2}}$;
+
+e. $\dfrac{(\bar{X}-\mu)}{S/\sqrt{n}}$.
+
+`16-Questão:` Obtenha a função de verossimilhança em cada uma das situações abaixo:
+
+
+ a. Seja $(X_1 ,X_2 , \dots, X_{10})$ uma a.a. da v.a. $X\sim Exp(\lambda)$;
+
+ b. Seja $(X_1 ,X_2, X_3, X_4)$ uma a.a. da v.a. $X\sim Beta(\theta,1)$;
+
+ c. Seja $(X_1 ,X_2 , \dots, X_n)$ uma a.a. da v.a. $X\sim N(\theta ,1)$;
+
+ d. Seja $(X_1 ,X_2 , \dots, X_n)$ uma a.a. da v.a. $X\sim N(0, \theta)$;
+
+ e. Seja $(X_1 ,X_2 , \dots, X_6)$ uma a.a. da v.a. $X\sim N(\theta ,\theta^2)$;
+
+ f. Seja $(X_1 ,X_2 , \dots, X_n)$ uma a.a. da v.a. $X\sim Gama(2 ,\theta)$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
