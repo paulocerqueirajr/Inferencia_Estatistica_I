@@ -1,0 +1,930 @@
+---
+format:
+  revealjs:
+    theme: ["theme/q-theme.scss"]
+    slide-number: c/t
+    #logo: "faest.png"
+    #footer: "[https://github.com/paulocerqueirajr](https://https://github.com/paulocerqueirajr)"
+    code-copy: true
+    center-title-slide: false
+    lang: pt
+    transition: fade
+    transition-speed: default
+highlight-style: a11y
+code-link: true
+height: 1080
+width: 1600
+execute: 
+  eval: true
+  echo: true
+---
+
+<h1> Inferência Estatística I </h1>
+
+<h2> Amostra aleatória </h2>
+
+<hr>
+
+<br>
+
+<h3> Prof. Paulo Cerqueira Jr <br>
+Faculdade de Estatística - FAEST <br> 
+Instituto de Ciências Exatas e Naturais - ICEN
+</h3>
+
+<h3>  </h3>
+<br>
+
+<h3> [https://github.com/paulocerqueirajr](https://https://github.com/paulocerqueirajr)
+
+![](github.jpg){.absolute top=560 left=845 height="80"}
+
+
+
+![](faest.png){.absolute top=5 left=1400 height="200"}
+
+<!-- ![](https://www.faest.icen.ufpa.br/images/110.png){.absolute top=5 left=1400 height="200"} -->
+
+
+# [Introdução]{style="float:right;text-align:right;"} {background-color="#027eb6"}
+
+## Introdução
+
+
+* Os avanços científicos são, na maioria das vezes, atribuídos aos experimentos realizados.
+
+* Um pesquisador realiza o experimento e obtém dados.
+
+* Baseado nos dados, algumas conclusões podem ser retiradas. 
+
+* Estas conclusões vão, geralmente, além dos que foi observado nos dados.
+
+* Dessa forma, o pesquisador generaliza, partindo de um experimentos para os demais que são similares. 
+
+* Esta generalização é denominada de `Inferência`.
+
+
+:::{.callout-important}
+## Uma função da Estatística: 
+
+Fornecer um conjunto de metodologias para realizar a inferência e medir o grau de incerteza dessa inferência, através da `teoria das probabilidades`.
+:::
+
+## Introdução
+  
+::: {#exm-ex1}
+-   Suponha um recepiente com 10 milhões de sementes de flores.
+
+-   Cada semente pode produzir flores brancas ou vermelhas.
+
+-   Pergunta-se: Qual a porcentagem de flores brancas que serão geradas?
+
+-   Para saber o resultado real, teríamos que plantar todas as sementes.
+
+-   Seria uma tarefa muito trabalhosa!
+
+-   Solução: Plantar algumas sementes, e baseando-se nos resultados podemos obter alguma informação para a porcentagem de flores brancas.
+:::
+
+
+## População e amostra
+
+
+::: {#def-def1}
+## População
+É um conjunto que contém todos os elementos do problema a ser discutido, com pelo menos uma característica em comum. Desejamos obter informação sobre esta população.
+:::
+
+::: {#exm-ex2}
+
+-   Preços da carne em um mês na região metropolitana de Belém.
+
+-   Preços do pão em certo dia em Belém.
+
+-   Produção de leite por animal em uma fazenda.
+
+-   Queremos estudar a proporção de votos para um determinado candidato ao governo do Estado do Pará.
+
+-   Queremos estudar o grau de satisfação dos usuários de uma determinada operadora de telefonia celular.
+
+:::
+
+
+# [População e amostra]{style="float:right;text-align:right;"} {background-color="#027eb6"}
+
+
+## População e amostra
+
+
+:::{#def-def2}
+## Amostra aleatória - a.a
+Sejam $X_1, X_2, \dots, X_n$ uma sequência de variáveis aleatórias com distribuição conjunta $f_{X_1, \dots, X_n}(x_1, \dots, x_n)$ que fatora como na seguinte igualdade:
+
+$$f_{X_1, \dots, X_n}(x_1, \dots, x_n)= f_{X_{1}}(x_{1})\times f_{X_{2}}(x_{2})\times \dots \times f_{X_{n}}(x_{n})=\prod\limits_{i=1}^{n}f_{X_{i}}(x_{i}),$$
+
+em que $f(\cdot)$ é a função de probabilidade (f.p) ou função de densidade de probabilidade (f.d) para cada $X_i$ . Então, $X_1, X_2, \dots, X_n$ é uma amostra aleatória de tamanho $n$ retirada de uma população com p.d/f.d.
+:::
+
+## População e amostra
+
+
+:::{#exm-ex3}
+Imagine 10 milhões de sementes em um recepiente e a produção de flores brancas e vermelhas.
+
+
+* `População:` Sementes dentro do recipiente.
+
+* `Unidade experimental:` Uma semente.
+
+* `Característica:` Flor branca ou vermelha.
+
+::: 
+
+
+-   Não temos um valor numérico associado a cada elemento, mas podemos definir o seguinte tipo de resposta:
+
+$$\text{Flor branca} =1\  \text{e} \ \text{Flor vermelha} =0.$$
+
+`Variável aleatória:` $X_{i}=1$ ou $X_{i}=0$, para $i=1,2, \dots, n$.
+
+## Poupulação e amostra
+
+
+* A variável aleatória $X_i$ é uma representação do valor numérico que a $i-$ésima unidade amostral irá assumir.
+
+* Depois que a amostra $X_1,X_2,\dots, X_n$ observada os valores serão conhecidos e denotados por $x_1,x_2,\dots, x_n$.
+
+
+* Logo:
+
+Suponha que $X$ pode assumir apenas os valores 0 ou 1 com
+probabilidades $1-\theta$ e $\theta$, respectivamente. Então, sejam $X_1, X_2, \dots, X_n$ uma a.a de $X\sim Ber(\theta)$, sua distribuição conjunta $P(X_{1}=x_{1};X_{2}=x_{2};\dots; X_{n}=x_{n})$ é dada por
+
+$$=\theta^{x_{1}}(1-\theta)^{1-x_{1}}\times \theta^{x_{2}}(1-\theta)^{1-x_{2}}\times \dots \times \theta^{x_{n}}(1-\theta)^{1-x_{n}}$$ $$=\theta^{x_{1}+x_{2}+\dots+x_{n}}(1-\theta)^{(1-x_{1})+(1-x_{2})+\dots+(1-x_{n})}$$ $$=\theta^{\sum_{i=1}^{n}x_{i}}(1-\theta)^{\sum_{i=1}^{n}(1-x_{i})}$$ $$=\theta^{\sum_{i=1}^{n}x_{i}}(1-\theta)^{(n-\sum_{i=1}^{n}x_{i})}$$
+
+
+
+# [Estatísticas e Parâmetros]{style="float:right;text-align:right;"} {background-color="#027eb6"}
+
+## Estatísticas e Parâmetros - Introdução
+
+:::{.callout-note}
+## Um dos problemas principais da Estatística envolve o seguinte:
+
+* Estudar uma população com f.p/f.d $f (\cdot\mid \theta)$, onde a forma da f.p/f.d é conhecida com parêmetro desconhecido $\theta$. 
+
+* Se $\theta$ fosse conhecido f.p/f.d estaria completamente especificada.
+:::
+
+:::{.callout-note}
+## Procedimento de inferência envolverá:
+
+* A obtenção de uma amostra aleatória  $X_1, X_2, \dots, X_n$ desta f.p/f.d.
+
+* O uso de uma função $T(x_1, x_2, \dots, x_n)$ como estimativa para o parâmetro $\theta$ (desconhecido).
+:::
+
+
+## Estatísticas
+
+* O problema aqui consiste em determinar qual será a melhor função para estimar $\theta$.
+
+* Iremos avaliar certas funções (funções amostrais) de uma amostra aleatória.
+
+:::{#def-def3}
+## Estatísticas
+
+É uma função da amostra, $T(x) = f (X_1, X_2, \dots, X_n)$, representando uma característica da amostra.
+:::
+
+. . .
+
+:::{.callout-important}
+## Importante:
+
+A formulação de uma estatística `não pode envolver quantidades desconhecidas`.
+:::
+
+
+
+## Estatísticas
+
+> Os exemplos mais comuns:
+
+-   Média amostral: $\overline{X}=\dfrac{1}{n}\sum\limits_{i=1}^{n}X_{i}.$
+
+-   Variância amostral: $\hat{\sigma^{2}}=\dfrac{1}{n}\sum\limits_{i=1}^{n}(X_{i}-\overline{X})^{2}.$
+
+-   Mediana amostral: $\tilde{X}=\text{med}(X_1, X_2, \dots, X_n).$
+
+-   Mínimo amostral: $X_{(1)}=\min(X_1, X_2, \dots, X_n).$
+
+-   Máximo amostral: $X_{(n)}=\max(X_1, X_2, \dots, X_n).$
+
+-   Ponto médio amostral: $\dfrac{1}{2}(X_{(1)}+X_{(n)}).$
+
+
+## Parâmetros
+
+:::{#def-def4}
+## Parâmetro
+
+Uma parâmetro é uma medida (desconhecida) usada para descrever uma característica da população.
+:::
+
+. . .
+
+* As relação das estatísticas com seus respectivos parâmetros:
+
+
+| Medida           |    Estatística     | Parâmetro  |
+|------------------|:------------------:|:----------:|
+| Média            |   $\overline{X}$   |   $\mu$    |
+| Variância        | $\hat{\sigma^{2}}$ | $\sigma^2$ |
+| $N$ de elementos |        $n$         |    $N$     |
+| Proporção        |   $\hat{\theta}$   |  $\theta$  |
+
+
+## Estatísticas e Parâmetros
+
+:::{#exm-exm4}
+Considere uma variável aleatória observável com f.d:
+:::
+-   $f(x)=N\left[ x \mid \mu, \sigma^2 \right]$, com $\mu$ e $\sigma$ desconhecidos.
+
+-   Logo,
+
+$$X-\mu \ \text{e}\ X/\sigma\ \text{são Estatísticas??}$$
+
+. . . 
+
+-   `Não são`, pois contém elementos desconhecidos.
+
+. . . 
+
+-   $X$, $X+3$ e $X^2+\log X^2$ `são estatísticas`.
+
+
+## Estatísticas e Parâmetros
+
+:::{#exm-exm5}
+Seja $X_1, X_2, \dots, X_n$ uma amostra aleatória com f.p/f.d $f(\cdot;\theta)$ então:
+
+$$\overline{X}_{n}=\dfrac{1}{n}\sum_{i=1}^{n}X_{i} \quad \text{e} \quad\dfrac{1}{2}\left\{\min(X_1,\dots, X_n)+\max(X_1, \dots, X_n)\right\}$$ 
+
+`são exemplos` de estatísticas.
+
+:::
+
+. . .
+
+:::{#exm-exm6}
+Se $f(x;\theta)=N\left[ x \mid \theta, 1 \right]$, com $\theta$ desconhecido.
+:::
+
+$$\overline{X}_{n}-\theta \quad \text{é uma Estatística?}$$ 
+
+. . .
+
+* `Não` é uma estatística, pois depende de $\theta$.
+
+
+
+# [Momentos amostrais]{style="float:right;text-align:right;"} {background-color="#027eb6"}
+
+## Momentos amostrais
+
+Seja $X_1, \dots, X_n$ uma a.a com f.p/f.d $f(\cdot)$. O r-ésimo momento amostral em relação à $0$ é definido por
+
+$$M_{r}^{'}=\dfrac{1}{n}\sum\limits_{i=1}^{n}\left(X_{i}-0\right)^r=\dfrac{1}{n}\sum\limits_{i=1}^{n}\left(X_{i}\right)^r.$$
+
+-   Em particular, quando $r=1$, temos a média amostral $\overline{X}$ ou $\overline{X}_{n}$, em que
+
+$$\overline{X}_{n}=\dfrac{1}{n}\sum\limits_{i=1}^{n}\left(X_{i}\right).$$
+
+O r-ésimo momento em relação à $\overline{X}_{n}$ é dado por
+
+$$M_{r}=\dfrac{1}{n}\sum\limits_{i=1}^{n}\left(X_{i}-\overline{X}_{n}\right)^r$$
+
+
+## Momentos amostrais
+
+> Momentos amostrais são exemplos de estatísticas!
+
+:::{#thm-thm1} 
+## Momentos Amostrais
+
+Seja $X_1, \dots, X_n$ uma a.a com f.p/f.d $f(\cdot)$. O valor esperado do r-ésimo momento amostral (em relação à $0$) é igual ao r-ésimo momento populacional, isto é,
+
+$$E(M_{r}^{'})=\mu_{r}^{'}, \ \text{se} \ \mu_{r}^{'}\  \text{existir}.$$
+
+:::
+-   Temos que $\mu_{r}^{'}=E(X^{r})$ é o r-ésimo momento populacional de uma população com f.p/f.d $f(x)=f_{X}(x)$.
+
+-   Além disso:
+
+$$Var(M_{r}^{'})=\dfrac{1}{n}\left[ E(X^{2r})-E^{2}(X^{r}) \right]$$
+
+$$=\dfrac{1}{n}\left[ \mu_{2r}^{'}-(\mu_{r}^{'})^{2} \right].$$
+
+
+## Momentos amostrais
+
+`Demonstração:(cont.)`
+
+> A média:
+
+$$E(M_{r}^{'})=E\left[\dfrac{1}{n}\sum\limits_{i=1}^{n}\left(X_{i}\right)^r\right]=\dfrac{1}{n}E\left[\sum\limits_{i=1}^{n}\left(X_{i}\right)^r\right]=$$ $$=\dfrac{1}{n}\sum\limits_{i=1}^{n}E\left[\left(X_{i}\right)^r\right]=\dfrac{1}{n}\sum\limits_{i=1}^{n}\mu_{r}^{'}=\mu_{r}^{'}.$$
+
+> A variância:
+
+$$Var(M_{r}^{'})=Var\left[\dfrac{1}{n}\sum\limits_{i=1}^{n}\left(X_{i}\right)^r\right]=\dfrac{1}{n^2}Var\left[\sum\limits_{i=1}^{n}\left(X_{i}\right)^r\right]$$
+
+## Momentos amostrais
+
+`Demonstração:(cont.)`
+
+Supondo independência, temos
+
+$$Var(M_{r}^{'})=\dfrac{1}{n^2}\sum\limits_{i=1}^{n}Var\left[\left(X_{i}\right)^r\right]=\dfrac{1}{n^2}\sum\limits_{i=1}^{n}\left[E\left(X_{i}\right)^{2r}-E^2\left(X_{i}^{r}\right)\right]$$
+
+$$=\dfrac{1}{n^2}\sum\limits_{i=1}^{n}\left[\mu_{2r}^{'}-(\mu_{r}^{'})^2\right]=\dfrac{1}{n}\left[\mu_{2r}^{'}-(\mu_{r}^{'})^2\right].$$
+
+## Momentos amostrais
+
+Quando $r=1$, temos o seguinte corolário.
+
+:::{#cor-cor1}
+Seja $X_1, \dots, X_n$ uma a.a com f.p/f.d $f(\cdot)$ e se $\overline{X}_{n}=\dfrac{1}{n}\sum\limits_{i=1}^{n}\left(X_{i}\right)$ é a média amostral, então,
+
+$$E(\overline{X}_{n})=\mu, \ \text{e} \ Var(\overline{X}_{n})=\dfrac{\sigma^2}{n}.$$ em que $\mu$ e $\sigma^2$ são a média e a variância de $f(\cdot)$.
+
+:::
+
+## Momentos amostrais
+
+-   O @thm-thm1 fornece a média e a variância, em termos de momentos populacionais, do r-ésimo momento amostral em relação a 0.
+
+-   Um resultado similar, porém mais complicado, pode ser derivado para a média e variância do r-ésimo momento amostral em relação a média amostral.
+
+-   Considere $r=2$, tal que $M_{2}=\dfrac{1}{n}\sum\limits_{i}(X_{i}-\overline{X})^2.$
+
+-   $M_2$ as vezes é chamado de `variância amostral`.
+
+-   Entretanto, definiremos a variância amostral de outra forma.
+
+## Momentos amostrais
+
+:::{#def-def6}
+Seja $X_1, \dots, X_n$ uma a.a com f.p/f.d $f(\cdot)$,
+
+$$S^2_{n}=S^{2}=\dfrac{1}{n-1}\sum\limits_{i}(X_{i}-\overline{X})^2, \ \text{para} \ n>1,$$
+
+é definida como **variância amostral**.
+
+:::
+
+> A razão para considerarmos $S^2$ ao invés de $M_{2}$ como variância é devido $$E(S^2)=\sigma^2 \ \text{e} \ E(M_2)\neq\sigma^2$$
+
+-   Revisando: $\mu_{r}^{'}=E(X^r)$ é o r-ésimo momento de $X$ (em relação a 0).
+
+## Momentos amostrais
+
+:::{#def-def7} 
+## Momento central
+
+O r-ésimo momento central de uma variável aleatória $X$ com relação ao ponto $\textbf{a}$ é definido por
+
+$$\mu_r=E\left[(X-\textbf{a})^r\right]$$
+:::
+
+- Se $\textbf{a}=E(X)=\mu$, temos $\mu_r=E\left[(X-\textbf{a})^r\right]$, então
+
+$$\mu_{1}=E\left[(X-\mu)^1\right]=0 \quad \text{e} \quad \mu_{2}=E\left[(X-\mu)^2\right]=Var(X)=\sigma^2.$$
+
+:::{#thm-thm2}
+Seja $X_1, \dots, X_n$ uma a.a com f.p/f.d $f(\cdot)$ e seja $$S^{2}=\dfrac{1}{n-1}\sum\limits_{i}(X_{i}-\overline{X})^2,$$Então, $$E(S^2)=\sigma^2 \quad \text{e} \quad Var(S^2)=\dfrac{1}{n}\left[\mu_{4}-\dfrac{n-3}{n-1}\sigma^2\right].$$
+
+:::
+
+## Momentos amostrais
+
+**Prova:** Para $E(S^2)=\sigma^2$, temos que $\sigma^{2}=E\left[ (X-\mu)^2\right]$ e $\mu_{r}=E\left[(X-\mu)^r\right]$. Note que,
+
+$$
+\begin{array}{lll}
+\sum\limits_{i}(X_{i}-\mu)^2 & = &  \sum\limits_{i}\left(X_{i}+\overline{X}-\overline{X}-\mu\right)^2\\
+&=& \sum\limits_{i}\left[\left(X_{i}-\overline{X}\right)^2-2\left(X_{i}-\overline{X}\right)\left(\overline{X}-\mu\right)+\left(\overline{X}-\mu\right)^2\right]\\
+&=&\sum\limits_{i}\left(X_{i}-\overline{X}\right)^2-2\left(\overline{X}-\mu\right)\sum\limits_{i}\left(X_{i}-\overline{X}\right)+n\left(\overline{X}-\mu\right)^2\\
+&=& \sum\limits_{i}\left(X_{i}-\overline{X}\right)^2-2\left(\overline{X}-\mu\right)\underbrace{\left(n\overline{X}-n\overline{X}\right)}_{0}+n\left(\overline{X}-\mu\right)^2\\
+&=& \sum\limits_{i}\left(X_{i}-\overline{X}\right)^2+n\left(\overline{X}-\mu\right)^2\\
+\end{array}
+$$
+
+## Momentos amostrais
+
+**Prova (cont.):**
+
+Assim,
+
+$$
+\begin{array}{lll}
+E(S^2)&=& E\left[ \dfrac{1}{n-1}\sum\limits_{i}(X_{i}-\overline{X})^2\right]\\
+&=& E\left[ \dfrac{1}{n-1}\sum\limits_{i}\left(X_{i}-\mu\right)^2-n\left(\overline{X}-\mu\right)^2\right]\\
+&=& \dfrac{1}{n-1}E\left[ \sum\limits_{i}\left(X_{i}-\mu\right)^2-n\left(\overline{X}-\mu\right)^2\right]\\
+&=& \dfrac{1}{n-1}E\left[ \sum\limits_{i}\left(X_{i}-\mu\right)^2\right]-\dfrac{n}{n-1}E\left[\left(\overline{X}-\mu\right)^2\right]\\
+&=& \dfrac{n}{n-1}\sigma^2-\dfrac{n}{n-1}Var(\overline{X})\\
+&=& \dfrac{n}{n-1}\sigma^2-\dfrac{n}{n-1}\dfrac{\sigma^2}{n}\\
+&=& \sigma^2
+\end{array}
+$$
+
+## Momentos amostrais
+
+-   De forma similar,
+
+$$
+\begin{array}{lll}
+E(M_2)&=& E\left[ \dfrac{1}{n}\sum\limits_{i}(X_{i}-\overline{X})^2\right]\\
+&=& \dfrac{1}{n}\sigma^2-\dfrac{n}{n}Var(\overline{X})\\
+&=& \sigma^2\left(\dfrac{n-1}{n}\right)
+\end{array}
+$$
+
+-   Momentos amostrais são exemplos de **exemplos de estatísticas** que podem ser usados para estimar quantidades populacionais.
+
+-   Por exemplo:
+
+    -   $M_{r}^{'}$ para estimar $\mu_{r}^{'}$;
+    -   $\overline{X}$ para estimar $\mu$;
+    -   $S^2$ para estimar $\sigma^2$.
+
+
+
+# [Função de verossimilhança]{style="float:right;text-align:right;"} {background-color="#027eb6"}
+
+
+## Função de verossimilhança
+
+
+:::{#def-def5} 
+## Função de verossimilhança
+A f.p/p.d.f conjunta é denominada função de verossimilhança de $\theta$, correspondente a amostra observada $\textbf{x} = (x_1, x_2, \dots, x_n)$ e será denotada por
+
+$$L(\theta\mid \textbf{x})=\prod\limits_{i=1}^{n}f(x_{i}\mid\theta)=f(x_{1}\mid \theta)\times f(x_{2}\mid \theta)\times \dots \times f(x_{n}\mid \theta).$$
+:::
+
+
+Dada a amostra $\textbf{x} = (x_1, x_2, \dots, x_n)$, podemos encontrar o `ponto mais verossímil` para $\theta$.
+
+
+
+## Função de verossimilhança
+
+:::{#exm-exm7}
+## Caso discreto
+Sejam $X_1, X_2, \dots, X_n$ uma a.a de $X\sim Pois(\theta)$. Temos que a função de verossimilhança é dada por
+:::
+
+
+\begin{equation*}
+    \begin{array}{ccl}
+              L(\theta\mid \textbf{x})&=  & \prod\limits_{i=1}^{n}\dfrac{\exp\{-\lambda\}\lambda^{x_{i}}}{x_i!} \\
+              & = &\dfrac{\exp\{-\lambda\}\lambda^{x_{1}}}{x_1!}\times \dfrac{\exp\{-\lambda\}\lambda^{x_{2}}}{x_2!}\times \dots \times \dfrac{\exp\{-\lambda\}\lambda^{x_{n}}}{x_n!}\\
+              & = & \dfrac{\exp\{-n\lambda\}\lambda^{\sum_{i=1}^{n}x_{i}}}{\prod_{i=1}^{n}x_i!}.
+          \end{array}
+\end{equation*}
+
+
+
+## Função de verossimilhança
+
+
+:::{#exm-exm8}
+## Caso contínuo
+
+Sejam $X_1, X_2, \dots, X_n$ uma a.a de $X\sim N(\mu, \sigma^2)$. Temos que a função de verossimilhança é dada por
+
+:::
+
+
+\begin{equation*}
+    \begin{array}{cl}
+              = & \prod\limits_{i=1}^{n} \dfrac{1}{\sqrt{2\pi \sigma^2}}\exp\left\{ \dfrac{1}{2\sigma^2} (x_i - \mu)^2 \right\}\\
+              = & \dfrac{1}{\sqrt{2\pi \sigma^2}}\exp\left\{ \dfrac{1}{2\sigma^2} (x_1 - \mu)^2 \right\}\times \dots \times \dfrac{1}{\sqrt{2\pi \sigma^2}}\exp\left\{ \dfrac{1}{2\sigma^2} (x_n - \mu)^2 \right\}\\
+              = & \left(\dfrac{1}{\sqrt{2\pi \sigma^2}}\right)^n \exp\left\{ \dfrac{1}{2\sigma^2} \sum_{i=1}^{n}(x_i - \mu)^2 \right\}\\
+              = & \left(\dfrac{1}{2\pi \sigma^2}\right)^{n/2} \exp\left\{ \dfrac{1}{2\sigma^2} \sum_{i=1}^{n}(x_i - \mu)^2 \right\}\\
+              = & \left(2\pi \sigma^2\right)^{-n/2} \exp\left\{ \dfrac{1}{2\sigma^2} \sum_{i=1}^{n}(x_i - \mu)^2 \right\}
+          \end{array}
+\end{equation*}
+
+
+# [Distribuição amostral]{style="float:right;text-align:right;"} {background-color="#027eb6"}
+
+
+## Introdução
+
+::: columns
+::: column
+
+
+`Para este caso temos:`
+
+-   $X:$ Variável de interesse;
+
+-   $\theta:$ parâmetro de interesse;
+
+-   $T=f(X_1, X_2, \dots, X_n)$ Função da amostra que vai fornecer informação sobre $\theta$.
+:::
+
+::: column
+
+![](pop_amostra.png)
+
+$T$ é uma variável aleatória.
+
+
+`Pergunta:` Qual a distribuição de $T$ quando $X_1, X_2, \dots, X_n$ assume valores observados?
+:::
+:::
+
+# [Distribuição amostral da média]{style="float:right;text-align:right;"} {background-color="#027eb6"}
+
+
+
+## Distribuição amostral da média
+
+:::{#exm-exm9}
+
+Suponha que selecionamos todas as amostras de tamanho 2, com reposição, da população $\{1, 3, 5, 5, 7\}$
+
+:::
+<!-- \begin{center} -->
+
+<!--   \begin{tabular}{ccccc}\hline -->
+
+<!--   $X$ & 1& 3& 5 & 7\\ \hline -->
+
+<!--   $P(X=x)$ &1/5 &1/5 &2/5 &1/5\\ \hline -->
+
+<!--   \end{tabular} -->
+
+<!-- \end{center} -->
+
+
+|   $X$    |  1  |  3  |  5  |  7  |
+|:--------:|:---:|:---:|:---:|:---:|
+| $P(X=x)$ | 1/5 | 1/5 | 2/5 | 1/5 |
+
+
+-   Encontrar a distribuição conjunta da v.a. $(X_1, X2)$, sendo $X_1$ sendo o número selecionado na primeira extração e $X_2$ o número da segunda.
+
+-   Encontre a distribuição de $\overline{X}=\dfrac{X_1 + X_2}{2}$.
+
+
+## Distribuição amostral da média
+
+::: columns
+::: column
+
+<!-- \begin{center} -->
+
+<!--   \scalebox{0.7}{\begin{tabular}{ccccc}\hline -->
+
+<!--   Combinação & Prob.& $X_1$ & $X_2$ & $\overline{X}$\\ \hline -->
+
+<!--   $(1,1)$ & 1/25 &1 &1 &1\\ -->
+
+<!--   $(1,3)$ & 1/25 &1 &3 &2\\ -->
+
+<!--   $(1,5)$ & 2/25 &1 &5 &3\\ -->
+
+<!--   $(1,7)$ & 1/25 &1 &7 &4\\ -->
+
+<!--   $(3,1)$ & 1/25 &3 &1 &2\\ -->
+
+<!--   $(3,3)$ & 1/25 &3 &3 &3\\ -->
+
+<!--   $(3,5)$ & 2/25 &3 &5 &4\\ -->
+
+<!--   $(3,7)$ & 1/25 &3 &7 &5\\ -->
+
+<!--   $(5,1)$ & 2/25 &5 &1 &3\\ -->
+
+<!--   $(5,3)$ & 4/25 &5 &3 &4\\ -->
+
+<!--   $(5,5)$ & 2/25 &5 &5 &5\\ -->
+
+<!--   $(5,7)$ & 1/25 &5 &7 &6\\ -->
+
+<!--   $(7,1)$ & 1/25 &5 &7 &4\\ -->
+
+<!--   $(7,3)$ & 1/25 &5 &7 &5\\ -->
+
+<!--   $(7,5)$ & 1/25 &5 &7 &6\\ -->
+
+<!--   $(7,7)$ & 1/25 &5 &7 &7\\\hline -->
+
+<!--   \end{tabular}} -->
+
+<!-- \end{center} -->
+
+| Combinação | Prob. | $X_1$ | $X_2$ | $\overline{X}$ |
+|:----------:|:-----:|:-----:|:-----:|:---------:|
+|  $(1,1)$   | 1/25  |   1   |   1   |     1     |
+|  $(1,3)$   | 1/25  |   1   |   3   |     2     |
+|  $(1,5)$   | 2/25  |   1   |   5   |     3     |
+|  $(1,7)$   | 1/25  |   1   |   7   |     4     |
+|  $(3,1)$   | 1/25  |   3   |   1   |     2     |
+|  $(3,3)$   | 1/25  |   3   |   3   |     3     |
+|  $(3,5)$   | 2/25  |   3   |   5   |     4     |
+|  $(3,7)$   | 1/25  |   3   |   7   |     5     |
+|  $(5,1)$   | 2/25  |   5   |   1   |     3     |
+|  $(5,3)$   | 4/25  |   5   |   3   |     4     |
+|  $(5,5)$   | 2/25  |   5   |   5   |     5     |
+|  $(5,7)$   | 1/25  |   5   |   7   |     6     |
+|  $(7,1)$   | 1/25  |   5   |   7   |     4     |
+|  $(7,3)$   | 1/25  |   5   |   7   |     5     |
+|  $(7,5)$   | 1/25  |   5   |   7   |     6     |
+|  $(7,7)$   | 1/25  |   5   |   7   |     7     |
+
+:::
+
+::: column
+`Distribuição conjunta:`
+
+<!-- \begin{center} -->
+
+<!--   \scalebox{0.7}{\begin{tabular}{c|ccccc} \hline -->
+
+<!--   $X_{1}/X_{2}$ & 1& 3 & 5 & 7 & Total \\ \hline -->
+
+<!--   1 & 1/25& 1/25 & 2/25 & 1/25 & 1/5 \\ \hline -->
+
+<!--   3 & 1/25& 1/25 & 2/25 & 1/25 & 1/5 \\ \hline -->
+
+<!--   5 & 2/25& 2/25 & 4/25 & 2/25 & 2/5 \\ \hline -->
+
+<!--   7 & 1/25& 1/25 & 2/25 & 1/25 & 1/5 \\ \hline -->
+
+<!--   Total & 1/5& 1/5 & 2/5 & 1/5 & Total \\ \hline -->
+
+<!--   \end{tabular}} -->
+
+<!-- \end{center} -->
+
+| $X_{1}/X_{2}$ |  1   |  3   |  5   |  7   | Total |
+|:-------------:|:----:|:----:|:----:|:----:|:-----:|
+|       1       | 1/25 | 1/25 | 2/25 | 1/25 |  1/5  |
+|       3       | 1/25 | 1/25 | 2/25 | 1/25 |  1/5  |
+|       5       | 2/25 | 2/25 | 4/25 | 2/25 |  2/5  |
+|       7       | 1/25 | 1/25 | 2/25 | 1/25 |  1/5  |
+|     Total     | 1/5  | 1/5  | 2/5  | 1/5  | Total |
+
+:::
+:::
+
+## Distribuição amostral da média
+
+<!-- ::: columns -->
+<!-- ::: column -->
+
+`Distribuição amostral da média` $\overline{X}$:
+
+<!-- \scalebox{0.65}{ -->
+
+<!-- \begin{tabular}{cccccccc}\hline -->
+
+<!--   $\overline{X}$ & 1 & 2& 3 & 4 & 5 & 6 & 7\\ \hline -->
+
+<!--   $P(\overline{X}=\overline{x})$ & 1/25 &2/25 &5/25 & 6/25 & 6/25 & 4/25 & 1/25\\ \hline -->
+
+<!-- \end{tabular}} -->
+
+|      $\overline{X}$       |        1        |        2        |        3        |        4        |        5        |        6        |        7        |
+|:-----:|:---:|:---:|:---:|:---:|:----:|:---:|:---:|
+| $P(\overline{X}=\overline{x})$ | $\dfrac{1}{25}$ | $\dfrac{2}{25}$ | $\dfrac{5}{25}$ | $\dfrac{6}{25}$ | $\dfrac{6}{25}$ | $\dfrac{4}{25}$ | $\dfrac{1}{25}$ |
+
+<!-- ::: -->
+
+<!-- ::: column -->
+```{r fig1,warning=FALSE,comment="",message=FALSE,fig.height=4,fig.width=4,fig.align='center',}
+require(ggplot2)
+mx    <- c(1, 2, 3, 4, 5, 6, 7)
+pmx   <-c(1/25, 2/25, 5/25, 6/25, 6/25, 4/25, 1/25)
+dados <- data.frame(mx, pmx)
+ggplot(data=dados, aes(x = factor(mx), ymin=0, ymax=pmx))+geom_linerange()+
+  scale_x_discrete(breaks=1:7)+ylab("P(X=x)")+
+  xlab("Média amostral") + theme_bw()
+```
+<!-- ::: -->
+<!-- ::: -->
+
+
+## Distribuição amostral da média
+
+* O primeiro momento amostral é a média definida como:
+
+$$\overline{X}=\overline{X}_{n}=\dfrac{1}{n}\sum\limits_{i=1}^{n}\left(X_{i}\right).$$
+
+
+onde $X_{1}, X_{2}, \dots, X_{n}$ é uma amostra aleatória com f.p/f.d $f(\cdot)$.
+
+
+* $\overline{X}$ é função das v.a $X_{1}, X_{2}, \dots, X_{n}$ e, portanto a distribuição pode ser encontrada teoricamente.
+
+* Pode ser útil pensar na média amostral $\overline{X}$ como uma estimativa da média $\mu$ da f.p/f.d $f(\cdot)$ a partir de qual amostra foi selecionada.
+
+> Um dos objetivos da amostragem é estimar $\mu$ a partir de $\overline{X}$.
+
+## Distribuição amostral da média
+
+:::{#thm-thm3}
+
+Seja $X_1, X_2, \dots, X_n$ uma a.a com f.p/f.d $f(\cdot)$, média $\mu$ e variância $\sigma^2$. Considere:
+
+$$\overline{X}=\dfrac{1}{n}\sum\limits_{i=1}^{n}\left(X_{i}\right).$$
+Então, $E(\overline{X})=\mu_{\overline{X}}=\mu$ e $Var(\overline{X})=\sigma_{\overline{X}}^{2}=\dfrac{\sigma^2}{n}$.
+
+$E(\overline{X})=\mu$: diz que em média $\overline{X}$ é igual ao parâmetro $\mu$ sendo estimado ou que a distribuição de $\overline{X}$ está centrada em $\mu$.
+
+$Var(\overline{X})=\dfrac{\sigma^2}{n}$: diz que a dispersão dos valoers de $\overline{X}$ em torno de $\mu$ é pequena para amostras grandes em comparação com tamanhos menores.
+
+:::
+
+
+# [Teoremas de convergência]{style="float:right;text-align:right;"} {background-color="#027eb6"}
+
+## Teoremas de convergência
+
+
+* Para amostras grandes, os valores de $\overline{X}$ (que são usados para estimar $\mu$) tendem a estar mais concentrados de $\mu$ do que em amostras pequenas.
+
+* Esta noção será definida pela **Lei dos Grandes Números**
+
+* Seja $E(X) = \mu$ para a f.p/f.d $f(\cdot)$. Desejamos estimar $\mu$.
+
+* De maneira não rigorosa, $E(X)$ é a média de um número infinito de valores da variável aleatória $X$.
+
+* Em qualquer problema real podemos observar apenas um número finito de valores da variável aleatória $X$.
+
+* Questão: Usando apenas um número finito de valores de $X$ (uma amostra aleatória de tamanho $n$) pode ser feita qualquer inferência confiável sobre $E(X)$? **A resposta é sim**.
+
+* Usaremos isso através da Lei Fraca dos
+Grandes Números.
+
+
+## Teoremas de convergência
+
+
+:::{#thm-thm4} 
+## Lei fraca dos Grandes Números
+
+Seja $X_1, X_2, \dots, X_n$ uma a.a de tamanho $n$ de uma população com variável $X$, com média $E(X)=\mu$ e $Var(X)=\sigma^2<\infty$. Sejam, $\epsilon>0$ e $0<\delta<1$. Se, $n>\dfrac{\sigma^{2}\epsilon^2}{\delta}$, então,
+
+
+$$P(\mid \overline{X}_{n}-\mu \mid  <\epsilon)\geq 1-\delta,$$
+
+ou seja, $\overline{X}_n$ converge em probabilidade para $\mu$.
+
+:::
+
+
+## Teorema de convergência
+
+Seja $X_1, X_2, \dots, X_n$ uma a.a. de $X\sim Ber(0.5)$. Observe que,
+$$
+X_{i}=\left\{
+\begin{array}{cc}
+0, & \text{fracasso}\\
+1, & \text{sucesso}\\
+\end{array}
+\right.,
+i=1,2, \dots, n.
+$$
+
+A proporção amostral é determinada por
+$$\hat{p}_{n}=\overline{X}_{n}=\dfrac{\sum_{i=1}^{n}X_{i}}{n}=\dfrac{X_{1}+X_{2}+\dots+X_{n}}{n}$$
+\small
+
+Para $n=1 \quad \Rightarrow \quad  \hat{p}_{1}=\dfrac{X_{1}}{1}.$
+
+Para $n=2 \quad \Rightarrow \quad  \hat{p}_{2}=\dfrac{X_{1}+X_{2}}{2}.$
+
+
+$\vdots$
+
+Para $n=n \quad \Rightarrow \quad  \hat{p}_{n}=\dfrac{X_{1}+X_{2}+\dots+X_{n}}{n}.$
+
+
+## Teorema de convergência
+
+<!-- %\centering -->
+
+![](LGN.png){width="100%"}
+
+<!-- \begin{center}  -->
+<!-- \scalebox{0.65}{\includegraphics{LGN.png}} -->
+<!-- \end{center} -->
+
+## Teorema central do limite
+
+> O Teorema Central do Limite é um dos mais importantes resultados em toda área de Probabilidade e Estatística. Ele nos diz aproximadamente como a **média amostral** é distribuída.
+
+:::{#thm-thm5}
+## Teorema Central do Limite - TCL
+
+Seja $X_1, X_2, \dots, X_n$ uma sequência de v.a.'s independentes com $E(X_i)=\mu_{i}$ e
+$Var(X_i)=\sigma^2)<\infty$, $i=1, 2,\dots, n$. Tome $S_n = X_1 + X_2 + \dots + X_n$, então, sob determinadas condições
+gerais,
+
+$$Z_{n}=\dfrac{S_{n}-E(S_{n})}{\sqrt{Var(S_{n})}}=\dfrac{S_{n}-\sum_{i=1}^{n}\mu_{i}}{\sqrt{\sum_{i=1}^{n}\sigma^{2}_{i}}} \rightarrow N(0,1).$$
+A distribuição de $Z_{n}$ se aproxima da $N(0,1)$ quando $n\rightarrow \infty$.
+
+:::
+
+
+O @thm-thm5 nos diz que a ditribuição limite de $Z_{n}$ ($S_{n}$ padronizado) será a distribuição $N(0,1)$.
+
+
+## Distribuição amostral da média
+
+:::{#cor-cor2}
+Seja $(X_1, X_2, \dots, X_n)$ uma a.a. de $X$ com $E(X) = \mu$ e $Var(X) = \sigma^2 <\infty$. Então, para $n\rightarrow \infty$,
+
+$$Z_{n}=\dfrac{\overline{X}_{n}-\mu}{\sqrt{\sigma^2 /n}}\rightarrow N(0,1).$$
+
+:::
+
+* Em outras palavras $\overline{X}_{n}$ é assintoticamente distribuído como uma Normal com média $\mu$ e variância $\sigma^2/n$.
+
+* Um aspecto importante sobre o @thm-thm5 é o fato de que nada é dito sobre a forma da **f.p ou f.d original**. Qualquer que seja a distribuição, dado que possui variância **finita**, a média amostral terá **aproximadamente** distribuição Normal para amostras grandes.
+
+## Representação do TCL graficamente
+
+
+<!-- \centering -->
+
+![](TCL.png){width="90%"}
+
+<!-- \begin{center}  -->
+<!-- \scalebox{0.8}{\includegraphics{TCL.png}} -->
+<!-- \end{center} -->
+
+## Algumas distribuições exatas
+
+* Se $X\sim Ber(\theta)$, então:
+$$P(\bar{X}=\bar{x}_{n})={n\choose n\bar{x}_{n}}  \theta^{n\bar{x}_{n}}(1-\theta)^{n-n\bar{x}_{n}}, \bar{x}_{n}=0,1/n, 2/n, \dots, 1.$$
+
+* Se $X\sim Pois(\theta)$, então:
+$$P(\bar{X}=\bar{x}_{n})=\dfrac{e^{-n\theta} \theta^{n\bar{x}_{n}}}{n\bar{x}_{n}!}, \bar{x}_{n}=0,1/n, 2/n, \dots$$
+
+
+* Se $X\sim Normal(\mu, \sigma^2)$, então:
+$$\bar{X}_{n}\sim N(\mu, \sigma^2).$$
+
+
+* Se $X\sim Exp(\theta)$, então:
+$$\bar{X}_{n}\sim Gama(n, n\theta).$$
+
+
+## Distribuição amostral da proporção
+
+* Seja $X_1, X_2, \dots, X_n$ uma a.a. de $X \sim Ber(\theta)$.
+
+* Em que $\theta$ representa a proporção de elementos com uma
+determinada característica na população.
+
+* Temos que
+
+$$E(X_{i})=\theta \quad \text{e} \quad Var(X_{i})=\theta(1-\theta).$$
+
+* Seja $S_{n}=X_{1}+X_{2}+\dots+X_{n}$, então a proporção amostral é definida por
+
+$$\hat{p}=\dfrac{S_{n}}{n}=\dfrac{X_{1}+X_{2}+\dots+X_{n}}{n}=\bar{X}.$$
+
+## Distribuição amostral da proporção
+
+`Distribuição exata:`
+
+* Temos que $S_{n}=X_{1}+X_{2}+\dots+X_{n}\sim Bin(n, \theta)$, então
+
+$$P\left( \hat{p}=\dfrac{k}{n} \right) = {n \choose k} \theta^{k}(1-\theta)^{n-k}, k=0,1,2, \dots, n.$$
+
+`Distribuição aproximada pelo TCL:`
+
+
+* Temos que $\hat{p}=\dfrac{S_{n}}{n}=\dfrac{X_{1}+X_{2}+\dots+X_{n}}{n}=\bar{X}_{n}.$, então
+
+$$\hat{p}\sim N\left( \theta, \dfrac{\theta(1-\theta)}{n}\right).$$
+
+
+
+
+
+
+
+
+
+
+
