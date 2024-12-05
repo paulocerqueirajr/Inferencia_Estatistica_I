@@ -1341,6 +1341,325 @@ i=1,2, \dots, n.
 <li>Temos que <span class="math inline">\(\hat{p}=\dfrac{S_{n}}{n}=\dfrac{X_{1}+X_{2}+\dots+X_{n}}{n}=\bar{X}_{n}.\)</span>, então</li>
 </ul>
 <p><span class="math display">\[\hat{p}\sim N\left( \theta, \dfrac{\theta(1-\theta)}{n}\right).\]</span></p>
+</section></section>
+<section>
+<section id="distribução-amostral-de-estatísticas-de-ordem" class="title-slide slide level1" data-background-color="#027eb6">
+<h1><span style="float:right;text-align:right;">Distribução amostral de estatísticas de ordem</span></h1>
+
+</section>
+<section id="estatísticas-de-ordem-amostrais" class="slide level2">
+<h2>Estatísticas de ordem amostrais</h2>
+<ul>
+<li><p>Seja <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> sendo uma sequência de variáveis aleatórias i.i.d. com função de distribuição <span class="math inline">\(F(\cdot)\)</span>.</p></li>
+<li><p>Podemos reordenar (de forma crescente) essa sequência da seguinte forma <span class="math display">\[X_{(1)}\leq X_{(2)}\leq \dots\leq X_{(n)}.\]</span></p></li>
+<li><p>No caso em que <span class="math inline">\(F\)</span> seja contínua, temos que <span class="math display">\[X_{(1)}&lt; X_{(2)}&lt; \dots&lt; X_{(n)}.\]</span></p></li>
+<li><p>Uma vez que <span class="math inline">\(P(X_i = X_j) = 0\)</span> para todo <span class="math inline">\(i \neq j\)</span> , para variáveis aleatórias contínuas.</p></li>
+</ul>
+</section>
+<section id="estatísticas-de-ordem-amostrais-1" class="slide level2">
+<h2>Estatísticas de ordem amostrais</h2>
+<ul>
+<li><p>Para uma sequência de v.a’s <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> i.i.d., <span class="math inline">\(X_{(k)}\)</span> é denominada de <span class="math inline">\(k-\)</span>ésima estatística de ordem.</p></li>
+<li><p>O mínimo é denotado por <span class="math inline">\(X_{(1)}\)</span>: <span class="math display">\[X_{(1)}=\min(X_1, X_2, \dots, X_n).\]</span></p></li>
+<li><p>De maneira similar, o máximo é denotado por <span class="math inline">\(X_{(n)}\)</span>: <span class="math display">\[X_{(n)}=\max(X_1, X_2, \dots, X_n).\]</span></p></li>
+</ul>
+</section>
+<section id="estatísticas-de-ordem-amostrais-2" class="slide level2">
+<h2>Estatísticas de ordem amostrais</h2>
+<p>Seja <span class="math inline">\(g(x)\)</span> e <span class="math inline">\(G(X)\)</span> as funções de densidade (probabilidade) e distribuição de <span class="math inline">\(X\)</span>, respectivamente.</p>
+<ul>
+<li>Para o <span class="math inline">\(X_{(1)}\)</span>:
+<ul>
+<li>A função de distribuição é dada por</li>
+</ul></li>
+</ul>
+<p><span class="math display">\[ F_{X_{(1)}}(x) = 1-(1-G(x))^n.\]</span></p>
+<ul>
+<li>A função de densidade é dada por</li>
+</ul>
+<p><span class="math display">\[ f_{X_{(1)}}(x) = \dfrac{d}{dx}F_{X_{(1)}}(x) = ng(x)(1-G(x))^{(n-1)}.\]</span></p>
+</section>
+<section id="estatísticas-de-ordem-amostrais-3" class="slide level2">
+<h2>Estatísticas de ordem amostrais</h2>
+<p>Seja <span class="math inline">\(g(x)\)</span> e <span class="math inline">\(G(X)\)</span> as funções de densidade (probabilidade) e distribuição de <span class="math inline">\(X\)</span>, respectivamente.</p>
+<ul>
+<li><p>Para o <span class="math inline">\(X_{(n)}\)</span>:</p>
+<ul>
+<li>A função de distribuição é dada por</li>
+</ul></li>
+</ul>
+<p><span class="math display">\[ F_{X_{(n)}}(x) = G(x)^n.\]</span></p>
+<ul>
+<li>A função de densidade é dada por</li>
+</ul>
+<p><span class="math display">\[ f_{X_{(n)}}(x) = \dfrac{d}{dx}F_{X_{(n)}}(x) = ng(x)G(x)^{(n-1)}.\]</span></p>
+</section></section>
+<section>
+<section id="amostrando-da-normal---média-amostral" class="title-slide slide level1" data-background-color="#027eb6">
+<h1><span style="float:right;text-align:right;">Amostrando da Normal - Média amostral</span></h1>
+
+</section>
+<section id="média-amostral" class="slide level2">
+<h2>Média amostral</h2>
+<ul>
+<li><p>Esta seção lida com propriedades das quantidades amostrais provenientes de uma população Normal.</p></li>
+<li><p>A distribuição Normal tem papel importante nos estudos estatísticos.</p></li>
+<li><p>Muitas populações seguem a distribuição Normal com um bom grau de aproximação.</p></li>
+<li><p>Modelos estatísticos utilizando a distribuição Normal são amplamente considerados na literatura científica.</p></li>
+<li><p>Amostrar de uma população Normal leva a muitas propriedades úteis e também a muitas distribuições amostrais conhecidas.</p></li>
+</ul>
+<p><code>Média amostral e a população Normal:</code></p>
+<ul>
+<li><p>A média amostral é uma das mais simples funções de uma amostra aleatória.</p></li>
+<li><p>Para uma amostra aleatória da distribuição Normal, a distribuição exata da média amostral também é Normal (para qualquer tamanho amostral n, ou seja, não precisamos do TCL para dar suporte a esta afirmação).</p></li>
+</ul>
+</section>
+<section id="média-amostral-1" class="slide level2">
+<h2>Média amostral</h2>
+<div id="thm-thm6" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 6</strong></span> Seja <span class="math inline">\(\overline{X}_{n}=\dfrac{1}{n}\sum\limits_{i=1}^{n}\left(X_{i}\right)\)</span> a média amostral de uma amostra aleatória <span class="math inline">\(X_1, \dots, X_n\)</span> obtida da distribuição Normal com média <span class="math inline">\(\mu\)</span> e variância <span class="math inline">\(\sigma^2\)</span>. Então, <span class="math inline">\(\overline{X}_{n}\sim N\left(\mu, \sigma^2/n\right)\)</span>.</p>
+</div>
+<p><strong>Prova:</strong> Usaremos a função geradora de momentos (f.g.m),</p>
+<p><span class="math display">\[
+\begin{array}{ccccc}
+m_{\overline{X}_{n}}(t)&amp;=&amp;E\left(e^{t\overline{X}_{n}}\right)&amp;=&amp;E\left[\exp\left\{\dfrac{t}{n}\sum\limits_{i=1}^{n}X_{i}\right\}\right] \\
+&amp;=&amp; E\left[\prod\limits_{i=1}^{n}\exp\left\{\dfrac{t}{n}X_{i}\right\}\right] &amp;\underbrace{=}_{X_{i}^{'}s\ ind.}&amp; \prod\limits_{i=1}^{n}E\left[\exp\left\{\dfrac{t}{n}X_{i}\right\}\right]\\
+&amp;=&amp; \prod\limits_{i=1}^{n}m_{X_{i}}(t/n) &amp;=&amp; \prod\limits_{i=1}^{n}\exp\left\{\mu\dfrac{t}{n}+\dfrac{\sigma^2}{2}\dfrac{t^2}{n^2}\right\}\\
+&amp;=&amp;\exp\left\{\mu t+\dfrac{\sigma^2/n}{2}t^2\right\}. &amp;\Rightarrow&amp; \text{f.g.m da} \  N\left(\mu, \sigma^2/n\right)
+\end{array}
+\]</span></p>
+</section>
+<section id="média-amostral-2" class="slide level2">
+<h2>Média amostral</h2>
+<ul>
+<li>Dado que temos a distribuição exata de <span class="math inline">\(\overline{X}_{n}\)</span> quando estimamos <span class="math inline">\(\mu\)</span> com <span class="math inline">\(\overline{X}_{n}\)</span>, seremos capazes de calcular, por exemplo, a probabilidade exata de que nosso estimador <span class="math inline">\(\overline{X}_{n}\)</span> esteja dentro de uma distância fixada do parâmetro desconhecido <span class="math inline">\(\mu\)</span>.</li>
+</ul>
+</section></section>
+<section>
+<section id="amostrando-da-normal---variância-amostral" class="title-slide slide level1" data-background-color="#027eb6">
+<h1><span style="float:right;text-align:right;">Amostrando da Normal - Variância amostral</span></h1>
+
+</section>
+<section id="variância-amostral" class="slide level2">
+<h2>Variância amostral</h2>
+<ul>
+<li><p>A distribuição Normal possui dois parâmetros desconhecidos <span class="math inline">\(\mu\)</span> e <span class="math inline">\(\sigma^2\)</span>.</p></li>
+<li><p>Vimos anteriormente a distribuição amostral de <span class="math inline">\(\overline{X}_{n}\)</span> que estima <span class="math inline">\(\mu\)</span>.</p></li>
+<li><p>Procuremos agora pela distribuição de</p></li>
+</ul>
+<p><span class="math display">\[S^2=\dfrac{1}{n-1}\sum\limits_{i=1}^{n}(X_{i}-\overline{X})^2,\]</span></p>
+<p>que estima o parâmetro <span class="math inline">\(\sigma^2\)</span>.</p>
+<ul>
+<li>A distribuição Qui-Quadrado desempenha um papel fundamental na determinação da distribuição de <span class="math inline">\(S^2\)</span>.</li>
+</ul>
+</section>
+<section id="variância-amostral-1" class="slide level2">
+<h2>Variância amostral</h2>
+<div id="def-def8" class="theorem definition">
+<p><span class="theorem-title"><strong>Definição 8 (Distribuição Qui-Quadrado)</strong></span> Seja <span class="math inline">\(X\)</span> uma v.a. com f.d</p>
+<p><span class="math display">\[f(x)=\dfrac{1}{\Gamma(k/2)}\left(\dfrac{1}{2}\right)^{k/2}x^{k/2 -1} \exp\left\{ -\dfrac{1}{2}x\right\}\times I_{(0,\infty)}(x),\]</span></p>
+<p>então dizemos que <span class="math inline">\(X\)</span> tem distribuição Qui-Quadrado com <span class="math inline">\(k\)</span> graus de liberdade (<span class="math inline">\(k\)</span> é um número inteiro positivo).</p>
+</div>
+<p><code>Notação:</code> <span class="math inline">\(\chi^{2}_{k}=\)</span> Qui-Quadrado com <span class="math inline">\(k\)</span> graus de liberdade.</p>
+<ul>
+<li><p>A densidade da Qui-Quadrado é um caso particular da densidade <span class="math inline">\(Gama(r,\lambda)\)</span>, onde <span class="math inline">\(r=k/2\)</span> e <span class="math inline">\(\lambda=1/2\)</span>.</p></li>
+<li><p>Se <span class="math inline">\(X\sim Ga(r,\lambda)\)</span> temos <span class="math inline">\(f(x)=\dfrac{\lambda^r}{\Gamma(r)}x^{r-1}e^{\lambda x}, I_{(0,\infty)}(x)\)</span>.</p></li>
+<li><p>Fazendo <span class="math inline">\(r=k/2\)</span> e <span class="math inline">\(\lambda=1/2\)</span>, tem-se na densidade definida anteriormente.</p></li>
+</ul>
+</section>
+<section id="variância-amostral-2" class="slide level2">
+<h2>Variância amostral</h2>
+<p>Temos também que:</p>
+<p><span class="math display">\[E(X)=\dfrac{r}{\lambda}=\dfrac{k/2}{1/2}=k \quad \text{e} \quad Var(X)=\dfrac{r}{\lambda^2}=\dfrac{k/2}{1/2^2}=2k.\]</span></p>
+<p>A f.g.m é dada por</p>
+<p><span class="math display">\[m_{X}(t)=\left(1-\dfrac{t}{\lambda}\right)^{-r}=\left(1-\dfrac{t}{1/2}\right)^{-k/2}=\left(\dfrac{1}{1-2t}\right)^{k/2}, \quad \text{para todo} \quad t&lt;\lambda=1/2.\]</span></p>
+<div id="thm-thm7" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 7</strong></span> Se <span class="math inline">\(X_{1}, \dots, X_n\)</span> são v.a. Normais independentes com médias <span class="math inline">\(\mu_i\)</span> e variâncias <span class="math inline">\(\sigma^2_{i}\)</span> (Note que não prescisar ser i.i.d). Então,</p>
+<p><span class="math display">\[U=\sum\limits_{i=1}^{k}\left(\dfrac{X_{i}-\mu_{i}}{\sigma_{i}}\right)^2\sim \chi_{k}^{2}.\]</span></p>
+</div>
+</section>
+<section id="variância-amostral-3" class="slide level2">
+<h2>Variância amostral</h2>
+<p><code>Prova:</code> Seja <span class="math inline">\(Z_{i}=\dfrac{X_{i}-\mu_{i}}{\sigma_{i}}\)</span>, em que <span class="math inline">\(Z_{i}\sim N(0,1)\)</span>. Assim,</p>
+<p><span class="math display">\[
+\begin{array}{lllll}
+m_{U}(t)&amp;=&amp;E\left[ e^{  tU  }\right]&amp;=&amp;E\left[ e^{  t  \sum_{i=1}^{k} Z_{i}^2}\right]\\
+&amp;=&amp; E\left[\prod\limits_{i=1}^{k} e^{t Z_{i}^2}\right] &amp;\underbrace{=}_{Z_{i}'s ind.}&amp;\prod\limits_{i=1}^{k}E\left[ e^{t Z_{i}^2}\right].\\
+\end{array}
+\]</span></p>
+</section>
+<section id="variância-amostral-4" class="slide level2">
+<h2>Variância amostral</h2>
+<p>Mas,</p>
+<p><span class="math display">\[
+\begin{array}{lllll}
+E\left[ e^{t Z_{i}^2}\right]&amp;=&amp;\displaystyle\int\limits_{-\infty}^{\infty}e^{t Z^2}(2\pi)^{-\frac{1}{2}}e^{-\frac{1}{2} Z^{2}}dZ=\displaystyle\int\limits_{-\infty}^{\infty}(2\pi)^{-\frac{1}{2}}e^{-\frac{1}{2} (Z^{2}-2tZ^2)}dZ &amp;&amp; \\
+&amp;=&amp; \displaystyle\int\limits_{-\infty}^{\infty}(2\pi)^{-\frac{1}{2}}e^{-\frac{1}{2} (1-2t)Z^{2}}dZ&amp;&amp; \\
+&amp;=&amp;\dfrac{1}{\sqrt{1-2t}} \displaystyle\int\limits_{-\infty}^{\infty}\sqrt{1-2t}(2\pi)^{-\frac{1}{2}}\exp\left\{-\frac{1}{2\left(\frac{1}{(1-2t)}\right)} Z^{2}\right\}dZ&amp;&amp; \\
+&amp;=&amp;\dfrac{1}{\sqrt{1-2t}} \displaystyle\int\limits_{-\infty}^{\infty}\left[2\pi\left(\frac{1}{(1-2t)}\right)\right]^{-\frac{1}{2}}\exp\left\{-\frac{1}{2\left(\frac{1}{(1-2t)}\right)} Z^{2}\right\}dZ&amp;&amp;
+\end{array}
+\]</span></p>
+</section>
+<section id="variância-amostral-5" class="slide level2">
+<h2>Variância amostral</h2>
+<ul>
+<li><p>A expressão de dentro da integral é a densidade da <span class="math inline">\(N(0,V)\)</span>, onde <span class="math inline">\(V=\frac{1}{(1-2t)}\)</span>.</p></li>
+<li><p>O resultado da integral é, portanto, igual a <span class="math inline">\(1\)</span>.</p></li>
+<li><p>Conclusão:</p></li>
+</ul>
+<p><span class="math display">\[
+E\left[ e^{t Z_{i}^2}\right]= m_{Z_{i}^{2}}(t)= \left(\frac{1}{1-2t}\right)^{\frac{1}{2}}, \ \text{para} \ t&lt;1/2.
+\]</span></p>
+<p><code>Nota:</code> O resultado acima determina que <span class="math inline">\(Z_{i}^2\sim  \chi_{1}^{2}\)</span>, ou seja, se <span class="math inline">\(Z_{i}\sim N(0,1)\)</span> temos <span class="math inline">\(Z_{i}^2\sim  \chi_{1}^{2}\)</span>.</p>
+<p><span class="math display">\[
+m_{U}(t)=\prod\limits_{i=1}^{k}E\left[ e^{t Z_{i}^2}\right]=\prod\limits_{i=1}^{k}\left(\frac{1}{1-2t}\right)^{\frac{1}{2}}=\left(\frac{1}{1-2t}\right)^{\frac{k}{2}}
+\]</span> Portanto, <span class="math inline">\(U\sim \chi_{2}^{k}\)</span> finalizando a prova.</p>
+</section>
+<section id="variância-amostral-6" class="slide level2">
+<h2>Variância amostral</h2>
+<div id="cor-cor3" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corolário 3</strong></span> Se <span class="math inline">\(X_{1}, \dots, X_n\)</span> são v.a. Normais independentes com médias <span class="math inline">\(\mu\)</span> e variâncias <span class="math inline">\(\sigma^2\)</span></p>
+<p><span class="math display">\[U=\sum\limits_{i=1}^{k}\dfrac{(X_{i}-\mu)^2}{\sigma^2}\sim \chi_{k}^{2}.\]</span></p>
+</div>
+<p>Em palavras, o <a href="#/variância-amostral-2" class="quarto-xref">Teorema&nbsp;7</a> diz que a soma de quadrados de variáveis aleatórias N(0,1) independentes possui distribuição Qui-Quadrado com grau de liberdade igual ao número de termos na soma.</p>
+</section>
+<section id="variância-amostral-7" class="slide level2">
+<h2>Variância amostral</h2>
+<div id="thm-thm8" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 8</strong></span> Se <span class="math inline">\(Z_{1},Z_2 \dots, Z_n\)</span> é uma amostra aleatória da distribuição <span class="math inline">\(N(0,1)\)</span>, então:</p>
+<ol type="i">
+<li><p><span class="math inline">\(\overline{Z}\sim N(0,1/n)\)</span>;</p></li>
+<li><p><span class="math inline">\(\overline{Z}\)</span> e <span class="math inline">\(\sum\limits_{i=1}^{n}(Z_{i}-\overline{Z})^2\)</span> são independentes;</p></li>
+<li><p><span class="math inline">\(\sum\limits_{i=1}^{n}(Z_{i}-\overline{Z})^2\sim \chi^{2}_{n-1}\)</span>.</p></li>
+</ol>
+</div>
+<p><code>Prova:</code> (i) é um caso especial do <a href="#/variância-amostral-2" class="quarto-xref">Teorema&nbsp;7</a>. A prova da parte (ii) será incompleta (somente o caso <span class="math inline">\(n = 2\)</span>). Se <span class="math inline">\(n=2\)</span> temos <span class="math inline">\(\overline{Z}=(Z_{1}+Z_{2})/2\)</span> e</p>
+<p><span class="math display">\[
+\begin{array}{lll}
+\sum\limits_{i=1}^{2}(Z_{i}-\overline{Z})^2&amp;=&amp; (Z_{1}-(Z_{1}+Z_{2})/2)^2+(Z_{2}-(Z_{1}+Z_{2})/2)^2\\
+&amp;=&amp;\dfrac{(Z_{1}-Z_{2})^2}{4}+\dfrac{(Z_{2}-Z_{1})^2}{4}= \dfrac{(Z_{2}-Z_{1})^2}{2}
+\end{array}
+\]</span></p>
+</section>
+<section id="variância-amostral-8" class="slide level2">
+<h2>Variância amostral</h2>
+<ul>
+<li><p>Então, <span class="math inline">\(\overline{Z}\)</span> é função de <span class="math inline">\(Z_{1}+Z_{2}\)</span> e <span class="math inline">\(\sum\limits_{i=1}^{2}(Z_{i}-\overline{Z})^2\)</span> é função de <span class="math inline">\(Z_{2}-Z_{1}\)</span>.</p></li>
+<li><p>Para mostrar que <span class="math inline">\(\overline{Z}\)</span> e <span class="math inline">\(\sum\limits_{i=1}^{2}(Z_{i}-\overline{Z})^2\)</span> são independentes basta mostrar que <span class="math inline">\(Z_{1}+Z_{2}\)</span> e <span class="math inline">\(Z_{2}-Z_{1}\)</span> são independentes.</p></li>
+</ul>
+<p>Veja que</p>
+<p><span class="math display">\[
+\begin{array}{lllll}
+m_{Z_{1}+Z_{2}}(t_1)&amp;=&amp; E\left[ e^{t_1 (Z_{1}+Z_{2})}\right] &amp;=&amp; E\left[ e^{t_1 Z_{1}} e^{t_1 Z_{2}}\right]\\
+&amp;\underbrace{=}_{Z_{i}' ind.}&amp; E\left[ e^{t_1 Z_{1}}\right]E\left[ e^{t_1 Z_{2}}\right] &amp;=&amp; \exp\left\{\dfrac{1}{2}t_{1}^2 \right\}\exp\left\{\dfrac{1}{2}t_{1}^2 \right\}\\
+&amp;=&amp;\exp\left\{t_{1}^2 \right\}.&amp;&amp;
+\end{array}
+\]</span> Similarmente, <span class="math inline">\(m_{Z_{2}-Z_{1}}(t_2)=\exp\left\{t_{2}^2 \right\}\)</span>. Se <span class="math inline">\(Z_{1}\sim N(0,1)\)</span>, então <span class="math inline">\(-Z_{1}\sim N(0,1)\)</span>.</p>
+</section>
+<section id="variância-amostral-9" class="slide level2">
+<h2>Variância amostral</h2>
+<p>Além disso, temos que a <span class="math inline">\(m_{Z_{1}+Z_{2},Z_{2}-Z_{1}}(t_1, t_2)\)</span></p>
+<p><span class="math display">\[
+\begin{array}{lllll}
+&amp;=&amp; E\left[ e^{t_1 (Z_{1}+Z_{2})+t_2 (Z_{2}-Z_{1})}\right]=E\left[ e^{(t_1-t_2)Z_{1}}e^{(t_1+t_2)Z_{2}}\right] &amp;&amp; \\
+&amp;\underbrace{=}_{ind.}&amp; E\left[ e^{(t_1-t_2)Z_{1}}\right]E\left[e^{(t_1+t_2)Z_{2}}\right]=\exp\left\{\dfrac{1}{2}(t_1-t_2)^2\right\}\exp\left\{\dfrac{1}{2}(t_1+t_2)^2\right\} &amp;&amp;  \\
+&amp;=&amp;\exp\left\{\dfrac{1}{2}(t_1-t_2)^2\right\}\exp\left\{\dfrac{1}{2}(t_1+t_2)^2\right\} &amp;&amp;\\
+&amp;=&amp; \exp\left\{\dfrac{1}{2}\left[t_1^2-2t_1t_2 +t_2^2+ t_1^2+2t_1t_2 +t_2^2 \right]\right\}=\exp\left\{t_1^2\right\}\exp\left\{t_2^2\right\} &amp;&amp; \\
+&amp;=&amp;m_{Z_{1}+Z_{2}}(t_1) m_{Z_{2}-Z_{1}}(t_2).&amp;&amp;
+\end{array}
+\]</span></p>
+<p>Visto que a f.g.m. conjunta pode ser fatorada no produto das f.g.m.’s <span class="math inline">\(Z_{1}+Z_{2}\)</span> e <span class="math inline">\(Z_{2}-Z_{1}\)</span> são independentes.</p>
+</section>
+<section id="variância-amostral-10" class="slide level2">
+<h2>Variância amostral</h2>
+<ol start="3" type="i">
+<li>Para provar essa parte, iremos supor que <span class="math inline">\(\overline{Z}\)</span> e <span class="math inline">\(\sum\limits_{i=1}^{n}(Z_{i}-\overline{Z})^2\)</span> para um <span class="math inline">\(n\)</span> arbitrário.</li>
+</ol>
+<p>Note que:</p>
+<p><span class="math display">\[
+\begin{array}{lll}
+\sum\limits_{i=1}^{n}Z_{i}^2&amp;=&amp;\sum\limits_{i=1}^{n}(Z_{i}-\overline{Z}+\overline{Z})^2\\
+&amp;=&amp;\sum\limits_{i=1}^{n}(Z_{i}-\overline{Z})^2+2\overline{X}\underbrace{\sum\limits_{i=1}^{n}(Z_{i}-\overline{Z})}_{n\overline{Z}-n\overline{Z}=0} + n \overline{X}^2\\
+&amp;=&amp; \sum\limits_{i=1}^{n}(Z_{i}-\overline{Z})^2+ n \overline{Z}^2
+\end{array}
+\]</span></p>
+</section>
+<section id="variância-amostral-11" class="slide level2">
+<h2>Variância amostral</h2>
+<p>Usando o resultado da parte (ii) temos que que <span class="math inline">\(\overline{Z}\)</span> e <span class="math inline">\(\sum\limits_{i=1}^{n}(Z_{i}-\overline{Z})^2\)</span> são independentes. Então:</p>
+<p><span class="math display">\[
+\begin{array}{lllll}
+m_{\sum_{i=1}^{n}Z_{i}^{2}}(t)&amp;=&amp;m_{\sum_{i=1}^{n}(Z_{i}-\overline{Z})^2+ n \overline{Z}^2}(t)&amp;\underbrace{=}_{ind.}&amp; m_{\sum_{i=1}^{n}(Z_{i}-\overline{Z})^2}(t) m_{n \overline{Z}^2}(t)
+\end{array}
+\]</span></p>
+<p>e</p>
+<p><span class="math display">\[
+m_{\sum_{i=1}^{n}(Z_{i}-\overline{Z})^2}(t)=\dfrac{m_{\sum_{i=1}^{n}Z_{i}^{2}}(t)}{m_{n \overline{Z}^2}(t)}=\dfrac{\overbrace{\left(\dfrac{1}{1-2t}\right)^\frac{n}{2}}^{\chi_{n}^{2}}}{\underbrace{\left(\dfrac{1}{1-2t}\right)^\frac{1}{2}}_{\chi_{1}^{2}}}=\left(\dfrac{1}{1-2t}\right)^\frac{n-1}{2}.
+\]</span></p>
+<p>O resultado da f.g.m. da distribuição <span class="math inline">\(\chi_{n-1}^{2}\)</span>.</p>
+</section>
+<section id="variância-amostral-12" class="slide level2">
+<h2>Variância amostral</h2>
+<ul>
+<li><p>O <a href="#/variância-amostral-7" class="quarto-xref">Teorema&nbsp;8</a> foi definido para uma amostra aleatória da distribuição <span class="math inline">\(N(0,1)\)</span>, entretanto se desejamos fazer inferência sobre <span class="math inline">\(\mu\)</span> e <span class="math inline">\(\sigma^2\)</span> devemos considerar uma amostra da <span class="math inline">\(N(\mu, \sigma^2)\)</span>.</p></li>
+<li><p>Se <span class="math inline">\(X_{1},X_{2}, \dots, X_{n}\)</span> uma a.a. da <span class="math inline">\(N(\mu, \sigma^2)\)</span>. Neste caso definimos <span class="math inline">\(Z_{i}(X_{i}-\mu)/\sigma\)</span>. (ver <code>Teorema 8</code>)</p></li>
+<li><p>Parte (i) do <a href="#/variância-amostral-7" class="quarto-xref">Teorema&nbsp;8</a> se torna:</p></li>
+</ul>
+<ol type="1">
+<li><span class="math inline">\(\overline{Z}=\dfrac{1}{n}\sum_{i=1}^{n}(X_{i}-\mu)/\sigma=\dfrac{\overline{X}-\mu}{\sigma}\sim N(0,1/n)\)</span></li>
+</ol>
+</section>
+<section id="variância-amostral-13" class="slide level2">
+<h2>Variância amostral</h2>
+<ul>
+<li>Parte (ii) do <a href="#/variância-amostral-7" class="quarto-xref">Teorema&nbsp;8</a> se torna:</li>
+</ul>
+<ol start="2" type="1">
+<li><span class="math inline">\(\overline{X}=\dfrac{\overline{X}-\mu}{\sigma}\)</span> e <span class="math inline">\(\sum_{i=1}^{n}(Z_{i}-\overline{Z})^2=\sum_{i=1}^{n}\left[\dfrac{X_{i}-\mu}{\sigma}-\dfrac{\overline{X}-\mu}{\sigma}\right]^2=\sum_{i=1}^{n}\dfrac{(X_{i}-\overline{X})^2}{\sigma^2}\)</span></li>
+</ol>
+<p>são independentes, implicando que <span class="math inline">\(\overline{X}\)</span> e <span class="math inline">\(\sum_{i=1}^{n}(X_{i}-\overline{X})^2\)</span> também são.</p>
+<ul>
+<li>Parte (iii) do <a href="#/variância-amostral-7" class="quarto-xref">Teorema&nbsp;8</a> se torna</li>
+</ul>
+<ol start="3" type="1">
+<li><span class="math inline">\(\sum_{i=1}^{n}(Z_{i}-\overline{Z})^2=\sum_{i=1}^{n}\dfrac{(X_{i}-\overline{X})^2}{\sigma^2}\sim \chi_{n-1}^{2}\)</span></li>
+</ol>
+<p>conforme mostrado em ii.</p>
+</section>
+<section id="variância-amostral-14" class="slide level2">
+<h2>Variância amostral</h2>
+<div id="cor-cor4" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corolário 4</strong></span> Considere <span class="math inline">\(X_{1}, X_{2}, \dots, X_{n}\)</span> uma a.a. da <span class="math inline">\(N(\mu, \sigma^2)\)</span>. Seja <span class="math inline">\(S^{2}=\dfrac{1}{n-1}\sum_{i=1}^{n}(X_{i}-\overline{X})^2\)</span> a variâcia amostral. Então,</p>
+<p><span class="math display">\[U=\dfrac{(n-1)}{\sigma^2}S^{2}\sim \chi_{n-1}^{2}.\]</span></p>
+</div>
+<p><code>Prova:</code> Considere a parte (iii) da extensão do <code>Teorema 8</code>.</p>
+<p>Observação:Como <span class="math inline">\(S^2\)</span> é uma função linear de <span class="math inline">\(U\)</span> no corolário acima, a densidade de <span class="math inline">\(S^2\)</span> pode ser obtida a partir da densidade de <span class="math inline">\(U\)</span>.</p>
+<p><span class="math inline">\(U\sim \chi_{n-1}^{2}\)</span> e <span class="math inline">\(S^2\)</span> é dada por uma função monótona de <span class="math inline">\(U\)</span>.</p>
+<p><span class="math inline">\(S^2=\dfrac{\sigma^2}{n-1}U\)</span>, <span class="math inline">\(U=\dfrac{(n-1)}{\sigma^2}S^{2}\)</span> e <span class="math inline">\(\dfrac{dU}{dS^2}=\dfrac{n-1}{\sigma^2}\)</span></p>
+</section>
+<section id="variância-amostral-15" class="slide level2">
+<h2>Variância amostral</h2>
+<p>A função de densidade de <span class="math inline">\(S^2\)</span> é dada por</p>
+<p><span class="math display">\[
+\begin{array}{lll}
+f_{S^{2}}(s^{2})&amp;=&amp;f_{U}\left[ \dfrac{(n-1)}{\sigma^2}s^{2} \right]\times \left| \dfrac{n-1}{\sigma^2} \right|, \quad \text{para} \quad s^2&gt;0 \\
+&amp;=&amp;\dfrac{1}{\Gamma\left( \frac{n-1}{2} \right)}\left(\dfrac{1}{2}\right)^{\frac{n-1}{2}}\left[\dfrac{(n-1)}{\sigma^2}s^{2} \right]^{\frac{n-1}{2}-1}\exp\left\{ -\dfrac{1}{2} \dfrac{(n-1)}{\sigma^2}s^{2} \right\}\dfrac{(n-1)}{\sigma^2} I_{(0,\infty)}(s^2)\\
+&amp;=&amp; \dfrac{1}{\Gamma\left( \frac{n-1}{2} \right)}\left(\dfrac{1}{2}\right)^{\frac{n-1}{2}}\left[\dfrac{(n-1)}{\sigma^2} \right]^{\frac{n-1}{2}}\left[\dfrac{(n-1)}{\sigma^2} \right]^{-1}(s^2)^{\frac{n-1}{2}-1}\times\\
+&amp;\times &amp;\dfrac{(n-1)}{\sigma^2} \exp\left\{ - \dfrac{(n-1)}{2\sigma^2}s^{2} \right\}\times I_{(0,\infty)}(s^2)\\
+&amp;=&amp; \dfrac{1}{\Gamma\left( \frac{n-1}{2} \right)} \left[\dfrac{(n-1)}{2\sigma^2} \right]^{\frac{n-1}{2}}(s^2)^{\frac{n-3}{2}}\exp\left\{ - \dfrac{(n-1)}{2\sigma^2}s^{2} \right\}\times I_{(0,\infty)}(s^2)
+\end{array}
+\]</span></p>
+</section>
+<section id="variância-amostral-16" class="slide level2">
+<h2>Variância amostral</h2>
+<ul>
+<li><p>Todos os resultados desta subseção são desenvolvidos para o caso de populações Normais.</p></li>
+<li><p>Pode ser provado que para nenhuma outra distribuição:</p></li>
+</ul>
+<ol type="1">
+<li><p>A média e a variância amostral são independentemente distribuídas.</p></li>
+<li><p>A média amostral possui exatamente a distribuição Normal</p></li>
+</ol>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
