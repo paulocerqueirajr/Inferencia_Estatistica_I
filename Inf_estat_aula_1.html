@@ -1794,14 +1794,56 @@ I_{(0, \infty)}(x)
 <p><span class="math display">\[X = \frac{U / m}{V / n} \quad \text{tem distribuição} \quad F_{m, n}.\]</span></p>
 </div>
 <div id="cor-cor5" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corolário 5</strong></span> Se $ X_1, , X_{m+1} $ é uma amostra aleatória de tamanho $ m+1 $ de uma população $ N(<em>X, ^2) $. Considere $ Y_1, , Y</em>{n+1} $ uma amostra aleatória de tamanho $ n+1 $ de uma população $ N(_Y, ^2) $.</p>
+<p><span class="theorem-title"><strong>Corolário 5</strong></span> Se <span class="math inline">\(X_1, \dots, X_{m+1}\)</span> é uma amostra aleatória de tamanho <span class="math inline">\(m+1\)</span> de uma população <span class="math inline">\(N(\mu_X, \sigma^2)\)</span>. Considere <span class="math inline">\(Y_1, \dots, Y_{n+1}\)</span> uma amostra aleatória de tamanho <span class="math inline">\(n+1\)</span> de uma população <span class="math inline">\(N(\mu_Y, \sigma^2)\)</span>.</p>
 </div>
 <ul>
 <li>Assuma que as duas amostras sejam independentes, então:</li>
 </ul>
 <p><span class="math display">\[ \frac{1}{\sigma^2} \sum_{j=1}^{m+1} (X_j - \bar{X})^2 \sim \chi^2_m \quad \text{e} \quad \frac{1}{\sigma^2} \sum_{i=1}^{n+1} (Y_i - \bar{Y})^2 \sim \chi^2_n \]</span></p>
 <p>e a estatística <span class="math display">\[ \frac{\sum_{j=1}^{m+1} (X_j - \bar{X})^2 / m}{\sum_{i=1}^{n+1} (Y_i - \bar{Y})^2 / n} \sim F_{m, n}.\]</span></p>
-</section></section>
+</section>
+<section id="distribuição-f-9" class="slide level2">
+<h2>Distribuição F</h2>
+<!-- Fecharemos esta subseção com algumas observações sobre a distribuição $F$. -->
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Observação 1:</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Se <span class="math inline">\(X \sim F_{m, n}\)</span>, então <span class="math inline">\(E(X) = \frac{n}{n - 2} \quad \text{para} \quad n &gt; 2\)</span></li>
+</ul>
+<p>e</p>
+<p><span class="math display">\[\text{Var}(X) = \frac{2n^2 (m + n - 2)}{m (n - 2)^2 (n - 4)} \quad \text{para} \quad n &gt; 4.\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Observação 2:</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>Se <span class="math inline">\(X \sim F_{m, n}\)</span>, então <span class="math inline">\(\frac{1}{X} \sim F_{n, m}\)</span>.</p></li>
+<li><p>Este resultado permite que a distribuição <span class="math inline">\(F\)</span> seja tabelada usando apenas a calda superior.</p></li>
+<li><p>Por exemplo, se o quantil <span class="math inline">\(\xi_{0.95}\)</span> é dado para uma <span class="math inline">\(F_{m, n}\)</span>, o quantil <span class="math inline">\(\xi^*_{0.05}\)</span> para uma <span class="math inline">\(F_{n, m}\)</span> é dado por <span class="math inline">\(\frac{1}{\xi_{0.95}}\)</span>.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="distribuição-f-10" class="slide level2">
+<h2>Distribuição F</h2>
+
+<img data-src="qui_quadrado.png" class="r-stretch"></section></section>
 <section>
 <section id="distribuição-t-student" class="title-slide slide level1" data-background-color="#027eb6">
 <h1><span style="float:right;text-align:right;">Distribuição t-Student</span></h1>
@@ -1821,7 +1863,8 @@ I_{(0, \infty)}(x)
 <p><span class="math display">\[
 \begin{array}{lll}
 f_{Z,U}(z,u)&amp;=&amp;f_{Z}(z)f_{U}(u)\\
-&amp;=&amp; (2\pi)^{-1/2}\exp\left\{ -\dfrac{1}{2}z^{2} \right\}\dfrac{1}{\Gamma{(k/2)}}\left(\dfrac{1}{2}\right)^{k/2}u^{\frac{k}{2}-1}\exp\left\{ -\dfrac{1}{2}u \right\}I_{(-\infty,\infty)}(v)I_{(0,\infty)}(u)
+&amp;=&amp; (2\pi)^{-1/2}\exp\left\{ -\dfrac{1}{2}z^{2} \right\}\dfrac{1}{\Gamma{(k/2)}}\\
+&amp;\times&amp;\left(\dfrac{1}{2}\right)^{k/2}u^{\frac{k}{2}-1}\exp\left\{ -\dfrac{1}{2}u \right\}I_{(-\infty,\infty)}(v)I_{(0,\infty)}(u)
 \end{array}
 \]</span></p>
 </section>
@@ -1883,32 +1926,49 @@ f_{X}(x)&amp;=&amp; (2k\pi)^{-1/2}\dfrac{1}{\Gamma{(k/2)}}\left(\dfrac{1}{2}\rig
 </section>
 <section id="distribuição-t-student-6" class="slide level2">
 <h2>Distribuição t-Student</h2>
-<p><code>Teorema 9 (Distribuição t-Student):</code> Se <span class="math inline">\(X\)</span> é uma v.a. com f.d. igual a anterior, então dizemos que <span class="math inline">\(X\)</span> segue a distribuição t-Student com <span class="math inline">\(k\)</span>-graus de liberdade.</p>
+<div id="thm-thm10" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 10 (Distribuição t-Student)</strong></span> Se <span class="math inline">\(X\)</span> é uma v.a. com f.d. igual a anterior, então dizemos que <span class="math inline">\(X\)</span> segue a distribuição t-Student com <span class="math inline">\(k\)</span>-graus de liberdade.</p>
+</div>
 <ul>
-<li>Notação:<span class="math inline">\(t_{k}\)</span>.</li>
+<li><code>Notação:</code> <span class="math inline">\(t_{k}\)</span>.</li>
 </ul>
-<p><code>Teorema 10:</code> Se <span class="math inline">\(Z\sim N(0,1)\)</span> e <span class="math inline">\(U\sim\chi_{k}^{2}\)</span> são v.a’s independentes, então</p>
+<div id="thm-thm11" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 11</strong></span> Se <span class="math inline">\(Z\sim N(0,1)\)</span> e <span class="math inline">\(U\sim\chi_{k}^{2}\)</span> são v.a’s independentes, então</p>
 <p><span class="math display">\[X=\dfrac{Z}{\sqrt{U/k}}\sim t_{k}.\]</span></p>
+</div>
 </section>
-<section id="distribuição-t-student-7" class="slide level2">
+<section id="distribuição-t-student-8" class="slide level2">
 <h2>Distribuição t-Student</h2>
 <p>O seguinte corolário mostra como o resultado do <strong>Teorema 10</strong> é aplicável quando consideramos a amostragem a partir da distribuição Normal.</p>
-<p><code>Corolário 4:</code> Considere <span class="math inline">\(X_{1}, X_{2}, \dots, X_{n}\)</span> uma a.a. da <span class="math inline">\(N(\mu, \sigma^2)\)</span>, então <span class="math inline">\(Z=(\overline{X}-\mu)/(\sigma/\sqrt{n})\sim N(0,1)\)</span> e <span class="math inline">\(\dfrac{1}{\sigma^2}\sum_{i=1}^{n}(X_{i}-\overline{X})^2\sim \chi_{n-1}^{2}\)</span>.</p>
+<div id="cor-cor6" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corolário 6</strong></span> Considere <span class="math inline">\(X_{1}, X_{2}, \dots, X_{n}\)</span> uma a.a. da <span class="math inline">\(N(\mu, \sigma^2)\)</span>, então <span class="math inline">\(Z=(\overline{X}-\mu)/(\sigma/\sqrt{n})\sim N(0,1)\)</span> e <span class="math inline">\(\dfrac{1}{\sigma^2}\sum_{i=1}^{n}(X_{i}-\overline{X})^2\sim \chi_{n-1}^{2}\)</span>.</p>
+</div>
 <ul>
 <li>Além disso <span class="math inline">\(Z\)</span> e <span class="math inline">\(U\)</span> são independentes (<code>Teorema 8</code>). Sendo assim, a seguinte v.a</li>
 </ul>
 <p><span class="math display">\[\dfrac{Z}{\sqrt{U/n-1}}=\dfrac{(\overline{X}-\mu)/(\sigma/\sqrt{n})}{\sqrt{\dfrac{1}{\sigma^2}\dfrac{\sum_{i=1}^{n}(X_{i}-\overline{X})^2}{n-1}}}=\dfrac{\sqrt{n(n-1)}(\overline{X}-\mu)}{\sqrt{\sum_{i=1}^{n}(X_{i}-\overline{X})^2}}=\dfrac{(\overline{X}-\mu)}{\sqrt{S^2/n}}\sim t_{n-1}.\]</span></p>
 </section>
-<section id="distribuição-t-student-8" class="slide level2">
+<section id="distribuição-t-student-9" class="slide level2">
 <h2>Distribuição t-Student</h2>
-<p><code>Observações:</code></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Observações:</strong></p>
+</div>
+<div class="callout-content">
 <ul>
-<li><p>Quando o grau de liberdade é igual a 1, a distribuição t-Student se torna a distribuição Cauchy.</p></li>
+<li><p>Quando o grau de liberdade é igual a 1, a <code>distribuição t-Student</code> se torna a <code>distribuição Cauchy</code>.</p></li>
 <li><p>Conforme o grau de liberdade cresce, a distribuição t-Student se aproxima da distribuição <span class="math inline">\(N(0,1)\)</span>.</p></li>
 <li><p>O quadrado de uma variável aleatória com distribuição <span class="math inline">\(t_k\)</span> terá distribuição <span class="math inline">\(F_{1,k}\)</span> . Isto é, se <span class="math inline">\(Y\sim t_k\)</span> então <span class="math inline">\(Y^{2}\sim F_{1, k}\)</span> .</p></li>
 <li><p>Se <span class="math inline">\(X\)</span> é uma variável aleatória com distribuição <span class="math inline">\(t_{k}\)</span>, então</p></li>
 </ul>
 <p><span class="math inline">\(E(X)=0,\quad \text{se} \ k&gt;1\)</span> e <span class="math inline">\(Var(X)=\dfrac{k}{k-2},\quad \text{se} \ k&gt;2\)</span>.</p>
+</div>
+</div>
+</div>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
