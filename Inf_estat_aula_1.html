@@ -1660,6 +1660,255 @@ f_{S^{2}}(s^{2})&amp;=&amp;f_{U}\left[ \dfrac{(n-1)}{\sigma^2}s^{2} \right]\time
 <li><p>A média e a variância amostral são independentemente distribuídas.</p></li>
 <li><p>A média amostral possui exatamente a distribuição Normal</p></li>
 </ol>
+</section></section>
+<section>
+<section id="distribuição-f" class="title-slide slide level1" data-background-color="#027eb6">
+<h1><span style="float:right;text-align:right;">Distribuição F</span></h1>
+
+</section>
+<section id="distribuição-f-1" class="slide level2">
+<h2>Distribuição F</h2>
+<ul>
+<li><p>Apresenta considerável interesse prático.</p></li>
+<li><p>É a distribuição da razão de duas variáveis aleatórias Qui-Quadrado independentes e divididas pelos seus respectivos graus de liberdade.</p></li>
+<li><p>Suponha que <span class="math inline">\(U \sim \chi^2_m\)</span> e <span class="math inline">\(V \sim \chi^2_n\)</span> são variáveis aleatórias independentes. A densidade conjunta será dada por:</p></li>
+</ul>
+<p><span class="math display">\[f_{U,V}(u,v) = f_U(u) f_V(v)\]</span></p>
+<p><span class="math display">\[\begin{array}{ll}
+=&amp; \frac{1}{\Gamma\left(\frac{m}{2}\right)} \left(\frac{1}{2}\right)^{\frac{m}{2}} u^{\frac{m}{2} - 1} \exp\left(-\frac{1}{2}u\right) I_{(0,\infty)}(u)
+\\
+&amp;\times \frac{1}{\Gamma\left(\frac{n}{2}\right)} \left(\frac{1}{2}\right)^{\frac{n}{2}} v^{\frac{n}{2} - 1} \exp\left(-\frac{1}{2}v\right) I_{(0,\infty)}(v)\\
+=&amp;  \frac{1}{\Gamma\left(\frac{m}{2}\right) \Gamma\left(\frac{n}{2}\right) 2^{\frac{m+n}{2}}} u^{\frac{m}{2} - 1} v^{\frac{n}{2} - 1} \exp\left(-\frac{1}{2}(u+v)\right) I_{(0,\infty)}(u) I_{(0,\infty)}(v)
+\end{array}
+\]</span></p>
+</section>
+<section id="distribuição-f-2" class="slide level2">
+<h2>Distribuição F</h2>
+<ul>
+<li>Desejamos encontrar a distribuição da quantidade</li>
+</ul>
+<p><span class="math display">\[X = \dfrac{\frac{U}{m}}{\dfrac{V}{n}}\]</span></p>
+<p>conhecida como <code>razão de variâncias</code>.</p>
+<div class="columns">
+<div class="column">
+<ul>
+<li>Para encontrar a distribuição de <span class="math inline">\(X\)</span>, considere:</li>
+</ul>
+<p><span class="math display">\[X = \frac{\frac{U}{m}}{\frac{V}{n}} = \frac{n}{m} \frac{U}{V} \quad \text{e} \quad Y = V\]</span></p>
+<p><span class="math display">\[
+U = \frac{m}{n} Y X
+\]</span></p>
+</div><div class="column">
+<ul>
+<li>Jacobiano da Transformação:</li>
+</ul>
+<p><span class="math display">\[
+\begin{vmatrix}
+\frac{\partial U}{\partial X} &amp; \frac{\partial U}{\partial Y} \\
+\frac{\partial V}{\partial X} &amp; \frac{\partial V}{\partial Y}
+\end{vmatrix}
+=
+\begin{vmatrix}
+\frac{mY}{n} &amp; \frac{mX}{n} \\
+0 &amp; 1
+\end{vmatrix}
+= \frac{mY}{n}
+\]</span></p>
+</div>
+</div>
+</section>
+<section id="distribuição-f-3" class="slide level2">
+<h2>Distribuição F</h2>
+<ul>
+<li>A distribuição conjunta de <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> é dada por:</li>
+</ul>
+<p><span class="math display">\[
+\begin{array}{lll}
+f_{X,Y}(x,y)&amp; = &amp;f_{U,V}\left(\frac{m}{n} yx, y\right) \cdot \left|\frac{m y}{n}\right| \cdot I_{(0,\infty)}(x) \cdot I_{(0,\infty)}(y)\\
+&amp;=&amp; \frac{1}{\Gamma\left(\frac{m}{2}\right) \Gamma\left(\frac{n}{2}\right) 2^{\frac{m+n}{2}}}
+\left(\frac{m}{n} yx\right)^{\frac{m}{2} - 1}  y^{\frac{n}{2} - 1} \\
+&amp;\times&amp; \exp\left\{-\frac{1}{2} \left[\frac{m}{n} yx + y\right]\right\}
+\frac{m y}{n}  I_{(0,\infty)}(x)  I_{(0,\infty)}(y)
+\end{array}
+\]</span></p>
+</section>
+<section id="distribuição-f-4" class="slide level2">
+<h2>Distribuição F</h2>
+<ul>
+<li>A distribuição marginal de <span class="math inline">\(X\)</span> é</li>
+</ul>
+<p><span class="math display">\[\begin{array}{ll}
+=&amp; \int\limits_0^\infty f_{X,Y}(x, y) \, dy = \frac{1}{\Gamma\left(\frac{m}{2}\right) \Gamma\left(\frac{n}{2}\right) 2^{\frac{m+n}{2}}} \left(\frac{m}{n}\right)^{\frac{m}{2}} x^{\frac{m-2}{2}}\\
+\times&amp; \int\limits_0^\infty y^{\frac{m+n-2}{2}} \exp\left\{-\frac{1}{2} y \left(\frac{m}{n}x + 1\right)\right\} \, dy\\
+=&amp; \frac{1}{\Gamma\left(\frac{m}{2}\right) \Gamma\left(\frac{n}{2}\right)} 2^{-\frac{m+n}{2}} \left(\frac{m}{n}\right)^{\frac{m}{2}} x^{\frac{m-2}{2}} \dfrac{\Gamma\left(\frac{m+n}{2}\right)}{\left[\frac{1}{2} \left(\frac{m}{n}x + 1\right)\right]^{\frac{m+n}{2}}}\\
+\times&amp; \int\limits_0^\infty \dfrac{\left[\frac{1}{2} \left(\frac{m}{n}x + 1\right)\right]^{\frac{m+n}{2}}}{\Gamma\left(\frac{m+n}{2}\right)} y^{\frac{m+n}{2} - 1} \exp\left\{-y \frac{1}{2} \left(\frac{m}{n}x + 1\right)\right\} \, dy
+\end{array}
+\]</span></p>
+</section>
+<section id="distribuição-f-5" class="slide level2">
+<h2>Distribuição F</h2>
+<ul>
+<li>Dentro da integral temos a densidade da</li>
+</ul>
+<p><span class="math display">\[Ga\left[\frac{m+n}{2}, \frac{1}{2} \left(\frac{m}{n} x + 1\right)\right]\]</span></p>
+<ul>
+<li>Portanto, esta integral resulta em 1. Logo,</li>
+</ul>
+<p><span class="math display">\[f_X(x) =
+\frac{\Gamma\left(\frac{m+n}{2}\right)}{\Gamma\left(\frac{m}{2}\right) \Gamma\left(\frac{n}{2}\right)}
+\left(\frac{m}{n}\right)^{\frac{m}{2}}
+\dfrac{x^{\frac{m-2}{2}}}{
+\left(1 + \frac{m}{n}x\right)^{\frac{m+n}{2}}}
+I_{(0, \infty)}(x)
+\]</span></p>
+</section>
+<section id="distribuição-f-6" class="slide level2">
+<h2>Distribuição F</h2>
+<div id="def-def9" class="theorem definition">
+<p><span class="theorem-title"><strong>Definição 9 (Distribuição F)</strong></span> Se <span class="math inline">\(X\)</span> é uma variável aleatória com a f.d <span class="math inline">\(f_x (x)\)</span> do slide anterior, então <span class="math inline">\(X\)</span> é definida como uma variável aleatória apresentando distribuição <span class="math inline">\(F\)</span> com <span class="math inline">\(m\)</span> e <span class="math inline">\(n\)</span> graus de liberdade.</p>
+</div>
+<ul>
+<li><code>Notação:</code> <span class="math inline">\(X \sim F_{m,n}\)</span></li>
+</ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Importante:</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>A ordem na qual os graus de liberdade são indicados é importante visto que a f.d da distribuição não é simétrica em relação a <span class="math inline">\(m\)</span> e <span class="math inline">\(n\)</span>.</p></li>
+<li><p>Se a variável aleatória <span class="math inline">\(F\)</span> é obtida a partir da razão de duas variáveis aleatórias Qui-Quadrado independentes, divididas pelos seus respectivos graus de liberdade, então o grau de liberdade da variável no numerador deve ser indicado primeiro na notação da <span class="math inline">\(F\)</span>.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="distribuição-f-8" class="slide level2">
+<h2>Distribuição F</h2>
+<div id="thm-thm9" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 9</strong></span> Seja <span class="math inline">\(U\)</span> uma variável aleatória <span class="math inline">\(\chi^2_m\)</span> e <span class="math inline">\(V\)</span> uma variável aleatória <span class="math inline">\(\chi^2_n\)</span>. Assuma também que <span class="math inline">\(U\)</span> e <span class="math inline">\(V\)</span> são independentes. Então:</p>
+<p><span class="math display">\[X = \frac{U / m}{V / n} \quad \text{tem distribuição} \quad F_{m, n}.\]</span></p>
+</div>
+<div id="cor-cor5" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corolário 5</strong></span> Se $ X_1, , X_{m+1} $ é uma amostra aleatória de tamanho $ m+1 $ de uma população $ N(<em>X, ^2) $. Considere $ Y_1, , Y</em>{n+1} $ uma amostra aleatória de tamanho $ n+1 $ de uma população $ N(_Y, ^2) $.</p>
+</div>
+<ul>
+<li>Assuma que as duas amostras sejam independentes, então:</li>
+</ul>
+<p><span class="math display">\[ \frac{1}{\sigma^2} \sum_{j=1}^{m+1} (X_j - \bar{X})^2 \sim \chi^2_m \quad \text{e} \quad \frac{1}{\sigma^2} \sum_{i=1}^{n+1} (Y_i - \bar{Y})^2 \sim \chi^2_n \]</span></p>
+<p>e a estatística <span class="math display">\[ \frac{\sum_{j=1}^{m+1} (X_j - \bar{X})^2 / m}{\sum_{i=1}^{n+1} (Y_i - \bar{Y})^2 / n} \sim F_{m, n}.\]</span></p>
+</section></section>
+<section>
+<section id="distribuição-t-student" class="title-slide slide level1" data-background-color="#027eb6">
+<h1><span style="float:right;text-align:right;">Distribuição t-Student</span></h1>
+
+</section>
+<section id="distribuição-t-student-1" class="slide level2">
+<h2>Distribuição t-Student</h2>
+<ul>
+<li><p>Outra distribuição de considerável importância prática.</p></li>
+<li><p>Seja <span class="math inline">\(Z\sim N(0,1)\)</span> e <span class="math inline">\(U\sim \chi_{k}^{2}\)</span> v.a. independentes.</p></li>
+<li><p>Deseja-se encontrar a distribuição de</p></li>
+</ul>
+<p><span class="math display">\[X=\dfrac{Z}{\sqrt{U/k}}.\]</span></p>
+<ul>
+<li>A densidade conjunta de <span class="math inline">\(Z\)</span> e <span class="math inline">\(U\)</span> é dada por</li>
+</ul>
+<p><span class="math display">\[
+\begin{array}{lll}
+f_{Z,U}(z,u)&amp;=&amp;f_{Z}(z)f_{U}(u)\\
+&amp;=&amp; (2\pi)^{-1/2}\exp\left\{ -\dfrac{1}{2}z^{2} \right\}\dfrac{1}{\Gamma{(k/2)}}\left(\dfrac{1}{2}\right)^{k/2}u^{\frac{k}{2}-1}\exp\left\{ -\dfrac{1}{2}u \right\}I_{(-\infty,\infty)}(v)I_{(0,\infty)}(u)
+\end{array}
+\]</span></p>
+</section>
+<section id="distribuição-t-student-2" class="slide level2">
+<h2>Distribuição t-Student</h2>
+<ul>
+<li>Considere a seguinte transformação:</li>
+</ul>
+<p><span class="math inline">\(X=\dfrac{Z}{\sqrt{U/k}}\)</span>, <span class="math inline">\(Y=U\)</span> e <span class="math inline">\(Z=X\sqrt{Y/k}\)</span>, então</p>
+<p><span class="math display">\[\left|
+\begin{array}{cc}
+\frac{\partial Z}{\partial X}= \sqrt{\frac{Y}{k}} &amp; \frac{\partial U}{\partial X}= 0\\
+\frac{\partial Z}{\partial X}= \frac{X}{2k}\left(\frac{Y}{k}\right)^{-1/2} &amp; \frac{\partial U}{\partial Y}= 1
+\end{array}
+\right|=\sqrt{\frac{Y}{k}}
+\]</span></p>
+<ul>
+<li>Logo,</li>
+</ul>
+<p><span class="math display">\[
+\begin{array}{lll}
+f_{XY}(x,y)&amp;=&amp;f_{Z,U}(x\sqrt{y/k},y)\times\sqrt{\frac{y}{k}} \\
+&amp;=&amp; (2\pi)^{-1/2}\exp\left\{ -\dfrac{1}{2}\frac{x^2 y}{k} \right\}\dfrac{1}{\Gamma{(k/2)}}\left(\dfrac{1}{2}\right)^{k/2}y^{\frac{k}{2}-1}\exp\left\{ -\dfrac{1}{2}y \right\}\left(\frac{y}{k}\right)^{1/2} I_{(-\infty,\infty)}(x)I_{(0,\infty)}(y)
+\end{array}
+\]</span></p>
+</section>
+<section id="distribuição-t-student-3" class="slide level2">
+<h2>Distribuição t-Student</h2>
+<p><span class="math display">\[
+\begin{array}{lll}
+f_{X}(x)&amp;=&amp;\int\limits_{0}^{\infty}f_{XY}(x,y)dy \\
+&amp;=&amp; (2k\pi)^{-1/2}\dfrac{1}{\Gamma{(k/2)}}\left(\dfrac{1}{2}\right)^{k/2}\displaystyle\int\limits_{0}^{\infty}y^{\frac{k}{2}+\frac{1}{2}-1}\exp\left\{ -\dfrac{1}{2}y\left[\frac{x^2}{k}+1\right] \right\}dy
+\end{array}
+\]</span></p>
+<ul>
+<li>Dentro da integral temos o núcleo da: <span class="math inline">\(\quad Ga\left[ \dfrac{k+1}{2}; \dfrac{1}{2}\left(\frac{x^2}{k}+1\right) \right]\)</span></li>
+</ul>
+</section>
+<section id="distribuição-t-student-4" class="slide level2">
+<h2>Distribuição t-Student</h2>
+<p><span class="math display">\[
+\begin{array}{lll}
+f_{X}(x)&amp;=&amp; (2k\pi)^{-1/2}\dfrac{1}{\Gamma{(k/2)}}\left(\dfrac{1}{2}\right)^{k/2}\dfrac{\Gamma{\left(\dfrac{k+1}{2}\right)}}{\left[\dfrac{1}{2}\left(\frac{x^2}{k}+1\right)\right]^{\dfrac{k+1}{2}}}\times\\
+&amp;\times&amp; \underbrace{\displaystyle\int\limits_{0}^{\infty}\dfrac{\left[\dfrac{1}{2}\left(\frac{x^2}{k}+1\right)\right]^{\dfrac{k+1}{2}}}{\Gamma{\left(\dfrac{k+1}{2}\right)}}y^{\frac{k+1}{2}-1}\exp\left\{ -\dfrac{1}{2}y\left[\frac{x^2}{k}+1\right] \right\}dy}_{1}
+\end{array}
+\]</span></p>
+</section>
+<section id="distribuição-t-student-5" class="slide level2">
+<h2>Distribuição t-Student</h2>
+<ul>
+<li>Assim,</li>
+</ul>
+<p><span class="math display">\[
+\begin{array}{lll}
+f_{X}(x)&amp;=&amp; (2k\pi)^{-1/2}\dfrac{1}{\Gamma{(k/2)}}\left(\dfrac{1}{2}\right)^{k/2}\dfrac{\Gamma{\left(\dfrac{k+1}{2}\right)}}{\left[\dfrac{1}{2}\left(\frac{x^2}{k}+1\right)\right]^{\dfrac{k+1}{2}}}\\
+&amp;=&amp; \dfrac{\Gamma{\left(\dfrac{k+1}{2}\right)}}{\Gamma{\left(\dfrac{k}{2}\right)}}\dfrac{1}{\sqrt{k\pi}}\dfrac{1}{\left(\frac{x^2}{k}+1\right)^{\dfrac{k+1}{2}}}I_{(-\infty,\infty)}(x).
+\end{array}
+\]</span></p>
+</section>
+<section id="distribuição-t-student-6" class="slide level2">
+<h2>Distribuição t-Student</h2>
+<p><code>Teorema 9 (Distribuição t-Student):</code> Se <span class="math inline">\(X\)</span> é uma v.a. com f.d. igual a anterior, então dizemos que <span class="math inline">\(X\)</span> segue a distribuição t-Student com <span class="math inline">\(k\)</span>-graus de liberdade.</p>
+<ul>
+<li>Notação:<span class="math inline">\(t_{k}\)</span>.</li>
+</ul>
+<p><code>Teorema 10:</code> Se <span class="math inline">\(Z\sim N(0,1)\)</span> e <span class="math inline">\(U\sim\chi_{k}^{2}\)</span> são v.a’s independentes, então</p>
+<p><span class="math display">\[X=\dfrac{Z}{\sqrt{U/k}}\sim t_{k}.\]</span></p>
+</section>
+<section id="distribuição-t-student-7" class="slide level2">
+<h2>Distribuição t-Student</h2>
+<p>O seguinte corolário mostra como o resultado do <strong>Teorema 10</strong> é aplicável quando consideramos a amostragem a partir da distribuição Normal.</p>
+<p><code>Corolário 4:</code> Considere <span class="math inline">\(X_{1}, X_{2}, \dots, X_{n}\)</span> uma a.a. da <span class="math inline">\(N(\mu, \sigma^2)\)</span>, então <span class="math inline">\(Z=(\overline{X}-\mu)/(\sigma/\sqrt{n})\sim N(0,1)\)</span> e <span class="math inline">\(\dfrac{1}{\sigma^2}\sum_{i=1}^{n}(X_{i}-\overline{X})^2\sim \chi_{n-1}^{2}\)</span>.</p>
+<ul>
+<li>Além disso <span class="math inline">\(Z\)</span> e <span class="math inline">\(U\)</span> são independentes (<code>Teorema 8</code>). Sendo assim, a seguinte v.a</li>
+</ul>
+<p><span class="math display">\[\dfrac{Z}{\sqrt{U/n-1}}=\dfrac{(\overline{X}-\mu)/(\sigma/\sqrt{n})}{\sqrt{\dfrac{1}{\sigma^2}\dfrac{\sum_{i=1}^{n}(X_{i}-\overline{X})^2}{n-1}}}=\dfrac{\sqrt{n(n-1)}(\overline{X}-\mu)}{\sqrt{\sum_{i=1}^{n}(X_{i}-\overline{X})^2}}=\dfrac{(\overline{X}-\mu)}{\sqrt{S^2/n}}\sim t_{n-1}.\]</span></p>
+</section>
+<section id="distribuição-t-student-8" class="slide level2">
+<h2>Distribuição t-Student</h2>
+<p><code>Observações:</code></p>
+<ul>
+<li><p>Quando o grau de liberdade é igual a 1, a distribuição t-Student se torna a distribuição Cauchy.</p></li>
+<li><p>Conforme o grau de liberdade cresce, a distribuição t-Student se aproxima da distribuição <span class="math inline">\(N(0,1)\)</span>.</p></li>
+<li><p>O quadrado de uma variável aleatória com distribuição <span class="math inline">\(t_k\)</span> terá distribuição <span class="math inline">\(F_{1,k}\)</span> . Isto é, se <span class="math inline">\(Y\sim t_k\)</span> então <span class="math inline">\(Y^{2}\sim F_{1, k}\)</span> .</p></li>
+<li><p>Se <span class="math inline">\(X\)</span> é uma variável aleatória com distribuição <span class="math inline">\(t_{k}\)</span>, então</p></li>
+</ul>
+<p><span class="math inline">\(E(X)=0,\quad \text{se} \ k&gt;1\)</span> e <span class="math inline">\(Var(X)=\dfrac{k}{k-2},\quad \text{se} \ k&gt;2\)</span>.</p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
