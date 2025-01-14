@@ -1,0 +1,48 @@
+---
+title: "Solução de exemplos e exerícios"
+subtitle: "Aula dd/mm/aaaa"
+author: 
+  - name: Nome do autor.
+    affiliations:
+      - name: Faculdade de Estatística - FAEST
+        #address: 500 Lafayette Road Saint Paul, MN 55155
+      - name: Universidade Federal do Pará - UFPA
+        department: Instituto de Ciências Exatas e Naturais - ICEN
+    email: autor@ufpa.br
+format: html
+editor: visual
+lang: pt
+---
+
+:::{#exr-exr1}
+O tempo de reação de uma pessoa a uma droga e considerado uma variável aleatória com média 5 minutos e desvio padrão de 3 minutos. Esse tempo foi medido em uma amostra de 80 pessoas escolhidas, sem reposição, em Belem. Pergunta-se a probabilidade de o tempo médio amostral ser inferior a 5,5.
+:::
+
+---
+
+:::{#sol-sol1}
+Os dados do exercício são:
+
+- Média populacional ($\mu$) = 5 minutos  
+- Desvio padrão populacional ($\sigma$) = 3 minutos  
+- Tamanho da amostra ($n$) = 80  
+- Variável de interesse: Tempo médio amostral ($\bar{X}$).
+
+Usando as propriedades da distribuição amostral da média, temos
+
+
+$$\bar{X}\sim Normal\left(5, \dfrac{9}{80}\right).$$
+
+
+A Probabilidade do tempo médio ser inferior a 5,5 minutos é dada por
+
+$$P(\bar{X} < 5.5)=P\left(Z<\frac{5.5 - 5}{0.3357}\right)=P\left(Z<1,49\right)=0.9319$$
+
+Portanto,
+
+$$P(\bar{X} < 5.5) = 0.9319 \, \text{(ou 93,19%)}.$$
+
+:::
+
+
+
