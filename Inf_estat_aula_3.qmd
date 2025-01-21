@@ -1,0 +1,619 @@
+---
+format:
+  revealjs:
+    theme: ["theme/q-theme.scss"]
+    slide-number: c/t
+    #logo: "faest.png"
+    #footer: "[https://github.com/paulocerqueirajr](https://https://github.com/paulocerqueirajr)"
+    code-copy: true
+    center-title-slide: false
+    lang: pt
+    transition: fade
+    transition-speed: default
+highlight-style: a11y
+code-link: true
+height: 1080
+width: 1600
+execute: 
+  eval: true
+  echo: true
+---
+
+
+
+<h1> Inferência Estatística I </h1>
+
+<h2> Métodos de estimação pontual </h2>
+
+<hr>
+
+<br>
+
+<h3> Prof. Paulo Cerqueira Jr <br>
+Faculdade de Estatística - FAEST <br> 
+Instituto de Ciências Exatas e Naturais - ICEN
+</h3>
+
+<h3>  </h3>
+<br>
+
+<h3> [https://github.com/paulocerqueirajr](https://https://github.com/paulocerqueirajr)
+
+![](github.jpg){.absolute top=560 left=845 height="80"}
+
+
+
+![](faest.png){.absolute top=5 left=1400 height="200"}
+
+<!-- ![](https://www.faest.icen.ufpa.br/images/110.png){.absolute top=5 left=1400 height="200"} -->
+
+# [Métodos de estimação]{style="float:right;text-align:right;"} {background-color="#027eb6"}
+
+
+## Introdução
+
+* Vimos até então a propriedades dos estimadores.
+
+
+* Contudo tais procedimentos não são métodos que possibilitam, em geral, a obtenção de estimadores em situações específicas.
+
+
+* Vimos também que todo bom estimador deve ser função de uma estatística suficiente.
+
+* Vamos considerar alguns métodos que possibilitam a obtenção de estimadores em situações específicas.
+
+* São os seguintes:
+
+  1. Método de máxima verossimilhança;
+
+  2. Método dos momentos;
+
+  3. Método de mínimos quadrados.
+
+
+## Método da máxima verossimilhança
+
+:::{#def-def14}
+O estimador de máxima verossimilhança (EMV) de $\theta$ é o valor $\hat{\theta}\in \Theta$ que maximiza a função de verossimilhança $L(\theta\mid x)$.
+:::
+
+> Tomamos como estimador aquele valor de $\theta$ que torna a amostra observada a mais provável de ocorrer.
+
+
+## Exemplo:
+
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE, comment=""}
+require(ggplot2)
+
+set.seed(123456789)
+n     <- 10
+x     <- rpois(n=n, lambda = 2)
+theta <- seq(0.001,15, length.out=1000)
+
+lik <- rep(0, length(theta))
+
+for(i in 1:length(theta)){
+  lik[i]   <- sum(dpois(x=x, lambda = theta[i]))
+}
+
+
+dados <- data.frame(vero=lik, theta)
+maxliktheta <- as.numeric(dados[which.max(dados$vero),])
+
+
+```
+
+
+
+::: columns
+:::: column
+<br/><br/>
+
+Sejam $X_1,\dots,X_{10}$ uma a.a. de $X \sim Pois(\theta)$. Obtenha a estimativa de máxima verossimilhança para $\theta$ se os valores amostrais foram:
+
+<br/>
+
+`r x`
+
+A função verossimilhança:
+
+$$ L(\theta)= \prod\limits_{i=1}^{10}\dfrac{e^{-\theta}\theta^{x_{i}}}{x_{i}!}.$$
+
+::::
+:::: column
+
+```{r fig_emv_1, echo=FALSE, warning=FALSE, message=FALSE, comment="", fig.width=8, fig.height=8}
+ggplot(data = dados, aes(x=theta, y=vero))+geom_line()+
+  geom_segment(x=maxliktheta[2], y=min(lik), xend=maxliktheta[2], yend=maxliktheta[1], col="red")+
+  ylab(expression(L(theta)))+xlab(expression(theta))+
+  theme(text=element_text(size = 20))
+```
+
+
+
+* O valor que maximiza $L(\theta)$ é  `r round(maxliktheta[2],2)`
+
+::::
+:::
+
+
+## Propriedades do EMV:
+
+
+
+1. Pode-se mostrar que o valor de $\theta$ que maximiza a função de verossimilhança $L(\theta\mid x)$, também maximiza $\ell(\theta; \mid) = \log L(\theta\mid x)$.
+
+. . .
+
+2. No caso em que $\theta$ é um intervalo da reta e $\ell(\theta\mid x)$ é derivável, o EMV é dado pelo valor de $\theta$ que satisfaz a equação de verossimilhança:
+
+$$\ell^{'}(\theta\mid x)=\dfrac{d}{d\theta}\ell^{}(\theta\mid x)=0.$$
+
+. . .
+
+3. Para verificar se $L(\hat{\theta}\mid x)$ é um ponto de máximo, basta tomar:
+
+$$\ell^{''}(\theta\mid x)=\dfrac{d}{d\theta}\ell^{'}(\theta\mid x)\mid_{\theta=\hat{\theta}}<0.$$
+
+
+. . .
+
+4. Em situações mais complicadas, a solução da equação de verossimilhança não pode ser obtida explicitamente, tem-se a necessidade de utilizar procedimentos numéricos.
+
+. . .
+
+
+5. Existem situações em que o EMV não pode ser obtido a partir da solução da eq. de verossimilhança, é necessário inspecionar $L(\theta; x)$. (Por exemplo, quando $\theta$ é discreto)
+
+
+
+## Exemplo
+
+:::{#exm-exm20}
+Sejam $X_1,\dots,X_{n}$ uma a.a. de $X \sim Pois(\theta)$. Obtenha a estimador de máxima verossimilhança para $\theta$.
+:::
+
+
+
+## Exemplo
+
+:::{#exm-exm21}
+Sejam $X_1,\dots,X_{n}$ uma a.a. de $X \sim N(\mu,1)$. Obtenha a estimador de máxima verossimilhança para $\mu$.
+:::
+
+
+
+## Exemplo (suporte depende do parâmetro)
+
+:::{#exm-exm22}
+Sejam $X_1,\dots,X_{n}$ uma a.a. de $X \sim U(0,\theta)$. Obtenha a estimador de máxima verossimilhança para $\theta$.
+:::
+
+
+## Exemplo
+
+
+![](fig_uniforme.png)
+
+
+
+
+## Exemplo (Caso discreto)
+
+:::{#exm-exm23}
+Temos uma caixa com bolas brancas e vermelhas. Sabe-se que a proporção
+$\theta$ de bolas vermelhas na caixa é $1/3$ ou $2/3$. Portanto, $\Theta = \{1/3, 2/3\}$. Uma amostra de 3 bolas, retiradas com reposição da caixa, apresentou bola vermelha na $1^{a}$ extração e branca na $2^a$ e $3^a$ extrações. Obtenha uma estimativa de máxima verossimilhança para $\theta$.
+:::
+
+
+
+
+## Exemplo (suporte depende do parâmetro)
+
+:::{#exm-exm24}
+Sejam $X_1,\dots,X_{n}$ uma a.a. de $X \sim U(\theta-1/2,\theta+1/2)$. Obtenha a estimador de máxima verossimilhança para $\theta$.
+:::
+
+
+##  Exemplo (suporte depende do parâmetro)
+
+
+![](fig_uniforme2.png)
+
+
+## EMV via Método do escore
+
+
+* Em alguns casos, principalmente quando a verossimilhança está associada a modelos mais complexos, a função de verossimilhança não apresenta solução analítica explícita.
+
+
+* Em tais casos, os estimadores de máxima verossimilhança podem ser obtidos por meio de métodos numéricos.
+
+
+* Vamos denotar por $U(\theta)$ a função escore, ou seja
+
+$$U(\theta)=\dfrac{d}{dx}\log L(\theta\mid x),$$
+
+
+* Determinamos o EMV através:
+
+$$U(\hat{\theta})=0.$$
+
+
+## EMV via Método do escore
+
+
+* Expandindo $U(\hat{\theta})$ em série de Taylor em torno de um ponto $\theta_{0}$, obtemos
+
+$$0=U(\hat{\theta})\approx U(\theta_0)+(\hat{\theta}-\theta_0)U^{'}(\theta_0).$$
+
+
+* Dessa forma,
+
+$$\hat{\theta}\approx \theta_0 - \dfrac{U(\theta_0)}{U^{'}(\theta_0)}.$$
+
+* Da equação anterior, temos o processo iterativo de *Newton-Raphson*:
+
+$$\theta_{j+1}\approx \theta_{j} - \dfrac{U(\theta_{j})}{U^{'}(\theta_{j})}$$
+
+que é iniciado com o valor $\theta_{0}$ e então o valor $\theta_{1}$ é o obtido pela expressão anterior.
+
+* Até que o processo se estabilize, ou seja, para um dado $\epsilon$ pequeno $\mid \theta_{j+1} - \theta_{j} \mid<\epsilon$.
+
+
+
+* O ponto $\hat{\theta}$ em que o processo se estabiliza é o EMV de $\theta$.
+
+
+## Exemplo
+
+:::{#exm-exm25}
+Sejam $X_1,\dots,X_{n}$ uma a.a. de $X$, com função densidade dada por
+
+$$f(x\mid \theta)=\dfrac{1}{2}(1+\theta x), \ -1\leq x \leq 1, \ -1\leq \theta \leq 1.$$
+
+Determine o EMV para $\theta$.
+
+:::
+
+
+
+## Exemplo
+
+* Amostra de tamanho 100.
+
+* Gerado uma amostra com $\theta=0.4$, usando o método da função de distribuição.
+
+:::columns
+::::column
+```{r, echo=TRUE, eval=FALSE, warning=FALSE, message=FALSE, comment=""}
+#| output-options:
+#|   html:
+#|     style: "font-size: 8px;"
+
+# derivada 1:
+u.theta <- function(par=par, dat=dat){
+  dv1 <- sum(dat/(1+(par*dat)))
+  return(dv1)
+}
+
+# derivada 2:
+u.theta2 <- function(par=par, dat=dat){
+  dv2 <- -1*sum(dat^2/(1+(par*dat))^2)
+  return(dv2)
+}
+
+set.seed(12345678)
+
+# Dados:
+
+n     <- 100
+theta <- 0.4
+u     <- runif(n)
+x     <- (-1+
+        (2*sqrt(0.25-
+            (theta*(0.5-(theta/4)-u)))))/theta
+e     <- 10^(-6)
+
+# chute inicial:
+theta.ini <- mean(x)
+theta.novo <- theta.ini-
+  (u.theta(par=theta.ini,
+           dat=x)/u.theta2(par=theta.ini,
+                           dat=x))
+i=1
+cat("Iteração=",i,"  theta inicial=",
+    theta.ini, "  theta novo=", theta.novo, "\n")
+
+
+while( abs(theta.novo-theta.ini) > e ){
+
+  i<-i+1
+  theta.ini <- theta.novo
+
+  theta.novo <- theta.ini - (u.theta(par=theta.ini,
+                        dat=x)/u.theta2(par=theta.ini,
+                                        dat=x))
+
+  cat("Iteração=",i,
+      "  theta inicial=",
+      theta.ini, "  theta novo=", theta.novo, "\n")
+
+  theta.ini <- theta.novo
+
+}
+```
+
+::::
+::::column
+```{r, echo=FALSE, warning=FALSE, message=FALSE, comment=""}
+#| output-options:
+#|   html:
+#|     style: "font-size: 7px;"
+
+# derivada 1:
+u.theta <- function(par=par, dat=dat){
+  dv1 <- sum(dat/(1+(par*dat)))
+  return(dv1)
+}
+
+# derivada 2:
+u.theta2 <- function(par=par, dat=dat){
+  dv2 <- -1*sum(dat^2/(1+(par*dat))^2)
+  return(dv2)
+}
+
+set.seed(12345678)
+
+# Dados:
+
+n     <- 100
+theta <- 0.4
+u     <- runif(n)
+x     <- (-1+ (2*sqrt(0.25-(theta*(0.5-(theta/4)-u)))   ))/theta
+e     <- 10^(-6)
+
+# chute inicial:
+theta.ini <- mean(x)
+theta.novo <- theta.ini-(u.theta(par=theta.ini, dat=x)/u.theta2(par=theta.ini, dat=x))
+i=1
+cat("Iteração=",i,"  theta inicial=", theta.ini, "  theta novo=", theta.novo, "\n")
+
+
+while( abs(theta.novo-theta.ini) > e ){
+
+  i<-i+1
+  theta.ini <- theta.novo
+
+  theta.novo <- theta.ini - (u.theta(par=theta.ini, dat=x)/u.theta2(par=theta.ini, dat=x))
+
+  cat("Iteração=",i,"  theta inicial=", theta.ini, "  theta novo=", theta.novo, "\n")
+
+  theta.ini <- theta.novo
+
+}
+```
+::::
+:::
+
+## Propriedades do EMV:
+
+
+:::{.callout-note}
+## Importante:
+
+1. O EMV é sempre função de uma estatística suficiente;
+
+2. O EMV é assintoticamente não viciado;
+
+3. O EMV é invariante a transformações, ou seja, se $\theta$ é o EMV de $\theta$, então $g(\hat{\theta})$ é o EMV de $g(\theta)$.
+:::
+
+
+. . .
+
+:::{#exm-exm26}
+Sejam $X_1,\dots,X_{n}$ uma a.a. de $X \sim Ber(\theta)$. Obtenha a estimador de máxima verossimilhança para $g(\theta)=\theta(1-\theta)$.
+:::
+
+
+
+
+## Caso multiparamétrico
+
+
+
+* Até então, estamos considerando situações em que a função de verossimilhança depende de somente um parâmetro.
+
+* Quando a verossimilhança apresenta mais de um parâmetro, ou seja, $\mathbf{\theta}=(\theta_1, \dots, \theta_r)$.
+
+
+* Os EMV's $(\hat{\theta_1}, \dots, \hat{\theta_r})$ são obtidos como soluções das equações:
+
+
+$$\dfrac{\partial}{\partial \theta_{i}}\log L(\mathbf{\theta}\mid x), \ i=1, 2, \dots, r.$$
+
+
+## Exemplo
+
+:::{#exm-exm27}
+Sejam $X_1,\dots,X_{n}$ uma a.a. de $X \sim N(\mu,\sigma^2)$, ambos desconhecidos. Obtenha a estimador de máxima verossimilhança para $\mathbf{\theta}=(\mu, \sigma^2)$.
+:::
+
+
+
+## Distribuição para grandes amostras
+
+
+
+* Sob algumas condições temos que, para amostras grandes, o EMV de $\theta$ satisfaz:
+
+$$\sqrt{n}(\hat{\theta}-\theta)\stackrel{a}{\sim} N\left( 0, \dfrac{1}{I_{F}(\theta)}  \right),$$
+
+e
+
+
+$$\sqrt{n}(g(\hat{\theta})-g(\theta))\stackrel{a}{\sim} N\left( 0, \dfrac{(g^{'}(\theta))^2}{I_{F}(\theta)}  \right).$$
+
+* Assim, os EMV's de $\theta$, $\hat{\theta}$, e $g(\theta)$, $g(\theta)$, são aproximadamente não-viciados e suas variâncias coincidem com os respectivos limites inferiores das variâncias dos estimadores não-viciados de $\theta$ e $g(\theta)$.
+
+
+## Exemplo
+
+:::{#exm-exm27}
+Seja $X_1, \dots, X_n$ uma a.a. de $X \sim Poisson(\theta)$. Obtenha o EMV de $e^{-\theta}$ e sua distribuição assintótica.
+:::
+<br/>
+
+`Solução:` Temos que $\hat{\theta}=\bar{X}$. Pela propriedade de invariância temos que
+
+$$g(\hat{\theta})=e^{-\bar{X}}.$$
+
+que é o EMV para $e^{\theta}$. A distribuição assintótica é dada por
+
+
+$$\sqrt{n}( e^{-\bar{X}} - e^{-\theta} )\stackrel{a}{\sim} N\left( 0, \theta e^{-2\theta} \right).$$
+
+
+## Verossimilhanças para amostras independentes
+
+
+* Quando temos duas amostras independentes de populações que dependem de um parâmetro $\theta$, $X_1, \dots, X_n$, $Y_1, \dots, Y_m$, a função de verossimilhança pode ser escrita como
+
+$$L(\theta\mid \textbf{x}, \textbf{y})=L(\theta\mid \textbf{x})\times L(\theta\mid \textbf{y})$$
+
+* A função de log verossimilhança é dada por
+
+
+$$\ell(\theta\mid \textbf{x}, \textbf{y})=\log L(\theta\mid \textbf{x}, \textbf{y})=\log L(\theta\mid \textbf{x})\times \log L(\theta\mid \textbf{y})=\ell(\theta\mid \textbf{x})\times \ell(\theta\mid \textbf{y})$$
+
+## Exemplo
+
+:::{#exm-exm28}
+Sejam $X_1, \dots, X_n$ uma a.a. de $X \sim N(\mu,4)$ e $Y_1, \dots, Y_m$ uma a.a. de $Y\sim N(\mu; 9)$, duas amostras independentes. Obtenha o EMV de $\mu$.
+:::
+
+![](Ex1_1.png)
+
+
+
+## Exemplo
+
+![](Ex1_2.png)
+
+
+## Método de momentos
+
+
+* Métodos de estimação mais simples e antigo.
+
+
+* Seja,
+
+$$m_{r}=\dfrac{1}{n}\sum\limits_{i=1}^{n}X_{i}^{r}, \ r\geq 1,$$
+
+
+o $r-$ésimo momento amostral de uma a.a. $X_1, X_2,\dots, X_n$.
+
+* Seja,
+
+$$\mu_{r}=E(X^{r}), \ r\geq 1,$$
+
+o $r-$ésimo momento populacional.
+
+
+## Método de momentos
+
+
+* O método dos momentos consiste na obtenção de estimadores para $\theta = (\theta_1, \theta_2, \dots,  \theta_k)$ `resolvendo o sistema de equações`, ou seja,
+
+
+$$\begin{array}{ccc}
+ \mu_{1}=E(X) & = & \dfrac{1}{n}\sum\limits_{i=1}^{n}X_{i}=m_{1}\\
+ \mu_{2}=E(X^2) & = & \dfrac{1}{n}\sum\limits_{i=1}^{n}X_{i}^{2}=m_{2}\\
+ \vdots& \vdots & \vdots\\
+ \mu_{r}=E(X^r)& = & \dfrac{1}{n}\sum\limits_{i=1}^{n}X_{i}^{r}=m_{r}\\
+\end{array}
+$$
+
+## Exemplo
+
+:::{#exm-exm29}
+Suponha que o tempo de vida de um determinado aparelho eletrônico é uma v.a. com distribuição exponencial de parâmetro $\theta$. Afim de estimar o valor de $\theta$, uma amostra de 20 aparelhos foi submetida a testes e registrou-se seus tempos de vida (em
+anos):
+
+$$2; 4; 4; 6; 4; 5; 3,5; 4,5; 3,5; 3; 5; 5; 4,5; 2; 5; 3,5; 3; 3,5; 4,5\ \text{e}\ 4.$$
+Obtenha uma estimativa para $\theta$ pelo método dos momentos.
+
+:::
+<br/>
+
+`Sol.` Temos que $(X_{1}, \dots, X_{n})$ é uma a.a. com $X\sim \text{Exp}(\theta)$. Pelo método dos momentos, temos de resolver a equação:
+
+$$\mu_{1}=E(X) = \dfrac{1}{n}\sum\limits_{i=1}^{n}X_{i}=m_{1}$$
+sabemos que se $X\sim Exp(\theta)$, então $E(X)=1/\theta$, logo,
+
+$$1/\theta = \dfrac{1}{n}\sum\limits_{i=1}^{n}X_{i}=\bar{X} \Rightarrow \hat{\theta}=\dfrac{1}{\bar{X}}.$$
+
+
+## O método de mínimos quadrados
+
+
+* Quando dispomos uma uma relação de proporcionalidade entre duas variáveis $X$ e $Y$ usando a seguinte equação,
+
+$$Y\approx \theta X$$
+em que $\theta$ é o coeficiente de proporcionalidade.
+
+* Uma estratégia para se obter estimativas para o parâmetro $\theta$ se dá através do método de mínimos quadrados.
+
+## Método de mínimos quadrados
+
+* Assim, devemos procurar a estimativa que torne esta soma de quadrados mínima. Ou seja, queremos encontrar o valor de $\theta$ que minimiza a função
+
+$$S(\theta)=\dfrac{d}{d\theta}\sum (Y-\theta X)^2=\sum 2(Y-\hat{\theta} X)(-X)=0 $$
+
+$$\sum (-2XY+\hat{\theta}2 X^2)=0 \Rightarrow -2\sum XY  +2\hat{\theta}\sum X^2=0 $$
+
+$$\hat{\theta}\sum X^2=\sum XY \Rightarrow \hat{\theta}=\dfrac{\sum XY}{\sum X^2}.$$
+
+Temos que $\hat{\theta}$ é o estimador pelo método de momentos.
+
+
+## Exemplo
+
+:::{#exm-exm30}
+Um engenheiro está estudando a resistência $Y$ de uma fibra em função de seu diâmetro $X$, e descobriu que as variáveis são aproximadamente proporcionais, isto é, elas obedecem à relação
+$$Y\approx \theta X.$$
+:::
+
+Uma amostra de 5 fibras foi obtida e submetida a testes, que forneceram os resultados:
+
+
+$$\begin{array}{cc}
+X :\ 1.2 \ \ 1.5\ \ 1.7\ \ 2.0\ \ 2.6 & \bar{X} = 1.8\\
+Y :\ 3.9\ \ 4.7\ \ 5.6\ \ 5.8\ \ 7.0 & \bar{Y} = 5.4\\
+\end{array}$$
+
+
+## Exemplo
+
+
+Usando os dados temos que
+
+$$\sum XY = 51.05 \ \ \text{e}  \ \ \ \sum X^2=17.34$$
+
+Assim, a estimativa do parâmetro de proporcionalidade pelo método de mínimos quadrados é dada por
+
+$$\hat{\theta}\sum X^2=\sum XY \Rightarrow \hat{\theta}=\dfrac{\sum XY}{\sum X^2}=\dfrac{51.05}{17.34}=2.94.$$
+
+
+ 
+
+
+
+
+
+
+
+

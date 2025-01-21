@@ -1,0 +1,1197 @@
+---
+format:
+  revealjs:
+    theme: ["theme/q-theme.scss"]
+    slide-number: c/t
+    #logo: "faest.png"
+    #footer: "[https://github.com/paulocerqueirajr](https://https://github.com/paulocerqueirajr)"
+    code-copy: true
+    center-title-slide: false
+    lang: pt
+    transition: fade
+    transition-speed: default
+highlight-style: a11y
+code-link: true
+height: 1080
+width: 1600
+execute: 
+  eval: true
+  echo: true
+---
+
+
+
+<h1> Inferência Estatística I </h1>
+
+<h2> Estimação Pontual </h2>
+
+<hr>
+
+<br>
+
+<h3> Prof. Paulo Cerqueira Jr <br>
+Faculdade de Estatística - FAEST <br> 
+Instituto de Ciências Exatas e Naturais - ICEN
+</h3>
+
+<h3>  </h3>
+<br>
+
+<h3> [https://github.com/paulocerqueirajr](https://https://github.com/paulocerqueirajr)
+
+![](github.jpg){.absolute top=560 left=845 height="80"}
+
+
+
+![](faest.png){.absolute top=5 left=1400 height="200"}
+
+<!-- ![](https://www.faest.icen.ufpa.br/images/110.png){.absolute top=5 left=1400 height="200"} -->
+
+
+
+# [Modelos Estatísticos]{style="float:right;text-align:right;"} {background-color="#027eb6"}
+
+## Modelos Estatísticos
+
+* Nosso ponto de partida será um estudo empírico (pode ser experimental ou observacional) que irá fornecer certo conjunto de dados (amostra) que denotamos por $\textbf{x}$. Nos casos mais simples,
+$\textbf{x} = (x_1,x_2,\dots,x_n)’$.
+
+* **Suposição fundamental:** considere $\textbf{x}$ como um valor obtido de uma vetor aleatório $X$.
+
+* Nosso objetivo é usar $\textbf{x}$ para tirar conclusões sobre a distribuição desconhecida $F(\cdot)$ de $X$.
+
+* Nossas conclusões sobre $F(\cdot)$ estão sujeitas à incerteza dado a aleatoriedade governando $X$ (que irá produzir $\textbf{x}$). Devemos certificar que:
+
+   - O nível de incerteza é o menor possível, considerando a
+aleatoriedade de $X$.
+   
+   - Somos capazes de avaliar o nível de incerteza em nossas conclusões.
+
+
+## Modelos Estatísticos
+
+* A natureza física do fenômeno que gera $\textbf{x}$, o esquema de amostragem, e outras informações, irão colocar limites no conjunto de possíveis escolhas para $F(\cdot)$. Este conjunto (denotado por $\mathcal{F}$) é chamado de modelo estatístico.
+
+* É intuitivo pensar que nossa inferênias serão mais precisas de formos capazes de selecionar o conjunto $\mathcal{F}$ menor possível, sob o requerimento de que $F\in \mathcal{F}$.
+
+
+* Em alguns casos, podemos assumir que $X$ é uma a. a. com componentes independentes e identicamentes distribuídos. Neste caso, dizemos que $\textbf{x}$ é uma a.a. simples de $X$.
+
+
+
+## Modelos paramétricos
+
+* A princípio, $\mathcal{F}$ pode ser qualquer conjunto de funções de distribuições, mas existe uma categoria de tais conjuntos que possui importante papel, tanto do ponto de vista teórico quando aplicado.
+
+* Este caso ocorre todos os elementos de $\mathcal{F}$ são funções com a mesma formulação matemática, identificadas apenas pelas diferentes especificações de $\theta$, que varia em $\Theta\in \mathbb{R}^{k}$,
+
+$$\mathcal{F}=\left\{ F(\cdot\mid \theta): \theta \in \Theta  \subseteq \mathbb{R}^{k}\right\} $$
+
+
+## Modelos paramétricos
+
+* Na grande maioria dos casos (em todos os casos que iremos considerar neste curso), toda a função de distribuição menbro de $\mathcal{F}$ refere-se a v.a. discretas ou contínuas.
+
+
+* Então $\mathcal{F}$ pode ser definida usandoas f.p. ou f.d. correspondentes.
+
+* Podemos definir um modelo estatístico $\mathcal{F}$ (caso contínuo) como um conjunto de f.d's
+
+$$\mathcal{F}=\left\{ f(\cdot\mid \theta): \theta \in \Theta  \subseteq \mathbb{R}^{k}\right\} $$
+
+$\theta:$ parâmetro.
+
+$\Theta:$ espaço paramétrico.
+
+* $\mathcal{F}$, indicado acima, é chamado de classe paramétrica ou modelo paramétrico.
+
+## Modelos paramétricos
+
+* Portanto, os elementos de $\mathcal{F}$ estão associados aos elementos de $\Theta$.
+
+* Em particular, existe um valor $\theta_{*}\in\Theta$, associado a $F(\cdot)$, chamado de **valor real** do parâmetro, e nossas inferências serão sobre $\theta_{*}$
+
+
+## Modelos paramétricos
+
+**Espaço amostral:** é o conjunto $\mathcal{X}$ de todos os possíveis resultados $x$ compatíveis com o modelo paramétrico dado.
+
+* Formalmente denotado por $\mathcal{X}_{\theta}$ o suporte (domínio) da densidade $f(\cdot;\theta)$, o espaço amostral é dado por $\mathcal{X}=\bigcup\limits_{\theta\in \Theta} \mathcal{X}_{\theta}$.
+
+* Frequentemente, entretanto, $\mathcal{X}_{\theta}$ é o mesmo que as possíveis escolhas de $\theta$, e este conjunto coincidirá com $\mathcal{X}$.
+
+
+## Modelos paramétricos
+
+
+`Exemplo:` Se dois valores são amostrados independentemente da $N(\theta,1)$, então $\textbf{y}=(y_{1},y_{2})^{\top}$ onde $y_{i}\in\mathbb{R}\ (i=1,2),$
+
+$$\mathcal{Y}=\mathbb{R}\times\mathbb{R}, \quad Y\sim N \left[\begin{array}{c}\theta\\
+\theta\end{array}, I_{2}\right],$$
+
+
+em que,
+
+$$f(y; \theta)=\phi(y_{1}-\theta)\phi(y_{2}-\theta)$$
+
+* Se não houver qualquer restrição para $\theta$, temos $\Theta=\mathbb{R}$.
+
+
+* Se existir restrição (ex. sabemos que $\theta>0$)
+
+
+# [Famílias de locação e escala]{style="float:right;text-align:right;"} {background-color="#027eb6"}
+
+## Famílias de locação e escala
+
+* Aqui discutiremos três técnicas para construir famílias de distribuições. 
+
+* As famílias resultantes possuem interpretações físicas diretas que as tornam úteis para modelagem, além de apresentarem propriedades matemáticas convenientes. Considere apenas o caso contínuo.
+
+* Os 3 tipos de famílias são: (i) locação, (ii) escala e (iii) locação e escala.
+
+* Cada família é construída pela especificação de uma f.d $f(x)$ chamada de densidade padrão da família.
+
+* Todas as outras densidades da família podem ser geradas pela
+transformação da densidade padrão.
+
+
+## Famílias de locação e escala
+
+`Teorema 11:` Seja $f(x)$ qualquer f.d. e considere $\mu$ e $\sigma>0$ como constantes conhecidas. Então, a função $g(x| \mu,\sigma)=\dfrac{1}{\sigma}f\left(\dfrac{x-\mu}{\sigma}\right)$ é uma f.d.
+
+**Prova:** Para verificar que a transformação produziu um f.d. legítima, precisamos verificar que $\dfrac{1}{\sigma}f\left(\dfrac{x-\mu}{\sigma}\right)$ é: i) não negativa e ii) integra 1.
+
+i. $f(x)$ é uma f.d.$\Rightarrow f(x)>0, \forall x$, então $\dfrac{1}{\sigma}f\left(\dfrac{x-\mu}{\sigma}\right)>0$, para todos os valores de $x, \mu$ e $\sigma$.
+
+
+
+## Famílias de Locação  e Escala.
+
+
+ii.
+
+$$\int\limits_{-\infty}^{\infty}\dfrac{1}{\sigma}f\left(\dfrac{x-\mu}{\sigma}\right)dx, \quad \quad y=\dfrac{x-\mu}{\sigma} \ \text{e} \ dy=\dfrac{1}{\sigma}.$$
+
+Logo,
+
+$$\int\limits_{-\infty}^{\infty}\dfrac{1}{\sigma}f\left(y\right)\sigma dy = \int\limits_{-\infty}^{\infty}f\left(y\right)dy=1.$$
+
+
+## Famílias de Locação  e Escala.
+
+`Definição 8:` Seja $f(x)$ qualquer f.d., então a família de densidades $f(x-\mu)$ indexada pelo parâmetro real $\mu$ é chamada de **família de locação
+(localização)** com densidade padrão $f(x)$. O $\mu$ é conhecido como **parâmetro de localização da família**.
+
+* O parâmetro $\mu$ simplesmente desloca a densidade $f(x)$ de maneira que o formato do gráfico não é alterado, mas o ponto do gráfico de $f(x)$ que estava acima de $x = 0$, estará agora acima de $x = \mu$ para $f(x-\mu)$.
+
+`Exemplo:` Se $\sigma>0$ é especificado e definimos
+
+$$f(x)=(2\pi\sigma^2)^{-1/2}\exp\left\{-\dfrac{1}{2\sigma^2}\left(x-\mu\right)^2\right\}I_{(-\infty,\infty)}(x),$$
+
+
+então a família de localização com densidade padrão $f(x)$ é o conjunto de distribuições Normais com média $\mu$ desconhecida e variância $\sigma^2$ conhecida.
+
+
+
+## Famílias de Locação  e Escala.
+
+
+* A família Cauchy com σ (conhecido) e µ (desconhecido) é outro exemplo de família de locação.
+
+* O ponto principal da `Definição 8` é que podemos iniciar com qualquer densidade $f(x)$ e gerar uma família de densidades com a introdução do
+parâmetro de localização.
+
+* Se $X$ é uma variável aleatória com densidade $f(x-\mu)$, então $X$ pode ser representada como $X = Z + \mu$ , onde $Z$ é variável aleatória com
+densidade $f(z)$.
+
+`Exemplo:` Família de locação exponencial
+
+Seja $f(x)=e^{-x}$ para todo $x\geq 0$ e $f(x)=0$ para $x<0$.
+
+
+Para formar uma família de locação devemos substituir $x$ po $x-\mu$
+
+$$
+f(x)=\left\{
+\begin{array}{ll}
+e^{-(x-\mu)}& x-\mu\geq 0\\
+0& x-\mu< 0
+\end{array}
+\right.
+=\left\{
+\begin{array}{ll}
+e^{-(x-\mu)}& x\geq \mu\\
+0& x< \mu
+\end{array}
+\right.
+$$
+
+
+
+## Famílias de Locação  e Escala.
+
+
+```{r fig1, fig.height=6, fig.width=6,fig.align='center'}
+f <- function(x, mu){
+  return(exp(-(x-mu)))}
+mu.val <- c(1,2,3,4,5)
+x.val <- seq(0,8, length.out=1000)
+
+plot(x.val+mu.val[1], f(x=x.val,mu=1), type="l", ylim=c(0,200), ylab="f(x-mu)",
+     xlab="x", lty=1, lwd=2)
+lines(x.val+mu.val[2], f(x=x.val,mu=2), type="l", lty=2, lwd=2)
+lines(x.val+mu.val[3], f(x=x.val,mu=3), type="l", lty=3, lwd=2)
+lines(x.val+mu.val[4], f(x=x.val,mu=4), type="l", lty=4, lwd=2)
+lines(x.val+mu.val[5], f(x=x.val,mu=5), type="l", lty=5, lwd=2)
+```
+
+
+
+## Famílias de Locação  e Escala
+
+`Definição 9:` Seja $f(x)$ qualquer f.d., então para qualquer $\sigma>0$, a família de densidades $1/\sigma f[x/\sigma]$ indexada pelo parâmetro $\sigma$ é chamada de **família de escala** com densidade padrão $f(x)$ e parâmetro de escala $\sigma$.
+
+* O efeito de introduzir $\sigma$ é tanto esticar ($\sigma>1$) quanto contrair ($\sigma<1$) o gráfico $f(x)$ a forma básica é mantida.
+
+## Famílias de Locação  e Escala
+
+
+```{r fig2, fig.height=6, fig.width=6,fig.align='center'}
+
+sigma.val <- c(1,1.5,3,4,5)
+x.val <- seq(-6,6, length.out=1000)
+plot(x.val, dnorm(x=x.val,sd=sigma.val[1]), type="l", ylim=c(0,.5), ylab="", xlab="x",
+     lty=1, lwd=2)
+lines(x.val, dnorm(x=x.val,sd=sigma.val[2]), lty=2, lwd=2)
+lines(x.val, dnorm(x=x.val,sd=sigma.val[3]), lty=3, lwd=2)
+lines(x.val, dnorm(x=x.val,sd=sigma.val[4]), lty=4, lwd=2)
+lines(x.val, dnorm(x=x.val,sd=sigma.val[5]), lty=5, lwd=2)
+```
+
+
+
+## Famílias de Locação  e Escala
+
+`Exemplo:` $Ga\left(\alpha, \beta=\dfrac{1}{\sigma}\right)$ com $\alpha$ conhecido e $\beta=\dfrac{1}{\sigma}$ onde $\sigma$ é desconhecido.
+
+A densidade padrão $Ga(\alpha, \beta=1)$
+
+$$f(x| \alpha, \beta=1)=\dfrac{1}{\Gamma\left( \alpha \right)}x^{\alpha-1}\exp\left\{  -x\right\}I_{(-\infty, \infty)}(x).$$
+
+Logo,
+
+$$
+\begin{array}{cc}
+f(x/\sigma)=\dfrac{1}{\Gamma\left( \alpha \right)}\dfrac{x^{\alpha-1}}{\sigma^{\alpha-1}}\exp\left\{  -\dfrac{x}{\sigma}\right\}I_{(-\infty, \infty)}(x)\\
+1/\sigma f(x/\sigma)=\dfrac{1}{\sigma^\alpha}\dfrac{1}{\Gamma\left( \alpha \right)}x^{\alpha-1}\exp\left\{  -\dfrac{x}{\sigma}\right\}I_{(-\infty, \infty)}(x)
+\end{array}
+$$
+
+
+
+## Famílias de Locação  e Escala
+
+`Exemplo:` Família Normal com $\mu=0$  e $\sigma^2$ desconhecido.
+
+A densidade padrão $N(0, 1)$
+
+$$f(x)=1*(2\pi)^{-1/2}\exp\left\{-\dfrac{1}{2(1)}x^2\right\}I_{(-\infty,\infty)}(x),$$
+
+Logo,
+
+
+$$
+\begin{array}{ll}
+f(x/\sigma)=& (2\pi)^{-1/2}\exp\left\{-\dfrac{1}{2\sigma^2}\left(x-\mu\right)^2\right\}I_{(-\infty,\infty)}(x)\\
+1/\sigma f(x/\sigma)=&(2\pi\sigma^2)^{-1/2}\exp\left\{-\dfrac{1}{2\sigma^2}\left(x-\mu\right)^2\right\}I_{(-\infty,\infty)}(x)
+\end{array}
+$$
+
+
+
+## Famílias de Locação  e Escala
+
+
+
+`Definição 10:` Seja $f(x)$ qualquer f.d., então para qualquer $\mu$ real e
+qualquer $\sigma > 0$ a família de densidades
+
+
+$$\dfrac{1}{\sigma} f\left[\dfrac{(x-\mu)}{\sigma}\right],$$
+
+indexadas pelos parâmetros $(\mu , \sigma)$, é chamada de família de locação e escala com densidade padrão $f(x)$. Neste caso, $\mu$ é o parâmetro de localização e $\sigma$ é o parâmetro de escala.
+
+
+* Efeito da inclusão dos parâmetros:
+
+   - $\mu$ irá deslocar o gráfico de maneira que o ponto que estava acima de 0,
+agora fica acima de $\mu$.
+
+   - $\sigma$ irá esticar ($\sigma > 1$) ou contrair ($\sigma < 1$) o gráfico de $f(x)$.
+
+
+
+
+
+## Famílias de Locação  e Escala
+
+
+```{r fig3, fig.height=6, fig.width=8,fig.align='center'}
+
+sigma.val <- c(1,1.5,3,4,5)
+x.val <- seq(-6,6, length.out=1000)
+plot(x.val, dnorm(x=x.val, mean = 0,sd=sigma.val[1]), type="l", xlim=c(-8,8),
+     ylim=c(0,.5), ylab="", xlab="x", lty=1, lwd=1)
+lines(x.val, dnorm(x=x.val, mean = 1,sd=sigma.val[2]), lty=2, lwd=1)
+lines(x.val, dnorm(x=x.val, mean = -2.5,sd=sigma.val[3]), lty=3, lwd=1)
+lines(x.val, dnorm(x=x.val, mean = 2,sd=sigma.val[4]), lty=4, lwd=1)
+lines(x.val, dnorm(x=x.val, mean = 4,sd=sigma.val[5]), lty=5, lwd=1)
+```
+
+
+
+## Famílias de Locação e Escala
+
+
+* O seguinte teorema relaciona a transformação da f.d. $f(x)$, que define uma família de locação e escala, com a transformação da variável aleatória $Z$ com densidade $f(z)$.
+
+
+`Teorema 12:` Seja $f(\cdot)$ qualquer f.d. e considere $\mu \in \mathbb{R}$ e $\sigma \in \mathbb{R}^{+}$. Então $X$ é uma v.a. com densidade $1/\sigma f[(x-\mu)/\sigma]$, se e somente se, existe uma v.a. $Z$ com densidade $f(z)$ e $X=\sigma Z+\mu$.
+
+
+* No `Teorema 12`:
+
+   - Se $\sigma=1$: família de locação (apenas).
+
+   - Se $\mu=0$: família de escala (apenas).
+
+
+
+## Famílias de Locação e Escala
+
+
+*  Fato importante a ser extraído do `Teorema 12` é que $Z=\dfrac{X-\mu}{\sigma},$ tem f.d.
+
+$$f_{Z}(z)=\dfrac{1}{1}f\left(\dfrac{z-0}{1}\right)=f(z),$$
+
+isto é, a distribuição de $Z$ é membro da família de locação escala com $\mu=0$ e $\sigma=1$.
+
+
+* Frequentemente, cálculos são desenvolvidos para a v.a. padrão $Z$ com f.d $f(z)$ e então o resultado correspondente para a v.a. $X$ com f.d. $1/\sigma f[(x-\mu)/\sigma]$ pode ser facilmente derivado.
+
+
+
+## Famílias de Locação e Escala
+
+
+`Teorema 13:` Seja $Z$ uma v.a. com f.d. $f(z)$. Suponha que $E(Z)$ e $Var(Z)$ existem. Se $X$ é uma v.a. com densidade $1/\sigma f(x/\sigma)$, então, 
+
+$$E(X)=\sigma E(Z)+\mu\ \text{e}\ Var(X)=\sigma^2 Var(Z)$$.
+
+
+* Em particular, se $E(Z)=0$ e $Var(Z)=1$, então, $E(X)=\mu$ e $Var(X)=\sigma^2$.
+
+
+* Probabilidades para qualquer membro da família de locação escala pode ser calculada em termos da variável padrão $Z$.
+
+
+$$P(X\leq x)=P\left( \dfrac{X-\mu}{\sigma}\leq \dfrac{x-\mu}{\sigma} \right)=P\left(Z\leq \dfrac{x-\mu}{\sigma} \right).$$
+
+
+
+
+# [Estimação Pontual]{style="float:right;text-align:right;"} {background-color="#027eb6"}
+
+
+## Introdução
+
+* Na população temos uma característica que denotamos por $X$;
+
+* E dentro da inferência paramétrica associamos uma $f(\cdot\mid \theta)$ (função densidade ou probabilidade);
+
+* $\theta$: é uma quantidade fixa e desconhecida;
+
+
+> O nosso maior interesse consiste em estimar o valor de $\theta$.
+
+
+## Definições
+
+
+:::{#def-def1}
+O conjunto $\Theta$ em que $\theta$ toma valores é denominado Espaço paramétrico.
+:::
+
+<br/>
+
+:::{#exm-exm1} 
+
+Seja $(X_1, X_2, \dots, X_n)$ uma a.a. de $X\sim N(\mu, \sigma^2)$.
+
+1. se $\sigma^2 = 1$, então $\theta=\mu$ é o parâmetro desconhecido.
+$$\Theta=\left\{ \mu : -\infty<\mu<\infty \right\}=\mathbb{R}.$$
+
+2. se $\mu = 0$, então $\theta=\sigma^2$ é o parâmetro desconhecido.
+$$\Theta=\left\{ \sigma^2 : \sigma^2>0\right\}=\mathbb{R}^{+}.$$
+
+
+3. se $\sigma^2$ e $\mu$ são desconhecidos, então $\mathbf{\theta}=(\mu, \sigma^2)$ é o vetor de parâmetros desconhecido.
+$$\Theta=\left\{ (\mu,\sigma^2) : -\infty<\mu<\infty \quad \text{e} \quad \sigma^2>0\right\}.$$
+:::
+
+## Definições importantes
+
+:::{#def-def2}
+
+Estimador para $\theta$: $\hat{\theta}$.
+<br/>
+
+* Qualquer estatística qual assuma valores em $\Theta$ é um estimador para $\theta$.
+
+:::
+
+<br/>
+
+:::{#def-def3} 
+Estimativas para $\theta$: Usando $\hat{\theta}$.
+<br/>
+
+As estimativas são dos valores obtidos pelos estimadores $\hat{\theta}$
+:::
+<br/>
+
+
+:::{#def-def4}  
+
+Estimador para $g(\theta)$.
+<br/>
+
+* Qualquer estatística que assuma valores apenas no conjunto dos possíveis valores de $g(\Theta)$ é um estimador para $g(\theta)$.
+
+:::
+
+## Exemplos de estimadores:
+
+:::{.callout-note}
+## Estimador para a média amostral:
+
+$$\hat{\theta}=\hat{\mu}=\bar{X}=\dfrac{1}{n}\sum_{i=1}^{n}X_{i}.$$
+:::
+
+. . .
+
+
+:::{.callout-note}
+## Estimador para a variância:
+
+$$\hat{\theta}=\hat{S}^{2}=\dfrac{1}{n-1}\sum_{i=1}^{n}\left(X_{i}-\bar{X}\right)^2.$$
+:::
+
+. . .
+
+:::{.callout-note}
+## Estimador para a uma função $g(\theta)$:
+
+$$g(\hat{\theta})=\dfrac{\hat{\theta}}{1-\hat{\theta}}.$$
+:::
+
+
+## Estimadores
+
+* Como saber se nosso estimador é um `bom estimador`?
+
+* Precisamos de ferramentas/propriedades matemáticas para avaliar a qualidade do mesmo.
+
+* Algumas são:
+
+   - Viés do estimador;
+   
+   - Variância do estimador;
+   
+   - Erro quadrático médio;
+   
+   - Consistência;
+   
+   - Eficiência.
+
+
+# [Erro quadrático médio]{style="float:right;text-align:right;"} {background-color="#027eb6"}
+
+## Erro quadrático médio
+
+:::{#def-def5}
+## Erro Quadrático Médio (EQM)
+
+O erro quadrático médio (EQM) de um estimador $\hat{\theta}$ do parâmetro $\theta$ é dado por
+
+$$EQM(\hat{\theta})=E\left[ \left( \hat{\theta} - \theta   \right)^2 \right].$$
+
+* Podemos mostrar que,
+
+$$EQM(\hat{\theta})=Var(\hat{\theta}) + B(\hat{\theta})^{2},$$
+ em que $B(\hat{\theta})=E(\hat{\theta})-\theta$.
+:::
+
+## Erro quadrático médio
+
+
+* Algumas observações:
+
+
+1. $B(\hat{\theta})$ é denominado de vício do estimador $\hat{\theta}$;
+
+
+2. Dizemos que um estimador $\hat{\theta}$ é não viciado para $\theta$ se $E(\hat{\theta}) = \theta$, para todo $\theta\in \Theta$, ou
+seja, se $B(\hat{\theta}) = 0$, para todo $\theta\in \Theta$;
+
+
+3. Se $\lim_{n\rightarrow \infty}B(\hat{\theta})=0$, para todo $\theta\in\Theta$, dizemos que $\hat{\theta}$ é assintoticamente não viciado para $\theta$. 
+
+
+4. Se $\hat{\theta}$ é um estimador não viciado para $\theta$, temos que $EQM(\hat{\theta})=Var(\hat{\theta})$.
+
+
+## Erro Quadrático médio
+
+
+:::{#exm-exm1}
+
+Seja $(X_1, X_2, \dots, X_n)$ uma a.a. de um população com variável $X$, com $E(X)=\mu$ e $Var(X)=\sigma^2$.
+
+
+1. Tome $\hat{\theta}=\bar{X}$, mostre que é um estimador não viciado para $\mu$.
+
+2. Tome $\hat{\theta}=\hat{\sigma}^2=\dfrac{1}{n}\sum\limits_{i=1}^{n}(X_{i}-\bar{X})^2$, mostre que é um estimador viciado $\sigma^2$.
+
+3. Tome $\hat{\theta}=S^2=\dfrac{1}{n-1}\sum\limits_{i=1}^{n}(X_{i}-\bar{X})^2$, mostre que é um estimador não viciado $\sigma^2$.
+
+:::
+
+
+## Comparação dos estimadores via EQM
+
+
+
+1. $\hat{\theta}_{1}$ é melhor que $\hat{\theta}_{2}$ se $EQM(\hat{\theta}_{1})\leq EQM(\hat{\theta}_{2})$ para todo $\theta$, com ”$\leq$” substituído por ”$<$” pelo menos para um valor de $\theta$. Nesse caso, $\hat{\theta}_{2}$ é `dito ser inadmissível`.
+<br/>
+
+2. Se existir um estimador $\hat{\theta}^{*}$ tal que para todo estimador $\hat{\theta}$ de $\theta$, com $\hat{\theta}\neq\hat{\theta}^{*}$, o $EQM(\hat{\theta}^{*})\leq EQM(\hat{\theta})$ para todo $\mu$, com ”$\leq$” substituído por ”$<$” para pelo menos um valor de $\theta$, então $\hat{\theta}^{*}$ é `dito ser ótimo` para $\theta$.
+<br/>
+
+3. Além disso, se em ”2)” os estimadores são não viciados, então $\hat{\theta}^{*}$ é dito ser o `estimador não viciado de variância uniformemente mínima (ENVVUM)`, pois teremos
+
+$$Var\left(\hat{\theta}^{*}\right)\leq Var\left(\hat{\theta}\right) $$
+para todo $\theta$, com ”$\leq$” substituído por ”$<$” para pelo menos um valor de $\theta$.
+
+
+
+## Erro Quadrático Médio
+
+:::{#exm-exm2}
+Seja $(X_1, X_2, X_3)$ uma a.a. de um população com variável $X$, com $E(X)=\theta$ e $Var(X)=1$. Considere os estimadores:
+
+
+$$\hat{\theta}_{1}=\bar{X}=\dfrac{X_{1}+X_{2}+X_{3}}{n}\quad \text{e} \quad  \hat{\theta}_{2}=\dfrac{X_{1}}{2}+\dfrac{X_{2}}{4}+\dfrac{X_{3}}{4}.$$
+
+Em termos do $EQM$ qual o melhor estimador?
+
+:::
+
+## Estimador linear
+
+:::{#exm-exm3}
+Seja $(X_1, X_2, \dots ,X_n)$ uma a.a. de um população com variável $X$, com $E(X)=\theta$ e $Var(X)=\sigma^2$ (conhecido). Considere os estimadores lineares:
+
+$$X_{L}=\sum\limits_{i=1}^{n}l_{i}X_{i},$$
+
+com $l_{i}\geq 0$, $i=1,\dots, n$ constantes conhecidas. Que valores devem ter os $l_i$ para que $X_L$ seja um `estimador não viciado de variância mínima` para $\theta$? 
+:::
+
+## Exemplo
+
+
+:::{#exm-exm4}
+Seja $(X_1, X_2, \dots ,X_n)$ uma a.a. de um população com variável $X\sim Ber(\theta)$, com $E(X)=\theta$ e $Var(X)=\sigma^2$ (conhecido). Considere os estimadores:
+
+
+$$\hat{\theta}_{1}=\bar{X}=\dfrac{Y}{n}\quad \text{e} \quad  \hat{\theta}_{2}=\dfrac{Y+\dfrac{\sqrt{n}}{2}}{n+\sqrt{n}},$$
+
+
+com $Y=\sum\limits_{i=1}^{n}X_{i}$. Obtenha $EQM(\hat{\theta}_{1})$ e o $EQM(\hat{\theta}_{2})$.
+:::
+
+
+## Exemplo
+
+```{r fig4, echo=FALSE, message=FALSE, comment="",warning=FALSE, fig.height=3, fig.width=5, fig.align='center'}
+
+require(ggplot2)
+
+theta <- seq(0,1, length.out=1000)
+n <- 9
+eqm1 <- theta*(1-theta)/n
+eqm2 <- rep(1/64, length(theta))
+
+dados <- data.frame(theta=rep(theta,2), EQM=c(eqm1, eqm2), Grupo=factor(c(rep(1,length(theta)), rep(2,length(theta)))))
+
+ggplot(dados, aes(x=theta, y=EQM, group=Grupo, color=Grupo))+geom_line()+theme_light()
+```
+
+
+# [Consistência]{style="float:right;text-align:right;"} {background-color="#027eb6"}
+
+
+## Consistência
+
+:::{#def-def6}
+
+Uma sequência $\{\hat{\theta}_{n}, n=1, 2\dots, \}$ de estimadores de um parâmetro $\theta$ é consistente se, para todos $\epsilon>0,$
+
+$$P\left(\Bigg| \hat{\theta}_{n}-\theta \Bigg| >\epsilon\right)\rightarrow 0, \quad \text{quando}\quad n\rightarrow \infty.$$
+
+De forma equivalente, $\{\hat{\theta}_{n}, n=1, 2\dots, \}$ é uma sequência consistente de estimadores de $\theta$ se
+
+1. $\lim\limits_{n\rightarrow \infty}E(\hat{\theta})=\theta$;
+
+2. $\lim\limits_{n\rightarrow \infty}Var(\hat{\theta})=0$.
+
+:::
+
+## Consistência - Exemplos:
+
+$\bar{X}_n$: estimador consistente da média populacional
+
+1. $\lim\limits_{n\rightarrow \infty}E(\bar{X}_n)=\lim\limits_{n\rightarrow \infty}\mu=\mu$
+
+2. $\lim\limits_{n\rightarrow \infty}Var(\bar{X}_n)=\lim\limits_{n\rightarrow \infty}\sigma^2/n=0$
+
+
+$\hat{p}_n$: estimador consistente da proporção populacional.
+
+
+1. $\lim\limits_{n\rightarrow \infty}E(\hat{p}_n)=\lim\limits_{n\rightarrow \infty}\theta=\theta$
+
+2. $\lim\limits_{n\rightarrow \infty}Var(\hat{p}_n)=\lim\limits_{n\rightarrow \infty}\theta(1-\theta)/n=0$
+
+
+## Consistencia
+
+\begin{tabular}{ccc}\hline
+Parâmetro  & Estimador        & Propriedades \\ \hline
+$\mu$      & $\bar{X}$        & Não viciado e consistente\\
+$\theta$   & $\hat{p}$        & Não viciado e consistente\\
+$\sigma^2$ & $S^2$            & Não viciado e consistente\\
+$\sigma^2$ & $\hat{\sigma}^2$ & Viciado e consistente\\ \hline
+\end{tabular}
+
+
+## Exemplo
+
+:::{#exm-exm5}
+Deseja-se estimar a proporção de moradores de um determinado bairro favoráveis a um projeto municipal. Para isso, coleta-se uma amostra de $n$ moradores e registra-se sua opinião. Seja $S$ o no total de moradores favoráveis na amostra, e considere os dois estimadores:
+
+$$
+\hat{p}_{1}=\dfrac{S}{n} \quad \text{e} \quad
+\hat{p}_{2}=\left\{
+\begin{array}{cl}
+1, & \text{se o prim. indivíduo da amostra é favorável}\\
+0, & \text{caso contrário}\\
+\end{array}
+\right.
+$$
+
+Compare os dois estimadores. Por que $\hat{p}_{2}$ não é um bom estimador?
+
+:::
+
+
+## Exemplo
+
+<br/>
+
+:::{#exm-exm6}
+Foram sorteadas 15 famílias com filhos num certo bairro e observado o número de crianças de cada família, matriculadas na escola. Os dados foram: 1, 1, 2, 0, 2, 0, 2, 3, 4, 1, 1, 2, 0, 0 e 2. Obtenha as estimativas correspondentes aos seguintes estimadores do $n^{o}$ médio de crianças na escola nesse bairro:
+
+$$
+\hat{\theta}_{1}=\dfrac{X_{(1)}+X_{(n)}}{2},\quad \hat{\theta}_{1}=\dfrac{X_{1}+X_{2}}{2} \quad \hat{\theta}_{3}=\bar{X}.
+$$
+
+Obtenha as 3 estimativas e discuta qual delas é a melhor.
+:::
+
+# [Estimador eficiente]{style="float:right;text-align:right;"} {background-color="#027eb6"}
+
+
+## Introdução
+
+* Aprenderemos agora a noção de estimador eficiente.
+
+* Tal estimador como sendo aquele que atinge o `limite inferior da variância dos estimadores não viciados`.
+
+* Estimadores eficientes são obtidos apenas para distribuições que são membros de uma classe especial, que é a `família exponencial de distribuições`.
+
+
+## Estimadores eficientes
+
+
+:::{#def-def7}
+Chamamos de eficiência de um estimador $\hat{\theta}$, não viciado para o parâmetro $\theta$, o quociente
+
+$$e(\hat{\theta})=\dfrac{LI(\theta)}{Var(\hat{\theta})},$$
+onde $LI(\theta)$ é o limite inferior da variância dos estimadores não viciados de $\theta$.
+:::
+
+
+
+
+## Estimadores eficientes
+
+Notamos que:
+
+
+1. $e(\hat{\theta})=1$, quando $LI(\theta)=Var(\hat{\theta})$ ou seja, quando a variância de $\hat{\theta}$ coincide com o limite inferior da variância dos estimadores não viciados de $\theta$. Nesse caso, $\hat{\theta}$ é dito ser \textbf{eficiente};\pause
+
+2. Temos que,
+$$LI(\theta)=\dfrac{1}{nE\left[ \left( \dfrac{\partial\log f(X\mid \theta)}{\partial \theta}  \right)^2  \right]}$$
+quando certas condições de regularidade estão satisfeitas;\pause
+
+3. As condições de regularidade: que o suporte $A(x) = {x, f(x|\theta) > 0}$ seja independente de $\hat{\theta}$; possível a troca das ordens das operações de derivação e de integração sob a distribuição da variável aleatória $X$;\pause
+
+4. a não ser que mencionado o contrário, todo logaritmo utilizado no texto é calculado na base $e$.
+
+
+## Exemplo
+
+
+:::{#exm-exm7}
+Sejam $(X_{1}, \dots, X_{n})$ uma amostra aleatória da variável aleatória $X \sim N(\mu, \sigma^2)$, em que $\sigma^2$ é conhecido. Verifique se $\hat{\theta}=\bar{X}$ é um estimador eficiente para $\mu$.
+:::
+
+## Estimadores eficientes
+
+
+:::{#def-def8}
+A quantidade
+
+$$ \dfrac{\partial\log f(X\mid \theta)}{\partial \theta},$$
+
+`é chamada de função escore`.
+
+:::
+
+
+* Como resultado temos,
+
+$$E\left[  \dfrac{\partial\log f(X\mid \theta)}{\partial \theta}\right]=0.$$
+
+:::{#def-def9}
+
+A quantidade
+$$I_{F}=E\left[ \left( \dfrac{\partial\log f(X\mid \theta)}{\partial \theta}  \right)^2\right],$$
+
+é denominada de informação de Fisher de $\theta$.
+
+:::
+
+
+## Estimadores eficientes
+
+* Como resultado temos que,
+
+$$I_{F}=Var\left[ \dfrac{\partial\log f(X\mid \theta)}{\partial \theta}\right],$$
+
+uma vez que para uma variável aleatória $X$ qualquer com $E[X] = 0$, $V ar[X] = E[X^2]$.
+
+* Outro resultado importante:
+
+$$E\left[ \left(\dfrac{\partial\log f(X\mid \theta)}{\partial \theta}  \right)^2\right]=-E\left[ \dfrac{\partial^2\log f(X\mid \theta)}{\partial \theta^2}  \right]$$
+
+
+## Estimadores eficientes
+
+* Uma outra propriedade importante estabelece que para uma amostra aleatória, $X_1, \dots ,X_n$, da variável aleatória $X$ com f.d.p (ou f.p.) $f(x\mid \theta)$ e informação de Fisher $I_{F}(\theta)$;
+
+* A informação total de Fisher de $\theta$ correspondente á amostra
+observada é a soma da informação de Fisher das $n$ observações da amostra, ou seja, sendo
+
+$$
+\begin{array}{l}
+E\left[ \left(\dfrac{\partial\log L(\theta\mid \textbf{X})}{\partial \theta}  \right)^2\right]=-E\left[ \dfrac{\partial^2\log L(\theta\mid \textbf{X})}{\partial \theta^2} \right]=-E\left[ \sum\limits_{i=1}^{n}\dfrac{\partial^2\log f(X_{i}\mid \theta)}{\partial \theta^2} \right]=\\
+=\sum\limits_{i=1}^{n}E\left[- \dfrac{\partial^2\log f(X_{i}\mid \theta)}{\partial \theta^2} \right]= nI_{F}(\theta).
+\end{array}
+$$
+
+
+## Estimadores eficientes
+
+
+:::{#thm-thm1}
+## Desigualdade da Informação ou Desigualdade de Cramér-Rao
+
+Quando as condições de regularidade estão satisfeitas, a variância de qualquer estimador não viciado $\hat{\theta}$ do parâmetro $\theta$ satisfaz
+
+
+$$Var(\hat{\theta})\geq \dfrac{1}{nI_{F}(\theta)}.$$
+:::
+
+## Exemplo
+
+:::{#exm-exm8}
+Sejam $(X_1,\dots, X_n)$ uma a.a. da v.a. $X \sim Poisson(\theta)$. Obtenha um estimador eficiente para $\theta$.
+:::
+
+
+# [Estatísticas suficientes]{style="float:right;text-align:right;"} {background-color="#027eb6"}
+
+
+## Estatísticas suficientes
+
+`Estatísticas:` resumir a informação trazida pelos dados `sem perda de informação`.
+
+
+
+
+:::{#def-def10}
+## Estatísticas suficientes
+
+Dizemos que a estatística $T = T(X_1,X_2,\dots, X_n)$ é suficiente para $\theta$ quando a distribuição condicional de $X_1,X_2,\dots, X_n$, dado $T$, for independente de $\theta$.
+:::
+
+
+:::{.callout-note}
+Uma estatística é suficiente para $\theta$ se ela condensa toda a informação sobre $\theta$ contida na amostra.
+:::
+
+## Exemplo
+
+:::{#exm-exm9}
+Sejam $(X_1,\dots, X_n)$ uma a.a. da v.a. $X \sim Ber(\theta)$. Verifique se $T=\sum\limits_{i=1}^{n}X_{i}$ suficiente para $\theta$.
+:::
+
+## Estatística suficientes
+
+
+Um procedimento para a obtenção de estatísticas suficientes é o `critério da fatoração`.
+
+<br/>
+
+:::{#def-def11}
+## Critério da Fatoração de Neyman
+
+Sejam $X_1, \dots,X_n$ uma amostra aleatória da distribuição da variável aleatória $X$ com função de densidade (ou de probabilidade) $f(x|\theta)$ e função de verossimilhança $L(\theta\mid \textbf{x})$. Temos, então, que a estatística $T = T (X_1, \dots,X_n)$ é suficiente para $\theta$, se e somente se pudermos escrever
+
+$$L(\theta\mid \textbf{x})=h(x_1, \dots,x_n)g_{\theta}\left[T(x_1, \dots,x_n)\right],$$
+
+onde $h(x_1, \dots,x_n)$ é uma função que depende de $x_1, \dots,x_n$ e $g_{\theta}\left[T(x_1, \dots,x_n)\right]$ uma função que depende de $\theta$ e $x_1, \dots,x_n$ somente através de $T$.
+:::
+
+## Exemplo
+
+:::{#exm-exm10}
+Sejam $(X_1,\dots, X_n)$ uma a.a. da v.a. $X \sim Pois(\theta)$. Determine a estatística suficiente para $\theta$
+:::
+
+
+## Exemplo
+
+:::{#exm-exm11}
+Sejam $(X_1,\dots, X_n)$ uma a.a. da v.a. $X \sim U(0,\theta)$. Determine a estatística suficiente para $\theta$
+:::
+
+
+# [Estatísticas conjuntamente suficientes e Família exponencial]{style="float:right;text-align:right;"} {background-color="#027eb6"}
+
+
+## Introdução
+
+
+
+* Saímos de um cenário em que $\theta$ é uniparamétrico;
+
+* Agora podemos ter situações em que $\mathbf{\theta}=(\theta_{1}, \theta_{2},\dots,\theta_{k})$ representando um vetor de parâmetros;
+
+* Chamamos de caso `multiparamétrico`;
+
+* Além disso podemos verificar se as distribuições de probabilidades pertencem a família de exponencial de distribuições;
+
+* E as vantagens consistem em avaliar as propriedades já vistas.
+
+
+## Estatística conjuntamente suficientes
+
+
+:::{#thm-thm2}
+## Critério da Fatoração para o Caso Multiparamétrico
+
+Sejam $X_1, \dots,X_n$ uma amostra aleatória da distribuição da variável aleatória $X$ com função de verossimilhança $L(\mathbf{\theta}\mid \textbf{x})$. Temos, então, que a estatística $\textbf{T} = (T_1, \dots,T_r),  T_{i}=T_{i}(X_1, \dots,X_n)$ é suficiente para $\mathbf{\theta}$, se e somente se pudermos escrever
+
+$$L(\mathbf{\theta}\mid \textbf{x})=h(x_1, \dots,x_n)g_{\mathbf{\theta}}\left[T_1(\textbf{x}), \dots,T_r(\textbf{x})\right],$$
+onde $h(x_1, \dots,x_n)$ é uma função que depende de $x_1, \dots,x_n$ e $g_{\theta}\left[T_1(\textbf{x}), \dots,T_r(\textbf{x}))\right]$ uma função que depende de $\theta$ e $x_1, \dots,x_n$ somente através de $\textbf{T}$.
+
+:::
+
+## Exemplo
+
+
+:::{#exm-exm12}
+Seja $X_1, \dots,X_n$ uma a.a. de $X \sim N(\mu, \sigma^2)$, onde $\mu$ e $\sigma^2$ são desconhecidos. Obtenha uma estatística conjuntamente suficiente para $\mathbf{\theta}=(\mu, \sigma^2)$.
+:::
+
+## Estatísticas conjuntamente suficientes
+
+
+:::{.callout-note}
+## Observação:
+
+Duas estatísticas $T_1$ e $T_2$ são equivalentes se $T_1$ puder ser obtida a partir de $T_2$ e vice-versa. Nesse caso, se $T_1$ é suficiente para $\mathbf{\theta}$, então $T_2$ também é suficiente para $\mathbf{\theta}$.
+:::
+
+No exemplo anterior, podemos verificar que $\textbf{T}_1 = ( \sum_{i=1}^{n}X_i,\sum_{i=1}^{n}X_i^2)$ e $\textbf{T}_2=(\bar{X},S^2)$
+são equivalentes.
+
+
+## Exemplo
+
+:::{#exm-exm13}
+Seja $X_1, \dots,X_n$ uma a.a. de $X \sim Gama(\alpha, \gamma)$, onde $\alpha$ e $\gamma$ são desconhecidos. Obtenha uma estatística conjuntamente suficiente para $\mathbf{\theta}=(\alpha, \gamma)$.
+:::
+
+
+## Estatísticas suficientes mínimas
+
+:::{#def-def11}
+## Estatística Suficiente Mínima
+
+Uma estatística conjuntamente suficiente é definida ser suficiente mínima se e somente se ela é uma função de todas as outras
+estatísticas suficientes.
+:::
+
+
+:::{.callout-note}
+## Importante
+
+A definição acima é de pouco uso prático para se obter estatísticas suficientes mínimas. Porém, se a densidade conjunta da amostra é corretamente fatorada, o critério da fatoração fornecerá estatísticas suficientes mínimas.
+:::
+
+
+## Família exponencial
+
+:::{#def-def12}
+Dizemos que a distribuição da v.a. $X$ pertence à família exponencial unidimensional se pudermos escrever sua f.p. ou sua f.d.p. como
+
+$$f(x\mid \theta)=\exp\{ c(\theta)T(x) +d(\theta)+ S(x)\}, \quad x\in A,$$
+
+em que $c$ e $d$ são funções reais de $\theta$, $T$ e $S$ são funções reais de $x$ e $A$ não depende de $\theta$.
+:::
+
+. . .
+
+:::{#exm-exm14}
+Verifique se $X \sim Ber(\theta)$, pertence à família exponencial.\vspace{6cm}
+:::
+
+
+## Estatística conjuntamente suficientes
+
+
+> Amostras aleatórias de famílias exponenciais são também membros da família exponencial
+
+
+:::{#thm-thm3}
+Sejam $(X_1,\dots, X_n)$ uma a.a. da v.a. $X$, que pertence à família exponencial unidimensional, ou seja,
+$$f(x\mid \theta)=\exp\{ c(\theta)T(x) +d(\theta)+ S(x)\}, \quad x\in A.$$
+
+Então, a função de verossimilhança é dada por,
+
+$$L(\theta\mid \textbf{x}) = f(x_1,\dots, x_n\mid \theta)=\exp\left\{c^{*}(\theta) \sum_{i=1}^{n}T(x_{i})+d^{*}(\theta)+S^{*}(\textbf{x}) \right\}$$
+
+que também pertence à família exponencial com
+
+$$T(\textbf{x})=\sum_{i=1}^{n}T(x_{i}), \ \ c^{*}(\theta)=c(\theta), \ \ d^{*}(\theta)=n d(\theta), \ \ S^{*}(\textbf{x})=\sum_{i=1}^{n}S(x_{i}) $$
+:::
+
+## Família exponencial e o critério da fatoração
+
+Observe que pelo critério da fatoração de Neyman, temos,
+$$L(\theta\mid \textbf{x})=h(x_1, \dots,x_n)g_{\theta}\left[T_1(\textbf{x}), \dots,T_r(\textbf{x})\right],$$
+
+em que
+
+$$h(x_1, \dots,x_n)=\exp\left\{  S^{*}(\textbf{x})\right\}=\exp\left\{  \sum_{i=1}^{n}S(x_{i})\right\} $$
+
+e
+
+$$g_{\theta}\left[T_1(\textbf{x}), \dots,T_r(\textbf{x})\right]=\exp\left\{c^{*}(\theta)T(\textbf{x}) + d^{*}(\theta)  \right\}$$
+
+Portanto, pelo Critério da Fatoração, a estatística $T(\textbf{x})$ é suficiente para $\theta$.
+
+## Exemplo
+
+:::{#exm-exm14}
+Seja $X_1, \dots,X_n$ uma a.a. de $X \sim Ber(\theta)$. Obtenha uma estatística suficiente para $\theta$.
+:::
+
+
+## Família exponencial
+
+:::{#def-def13}
+Dizemos que a distribuição da v.a. $X$ pertence à família exponencial de dimensão $k$ se pudermos escrever sua f.p. ou sua f.d.p. como
+
+$$f(x\mid \mathbf{\theta})=\exp\left\{ \sum_{j=1}^{k}c_{j}(\theta)T_{j}(x) +d(\mathbf{\theta})+ S(x)\right\}, \quad x\in A,$$
+
+em que $c_j,\  T_{j},\ d$ e $S$ são funções reais de $\theta$, $j=1, \dots k$ e $A$ não depende de $\theta$.
+
+:::
+
+## Família exponencial
+
+
+> Amostras de famílias exponenciais de dimensão $k$ são também membros da família exponencial de dimensão $k$.
+
+
+Para uma a.a. $X_1, \dots,X_n$ de uma v.a. com f.d.p (ou f.p) na família exponencial multiparamétrica, temos que $\left( T_{1}^{*}(\textbf{x}), T_{2}^{*}(\textbf{x}), \dots, T_{k}^{*}(\textbf{x}) \right)$ é conjuntamente suficiente para $\mathbf{\theta}$, com
+
+$$T_{j}^{*}(\textbf{x})=\sum_{i=1}^{n}T_{j}^{*}(x_i)$$
+
+## Exemplo
+
+:::{#exm-exm15}
+Seja $X_1, \dots,X_n$ uma a.a. de $X \sim N(\mu, \sigma^2)$. Verifique se $X$ pertence à família exponencial bidimensional.
+:::
+
+## Resumo
+
+
+
+
+|População | Estatística Suficiente|
+|-------|-----------------------------|
+|$X\sim Ber(\theta)$ | $T=\sum_{i=1}^{n}X_{i}$ é suficiente para $\theta$|
+|$X\sim U(0,\theta)$ | $T=X_{(n)}=\max(X_1, \dots,X_n)$ é suficiente para $\theta$|
+|$X\sim N(\mu, 1)$ | $T=\sum_{i=1}^{n}X_{i}$ é suficiente para $\mu$|
+|$X\sim N(0, \sigma^2)$ | $T=\sum_{i=1}^{n}X_{i}^2$ é suficiente para $\sigma^2$|
+|$X\sim N(\mu, \sigma^2)$ | $T=(\sum_{i=1}^{n}X_{i}, \sum_{i=1}^{n}X_{i}^2)$ é conjuntamente suficiente para $\mathbf{\theta}=(\mu,\sigma^2)$|
+|$X\sim Pois(\theta)$ | $T=\sum_{i=1}^{n}X_{i}$ é suficiente para $\theta$|
+|$X\sim Exp(\theta)$ | $T=\sum_{i=1}^{n}X_{i}$ é suficiente para $\theta$|
+|$X\sim Gama(\alpha, \gamma)$ | $T=(\prod_{i=1}^{n}X_{i},\sum_{i=1}^{n}X_{i})$ é conjuntamente suficiente para $\mathbf{\theta}=(\alpha,\gamma)$|
+|$X\sim Beta(a, b)$ | $T=(\prod_{i=1}^{n}X_{i},\prod_{i=1}^{n}(1-X_{i}))$ é conjuntamente suficiente para $\mathbf{\theta}=(a, b)$|
+
+
+
+
+
+# [Teorema de Rao-Blackwell]{style="float:right;text-align:right;"} {background-color="#027eb6"}
+
+## Teorema de Rao-Blackwell
+
+:::{#thm-thm4}
+
+Sejam $X_1, \dots,X_n$ uma amostra aleatória da distribuição da variável aleatória $X$ com função de densidade $f(x\mid\theta)$. Temos,
+então, $T=T(X_1, \dots,X_n)$ uma estatística suficiente para $\theta$, e $S$ um estimador não viciado para $\theta$ que não é função de $T$. Seja $\hat{\theta}=E(S\mid T)$, então:
+
+
+1. $\hat{\theta}$ é uma estatística e é função da estatística suficiente $T$;
+
+2. $E(\hat{\theta})=\theta$;
+
+3. $Var(\hat{\theta})\leq Var(S)$, para todo $\theta$, e $Var(\hat{\theta})< Var(S)$ para pelo menos um valor de $\theta$, a menos que $S=\hat{\theta}$, com probabilidade um.
+:::
+
+
+
+`Interpretação:` Dado um estimador não-viciado, podemos obter outro estimador não-viciado que é função de uma estatística suficiente, e ele `terá variância menor`.
+
+
+## Teorema de Rao-Blackwell
+
+`Demonstração:`
+
+
+ii. $E(\hat{\theta})=E(E(S\mid T))=E(S)=\theta$ (Estimador não viciado!!)
+
+iii. $Var(S)=E(Var(S\mid T))+Var(E(S\mid T))=\underset{\geq 0}{E(Var(S\mid T))}+Var(\hat{\theta})$.
+
+Portanto, $Var(\hat{\theta})\leq Var(S)$.
+
+
+## Exemplo
+
+:::{#exm-exm16}
+Sejam $X_1, \dots,X_n$ uma a.a. da v.a. $X \sim Ber(\theta)$. Vamos obter um estimador para $\theta$ que seja função de uma estatística suficiente.
+:::
+
+## Exemplo
+
+:::{#exm-exm17}
+Sejam $X_1, \dots,X_n$ uma a.a. da v.a. $X \sim Pois(\theta)$. Vamos obter um estimador para $P(X = 0) = \exp\{ -\theta\}$, que seja função de uma estatística suficiente.
+:::
+
+
+## Teorema de Rao-Blackwell
+
+* Através do Teorema de Rao-Blackwell conseguimos melhorar um estimador não-viciado.
+
+* Qual a relação entre $\hat{\theta}=E(S\mid T)$ e o `ENVVUM` ?
+
+
+## Estatísticas completas
+
+:::{#def-def14}
+Uma estatística $T = T(X_1, \dots, X_n)$ é dita ser completa em relalção à família $f(x\mid \theta)$, $\theta\in \Theta$, se a única função real $g$, definida no domínio de $T$, tal que $E(g(T)) = 0$ para todo $\theta$ é a função nula, isto é, $g(T) = 0$ com probabilidade um.
+
+:::
+
+* $T$ é completa se, e somente se, $E(g(T)) = 0$, $\theta\in \Theta$, implicar que
+
+$$P(g(T) = 0) = 1,\ \theta\in \Theta$$.
+
+
+
+## Exemplo
+
+:::{#exm-exm18}
+Sejam $X_1, \dots,X_n$ uma a.a. da v.a. $X \sim Ber(\theta)$. Considere as estatísticas $T_{1}=\sum_{i=1}^{n}X_{i}$ e $T_{2}=X_{1}-X_{2}$. Verifique se $T_{1}$ e $T_{2}$ são estatísticas completas.
+:::
+
+
+
+
+## Estatísticas completas pela família exponencial
+
+:::{#thm-thm5}
+Suponha que $X$ tenha distribuição na família exponencial $k-$dimensional. Então, a estatística
+
+$$T(\textbf{X})=\left( \sum_{i=1}^{n}T_{1}(X_{i}), \dots, \sum_{i=1}^{n}T_{k}(X_{i}) \right),$$
+
+é suficiente para $\theta$. $T(\textbf{X})$ será também completa desde que o domínio de variação de $(c_1(\theta), \dots, c_k(\theta))$ contenha um retângulo $k-$dimensional.
+:::
+
+## Lehmann-Scheffé
+
+:::{#thm-thm6}
+Seja $T$ uma estatística suficiente e completa, e seja S um estimador não-viciado para $\theta$. Então,  $\hat{\theta}=E(S\mid T)$ é o único estimador não-viciado para $\theta$, baseado em $T$, e é o `Estimador não-viciado de variância uniformemente mínima (ENVVUM)` para $\theta$.
+:::
+
+## Exemplo
+
+:::{#exm-exm19}
+Sejam $X_1, \dots,X_n$ uma a.a. da v.a. $X \sim Pois(\theta)$. Obtenha um ENVVUM para $\theta$.
+:::
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+

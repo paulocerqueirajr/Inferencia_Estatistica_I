@@ -817,15 +817,53 @@ $\vdots$
 Para $n=n \quad \Rightarrow \quad  \hat{p}_{n}=\dfrac{X_{1}+X_{2}+\dots+X_{n}}{n}.$
 
 
+
 ## Teorema de convergência
 
-<!-- %\centering -->
+* Ao gerar uma amostra de tamanho $n=1,2,3, \dots, 1000$ e calcular a proporção amostral em cada uma delas tem-se o seguinte resultado:
 
-![](LGN.png){width="100%"}
+:::columns
+::::column
+```{r, eval=FALSE}
+n <- seq(1,1000)
+p <- rep(NA, length(n))
 
-<!-- \begin{center}  -->
-<!-- \scalebox{0.65}{\includegraphics{LGN.png}} -->
-<!-- \end{center} -->
+for(i in 1:length(n)){
+  p[i] <- mean(rbinom(n[i], 
+                      size = 1, 
+                      prob = 0.5))
+}
+plot(n, p, type="l", 
+     ylab = "Proporção Amostral", 
+     xlab="n")
+abline(h=0.5, col="red")
+legend("topright", c("Real", "Estimado"), 
+       col=c("red", "black"), lty=1)
+```
+::::
+::::column
+
+```{r, echo=FALSE}
+n <- seq(1,1000)
+p <- rep(NA, length(n))
+
+for(i in 1:length(n)){
+  p[i] <- mean(rbinom(n[i], 
+                      size = 1, 
+                      prob = 0.5))
+}
+plot(n, p, type="l", 
+     ylab = "Proporção Amostral", 
+     xlab="n")
+abline(h=0.5, col="red")
+legend("topright", c("Real", "Estimado"), 
+       col=c("red", "black"), lty=1)
+```
+::::
+:::
+
+
+
 
 ## Teorema central do limite
 
@@ -861,14 +899,67 @@ $$Z_{n}=\dfrac{\overline{X}_{n}-\mu}{\sqrt{\sigma^2 /n}}\rightarrow N(0,1).$$
 
 ## Representação do TCL graficamente
 
+* Ao gerar um $100$ amostras de tamanho $n=1,2,3, \dots, 1000$ e calcular a média amostral em cada uma delas, supondo $X\sim N(10,4)$, tem-se o seguinte resultado:
 
-<!-- \centering -->
 
-![](TCL.png){width="90%"}
+```{r, echo=FALSE, fig.align='center', fig.height=8, fig.width=14, message=FALSE, warning=FALSE}
+n <- c(1, 5, seq(10,90, by=10), seq(100,1000, by=100)) 
+n.sim <- 100
 
-<!-- \begin{center}  -->
-<!-- \scalebox{0.8}{\includegraphics{TCL.png}} -->
-<!-- \end{center} -->
+med    <- c()
+n.size <- c() 
+
+for(i in 1:length(n)){
+  for(j in 1:n.sim){
+    
+    med    <- c(med, mean(rnorm(n[i],mean = 10, 2)))
+    n.size <- c(n.size, n[i]) 
+  }
+}
+
+dados <- data.frame(med, n.size)
+
+library(plotly)
+library(ggplot2)
+
+p <- ggplot(dados)+geom_jitter(aes(x =factor(n.size), y=med), width=0.1, alpha=0.25)+ 
+  geom_hline(yintercept = 10, color="red")+xlab("Tamanho amostral")+ 
+  ylab("Média amostral") + labs(title = "Exemplo TCL - X ~ N(10,4)")+
+  theme(text = element_text(size = 20))
+ggplotly(p)
+
+```
+
+
+## Teorema de convergência
+
+* Ao gerar um $100$ amostras de tamanho $n=1,2,3, \dots, 1000$ e calcular a média amostral em cada uma delas, supondo $X\sim N(10,4)$, tem-se o seguinte resultado:
+
+::: {.callout-note}
+# Código de geração da figura:
+
+```{r, eval=FALSE}
+
+
+library(plotly); library(ggplot2)
+n <- c(seq(1,100, by=19), seq(200,1000, by=100)) 
+n.sim <- 100;med <- c(); n.size <- c() 
+for(i in 1:length(n)){
+  for(j in 1:n.sim){
+    med    <- c(med, mean(rnorm(n[i],mean = 10, 2)))
+    n.size <- c(n.size, n[i]) 
+  }
+}
+dados <- data.frame(med, n.size)
+p <- ggplot(data=dados, aes(x = factor(n.size), y = med)) + geom_point() + 
+  geom_hline(yintercept = 10, color="red") + xlab("Tamanho amostral") + 
+  ylab("Média amostral") + labs(title = "Exemplo TCL - X ~ N(10,4)")
+ggplotly(p)
+
+
+```
+:::
+
 
 ## Algumas distribuições exatas
 
@@ -1471,7 +1562,7 @@ $$X = \frac{U / m}{V / n} \quad \text{tem distribuição} \quad F_{m, n}.$$
 
 :::{#cor-cor5} 
 
-Se $ X_1, \dots, X_{m+1} $ é uma amostra aleatória de tamanho $ m+1 $ de uma população $ N(\mu_X, \sigma^2) $. Considere $ Y_1, \dots, Y_{n+1} $ uma amostra aleatória de tamanho $ n+1 $ de uma população $ N(\mu_Y, \sigma^2) $. 
+Se $X_1, \dots, X_{m+1}$ é uma amostra aleatória de tamanho $m+1$ de uma população $N(\mu_X, \sigma^2)$. Considere $Y_1, \dots, Y_{n+1}$ uma amostra aleatória de tamanho $n+1$ de uma população $N(\mu_Y, \sigma^2)$. 
 
 :::
 
@@ -1481,6 +1572,38 @@ $$ \frac{1}{\sigma^2} \sum_{j=1}^{m+1} (X_j - \bar{X})^2 \sim \chi^2_m \quad \te
 
 e a estatística
 $$ \frac{\sum_{j=1}^{m+1} (X_j - \bar{X})^2 / m}{\sum_{i=1}^{n+1} (Y_i - \bar{Y})^2 / n} \sim F_{m, n}.$$
+
+
+## Distribuição F
+
+<!-- Fecharemos esta subseção com algumas observações sobre a distribuição $F$. -->
+
+:::{.callout-note}
+## Observação 1:
+
+* Se $X \sim F_{m, n}$, então $E(X) = \frac{n}{n - 2} \quad \text{para} \quad n > 2$
+
+e 
+
+$$\text{Var}(X) = \frac{2n^2 (m + n - 2)}{m (n - 2)^2 (n - 4)} \quad \text{para} \quad n > 4.$$
+:::
+
+:::{.callout-note}
+## Observação 2:
+
+* Se $X \sim F_{m, n}$, então $\frac{1}{X} \sim F_{n, m}$.
+
+* Este resultado permite que a distribuição $F$ seja tabelada usando apenas a calda superior.
+
+* Por exemplo, se o quantil $\xi_{0.95}$ é dado para uma $F_{m, n}$, o quantil $\xi^*_{0.05}$ para uma $F_{n, m}$ é dado por $\frac{1}{\xi_{0.95}}$.
+
+:::
+
+
+## Distribuição F
+
+
+![](qui_quadrado.png)
 
 
 
@@ -1503,7 +1626,8 @@ $$X=\dfrac{Z}{\sqrt{U/k}}.$$
 $$
 \begin{array}{lll}
 f_{Z,U}(z,u)&=&f_{Z}(z)f_{U}(u)\\
-&=& (2\pi)^{-1/2}\exp\left\{ -\dfrac{1}{2}z^{2} \right\}\dfrac{1}{\Gamma{(k/2)}}\left(\dfrac{1}{2}\right)^{k/2}u^{\frac{k}{2}-1}\exp\left\{ -\dfrac{1}{2}u \right\}I_{(-\infty,\infty)}(v)I_{(0,\infty)}(u)
+&=& (2\pi)^{-1/2}\exp\left\{ -\dfrac{1}{2}z^{2} \right\}\dfrac{1}{\Gamma{(k/2)}}\\
+&\times&\left(\dfrac{1}{2}\right)^{k/2}u^{\frac{k}{2}-1}\exp\left\{ -\dfrac{1}{2}u \right\}I_{(-\infty,\infty)}(v)I_{(0,\infty)}(u)
 \end{array}
 $$
 
@@ -1571,14 +1695,21 @@ $$
 ## Distribuição t-Student
 
 
-`Teorema 9 (Distribuição t-Student):`  Se $X$ é uma v.a. com f.d. igual a anterior, então dizemos que $X$ segue a distribuição t-Student com $k$-graus de liberdade.
+:::{#thm-thm10} 
+## Distribuição t-Student  
 
-* Notação:$t_{k}$.
+Se $X$ é uma v.a. com f.d. igual a anterior, então dizemos que $X$ segue a distribuição t-Student com $k$-graus de liberdade.
+:::
 
-`Teorema 10:`  Se $Z\sim N(0,1)$ e $U\sim\chi_{k}^{2}$ são v.a's independentes, então 
+* `Notação:` $t_{k}$.
+
+:::{#thm-thm11} 
+
+Se $Z\sim N(0,1)$ e $U\sim\chi_{k}^{2}$ são v.a's independentes, então 
 
 $$X=\dfrac{Z}{\sqrt{U/k}}\sim t_{k}.$$
 
+:::
 
 ## Distribuição t-Student
 
@@ -1588,7 +1719,10 @@ aplicável quando consideramos a amostragem a partir da distribuição
 Normal.
 
 
-`Corolário 4:` Considere $X_{1}, X_{2}, \dots, X_{n}$ uma a.a. da $N(\mu, \sigma^2)$, então $Z=(\overline{X}-\mu)/(\sigma/\sqrt{n})\sim N(0,1)$  e $\dfrac{1}{\sigma^2}\sum_{i=1}^{n}(X_{i}-\overline{X})^2\sim \chi_{n-1}^{2}$.
+:::{#cor-cor6} 
+
+Considere $X_{1}, X_{2}, \dots, X_{n}$ uma a.a. da $N(\mu, \sigma^2)$, então $Z=(\overline{X}-\mu)/(\sigma/\sqrt{n})\sim N(0,1)$  e $\dfrac{1}{\sigma^2}\sum_{i=1}^{n}(X_{i}-\overline{X})^2\sim \chi_{n-1}^{2}$.
+:::
 
 * Além disso $Z$ e $U$ são independentes (`Teorema 8`). Sendo assim, a seguinte v.a
 
@@ -1598,22 +1732,21 @@ $$\dfrac{Z}{\sqrt{U/n-1}}=\dfrac{(\overline{X}-\mu)/(\sigma/\sqrt{n})}{\sqrt{\df
 ## Distribuição t-Student
 
 
-`Observações:`
+:::{.callout-note}
+## Observações:
 
-* Quando o grau de liberdade é igual a 1, a distribuição t-Student se torna a distribuição Cauchy.
+* Quando o grau de liberdade é igual a 1, a `distribuição t-Student` se torna a `distribuição Cauchy`.
 
-* Conforme o grau de liberdade cresce, a distribuição t-Student se 
-aproxima da distribuição $N(0,1)$.
+* Conforme o grau de liberdade cresce, a distribuição t-Student se aproxima da distribuição $N(0,1)$.
 
-* O quadrado de uma variável aleatória com distribuição $t_k$ terá 
-distribuição $F_{1,k}$ . Isto é, se $Y\sim t_k$ então $Y^{2}\sim F_{1, k}$ .
+* O quadrado de uma variável aleatória com distribuição $t_k$ terá distribuição $F_{1,k}$ . Isto é, se $Y\sim t_k$ então $Y^{2}\sim F_{1, k}$ .
 
 * Se $X$ é uma variável aleatória com distribuição $t_{k}$, então
 
 
 $E(X)=0,\quad \text{se} \ k>1$ e $Var(X)=\dfrac{k}{k-2},\quad \text{se} \ k>2$.
 
-
+:::
 
 
 
