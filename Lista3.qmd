@@ -1,0 +1,190 @@
+---
+title: "Inferência Estatística I"
+subtitle: "Lista 3"
+author: 
+  - name: Paulo Cerqueira Jr
+    affiliations:
+      - name: Faculdade de Estatística - FAEST
+        address: 500 Lafayette Road Saint Paul, MN 55155
+      - name: Universidade Federal do Pará - UFPA
+        department: Instituto de Ciências Exatas e Naturais - ICEN
+    email: cerqueirajr@ufpa.br
+    orcid: "https://orcid.org/0000-0002-6310-5040"
+    url: "https://github.com/paulocerqueirajr"
+format: html
+editor: visual
+lang: pt
+---
+
+
+:::{#exr-exr26}
+
+Em estudos de genética, o modelo Binomial é frequentemente utilizado, exceto quando a observação $x = 0$, pois é impossível de ocorrer. Nestes casos, a amostragem será realizada a partir da seguinte distribuição truncada:
+
+:::
+
+$$P(X = x)=
+\begin{cases}
+\binom{m}{x} p^x (1 - p)^{m-x} / \left[ 1 - (1 - p)^m \right], & \text{se } x \in \{1, 2, \dots, m\} \\
+0, & \text{caso contrário}.
+\end{cases}$$
+
+Encontre o EMV para $p$ para quando $m = 2$ e o tamanho da amostra é $n$.
+
+:::{#exr-exr27}
+
+Sejam $X_1, \dots, X_n$ uma a.a. da v.a. $X \sim \text{Exp}(\lambda)$.
+
+Encontre o EMV para $\lambda$.
+
+:::
+
+:::{#exr-exr28}
+Seja $X_1, \dots, X_n$ uma a.a. de $X \sim \text{Unif}(\theta, \theta + 1)$.
+:::
+
+a. Obtenha um estimador via método de momentos.
+
+b. Obtenha um estimador via método da máxima verossimilhança.
+
+::: {#exr-exr29}
+
+Seja $X_1, \dots, X_n$ uma amostra aleatória da v.a. $X \sim \text{Gama}(2, 1/\theta)$.
+
+:::
+
+a. Obtenha o EMV para $\theta$.
+
+b. Obtenha a distribuição para grandes amostras do estimador obtido no item a).
+
+::: {#exr-exr30}
+
+Seja $X_1, \dots, X_n$ uma amostra aleatória da v.a. $X$, com função de densidade dada por:
+
+:::
+
+$$
+f(x \mid \theta) = \frac{x + 1}{\theta (\theta + 1)} \exp\left\{-\frac{x}{\theta}\right\}, \quad x > 0, \theta > 0.
+$$
+
+a. Obtenha o EMV para $\theta$.\
+
+b. Obtenha a distribuição para grandes amostras do estimador obtido no item a).\
+
+c. Obtenha um estimador via método de momentos.
+
+::: {#exr-exr31}
+
+Seja $X_1, \dots, X_n$ uma amostra aleatória da v.a. $X \sim \text{Poisson}(\theta)$. Seja $g(\theta) = \exp\{-\theta\}$.
+
+:::
+
+a. Obtenha o EMV para $g(\theta)$.
+
+b. Obtenha a distribuição para grandes amostras do estimador obtido no item a).
+
+:::{#exr-exr32}
+
+Seja $X_1, \dots, X_n$ uma amostra aleatória da v.a. $X \sim N(0, \sigma^2)$.
+
+:::
+
+a. Obtenha o EMV para $\sigma^2$.
+
+b. Obtenha o EMV para $\sigma$.
+
+::: {#exr-exr33}
+
+Seja $X_1, \dots, X_n$ uma amostra aleatória da v.a. $X$, com função de densidade dada por:
+
+:::
+
+$$
+f(x \mid \theta) = \theta (1 + x)^{-(1+\theta)} I_{(0, \infty)}(x), \quad \theta > 0.
+$$
+
+a. Obtenha o EMV para $1/\theta$.\
+
+b. Obtenha a distribuição para grandes amostras do estimador obtido no item a).\
+
+c. Obtenha um estimador via método de momentos.
+
+:::{#exr-exr34}
+
+Seja $X_1, \dots, X_n$ uma amostra aleatória da v.a. $X \sim \text{Poisson}(\theta)$. Seja $g(\theta) = (1 + \theta) \exp\{-\theta\}$.
+
+Obtenha o EMV para $g(\theta)$.
+
+:::
+
+:::{#exr-exr35}
+
+Seja $X_1, \dots, X_n$ uma amostra aleatória da v.a. $X$, com função de densidade dada por:
+
+:::
+
+$$
+f(x \mid \theta) = \theta x^{\theta - 1} I_{(0, 1)}(x), \quad \theta > 0.
+$$
+
+a. Encontre o EMV para $\theta$.
+
+b. Encontre o EMV para $g(\theta) = \frac{\theta}{1 + \theta}$.
+
+::: {#exr-exr36}
+
+Seja $X_1, \dots, X_n$ uma amostra aleatória da v.a. $X$, com função de densidade dada por:
+
+:::
+
+$$
+f(x \mid \theta) = \frac{2x}{\theta^2}, \quad 0 < x < \theta, \theta > 0.
+$$
+
+a. Obtenha o EMV para $g(\theta) = \theta + \theta^2$.\
+
+b. Obtenha um estimador para $\theta$ via métodos de momentos.
+
+::: {#exr-exr37}
+
+Seja $X_1, \dots, X_n$ uma amostra aleatória da v.a. $X$, com função de densidade dada por:
+
+:::
+
+$$
+f(x \mid \theta) = \frac{\theta}{x^2}, \quad x > \theta, \theta > 0.
+$$
+
+a. Obtenha o EMV para $\theta$.\
+
+b. Obtenha o EMV para $g(\theta) = E\left(\frac{1}{X}\right)$.
+
+::: {#exr-exr38}
+
+Seja $X_1, \dots, X_n$ uma amostra aleatória obtida a partir da distribuição:
+
+:::
+
+$$f(x) = \exp\{-(x - \theta)\} I_{(\theta, \infty)}(x), \quad \theta > 0.$$
+
+a. Obtenha o EMV para $\theta$.
+
+b. Obtenha um estimador para $\theta$ via métodos de momentos.
+
+::: {#exr-exr39}
+
+Seja $Y_1, \dots, Y_n$ variáveis aleatórias independentes com $Y_i \sim N(\alpha + \beta x_i, \sigma^2)$, em que $x_i$ é conhecido para todo $i = 1, \dots, n$.\
+
+Encontre o EMV para $\alpha$, $\beta$ e $\sigma^2$.
+
+:::
+
+::: {#exr-exr40}
+
+Seja $X_1, \dots, X_n$ uma amostra aleatória da v.a. $X \sim \text{Ber}(\theta)$.
+
+:::
+
+a. Encontre o EMV para $\text{Var}(X)$.\
+
+b. Obtenha a distribuição para grandes amostras do estimador obtido no item a).
