@@ -154,7 +154,7 @@ $$\ell^{'}(\theta\mid x)=\dfrac{d}{d\theta}\ell^{}(\theta\mid x)=0.$$
 
 3. Para verificar se $L(\hat{\theta}\mid x)$ é um ponto de máximo, basta tomar:
 
-$$\ell^{''}(\theta\mid x)=\dfrac{d}{d\theta}\ell^{'}(\theta\mid x)\mid_{\theta=\hat{\theta}}<0.$$
+$$\ell^{''}(\theta\mid x)=\dfrac{d}{d\theta}\ell^{'}(\theta\mid x)\bigg|_{\theta=\hat{\theta}}<0.$$
 
 
 . . .
@@ -486,7 +486,7 @@ $$L(\theta\mid \textbf{x}, \textbf{y})=L(\theta\mid \textbf{x})\times L(\theta\m
 * A função de log verossimilhança é dada por
 
 
-$$\ell(\theta\mid \textbf{x}, \textbf{y})=\log L(\theta\mid \textbf{x}, \textbf{y})=\log L(\theta\mid \textbf{x})\times \log L(\theta\mid \textbf{y})=\ell(\theta\mid \textbf{x})\times \ell(\theta\mid \textbf{y})$$
+$$\ell(\theta\mid \textbf{x}, \textbf{y})=\log L(\theta\mid \textbf{x}, \textbf{y})=\log L(\theta\mid \textbf{x})+ \log L(\theta\mid \textbf{y})=\ell(\theta\mid \textbf{x})+ \ell(\theta\mid \textbf{y})$$
 
 ## Exemplo
 
