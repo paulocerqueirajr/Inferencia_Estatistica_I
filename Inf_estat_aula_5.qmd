@@ -1,0 +1,868 @@
+---
+format: 
+  revealjs:
+    theme: ["theme/q-theme.scss"]
+    slide-number: c/t
+    #logo: "https://www.faest.icen.ufpa.br/images/110.png"
+    footer: "[https://github.com/paulocerqueirajr](https://https://github.com/paulocerqueirajr)"
+    code-copy: true
+    center-title-slide: false
+highlight-style: a11y
+code-link: true
+height: 1080
+width: 1600
+execute: 
+  eval: true
+  echo: true
+lang: pt
+---
+
+<h1> Inferência Estatística I </h1>
+
+<h2> Intervalos de confiança </h2>
+
+<hr>
+
+<br>
+
+<h3> Prof. Paulo Cerqueira Jr <br>
+Faculdade de Estatística - FAEST <br> 
+Instituto de Ciências Exatas e Naturais - ICEN
+</h3>
+
+<h3>  </h3>
+<br>
+
+<h3> [https://github.com/paulocerqueirajr](https://https://github.com/paulocerqueirajr)
+
+![](github.jpg){.absolute top=560 left=845 height="80"}
+
+![](faest.png){.absolute top=5 left=1400 height="200"}
+
+
+
+# [Introdução]{style="float:right;text-align:right;"} {background-color="#027eb6"}
+
+## Introdução
+<hr>
+<br/>
+<br/>
+
+
+* Tudo que vimos até agora estava relacionado a `estimação pontual`.
+<br/>
+		
+* Dessa forma a inferência é baseada somente em um valor.
+<br/>
+		
+* E como cada `estimador pontual` é uma variável aleatória e uma distribuição de probabilidade, podemos obter uma estimativa mais informativa para o parâmetro de interesse.
+<br/>
+
+* Que implica em encontrar maior precisão para o valor obtido, dando uma ideia de variabilidade do estimador.
+		
+
+
+## Quantidade Pivotal
+<hr>
+
+<br/>
+<br/>
+
+
+:::{#def-def1}
+Uma v.a. $Q(X_1,X_2,\dots ,X_n; \theta) = Q(\textbf{X}; \theta)$ é dita ser uma quantidade pivotal para o parâmetro $\mu$ se sua distribuição for independente de $\theta$.
+:::
+
+* Observe que $Q(\textbf{X}; \theta)$ não é uma estatística, pois seu valor depende de $\theta$. 
+
+* Podemos, para cada $0 < \gamma < 1$ fixado, encontrar $\lambda_1$ e $\lambda_2$ na distribuição de $Q(\textbf{X}; \theta)$ de modo que
+
+$$P(\lambda_1\leq  Q(\textbf{X}; \theta)\leq \lambda_2 )=\gamma.$$
+
+
+## Quantidade pivotal
+<hr>
+
+
+* Se para cada $\textbf{X}$ existirem $t_{1}(\textbf{X})$ e $t_{2}(\textbf{X})$
+
+
+$$\lambda_1\leq  Q(\textbf{X}; \theta)\leq \lambda_2\Leftrightarrow t_{1}(\textbf{X})\leq  \theta \leq t_{2}(\textbf{X}) $$
+
+então
+
+$$P( t_{1}(\textbf{X})\leq  \theta \leq t_{2}(\textbf{X}) )=\gamma.$$
+
+
+* Assim, $[t_1(\textbf{X}); t_2(\textbf{X})]$ é um intervalo aleatório que contém $\theta$ com coeficiente de confiança $\gamma$, chamado de Intervalo de Confiança para $\theta$.
+
+::: {.callout-note appearance="simple"}
+## Importante:
+
+A notação usada para referenciar intervalos de confiança é:
+
+$$IC(\theta, \gamma \%).$$
+:::
+
+## Quantidade pivotal
+<hr>
+
+<br/>
+
+
+
+::: {.callout-note appearance="simple"}
+## Observação 1:
+
+Em geral, quando a v.a. $X$ é discreta não conseguimos determinar $\lambda_1$ e $\lambda_2$ que satisfazem a expressão exatamente. Neste caso, os valores de $\lambda_1$ e $\lambda_2$ devem satisfazer a expressão para um coeficiente de confiança maior ou igual a $\gamma$ (o mais próximo possível).
+:::
+<br/>
+
+. . .
+
+::: {.callout-note appearance="simple"}
+## Observação 2:
+
+Existem muitos pares $(\lambda_1; \lambda_2)$ satisfazendo a expressão, devemos escolher aquele que produz o intervalo de menor comprimento.
+:::
+
+## Exemplo:
+<hr>
+
+:::{#exr-exr1}
+Seja $X_1,X_2,\dots, X_n$ uma a.a. de $X \sim Exp(\theta)$. Construa um intervalo de confiança (I.C.) para $\theta$.
+:::
+. . . 
+
+<br/>
+
+Podemos mostrar que $T =\sum\limits_{i=1}^{n}X_{i}$ é suficiente para $\theta$, e $T\sim Gama(n; \theta)$. Logo, $T$ não pode ser considerada uma quantidade pivotal para $\theta$. Por outro lado, também podemos
+mostrar que
+
+. . .
+
+$$Q(\textbf{X}; \theta) = 2\theta \sum\limits_{i=1}^{n}X_{i}\sim \chi_{2n}^{2}.$$
+
+Agora $Q$ é uma quantidade pivotal. Então,
+
+$$P(\lambda_1\leq  2\theta \sum\limits_{i=1}^{n}X_{i}\leq \lambda_2 )=\gamma.$$
+
+## Exemplo:
+<hr>
+<br/>
+Isolando o $\theta$ temos,
+
+$$\lambda_1\leq  2\theta \sum\limits_{i=1}^{n}X_{i}\leq \lambda_2 \Leftrightarrow  \dfrac{\lambda_{1}}{2\sum\limits_{i=1}^{n}X_{i}}\leq \theta \leq \dfrac{\lambda_{2}}{2\sum\limits_{i=1}^{n}X_{i}}$$
+
+Logo, 
+
+$$IC(\theta, \gamma\%)=\left[\dfrac{\lambda_{1}}{2\sum\limits_{i=1}^{n}X_{i}}; \dfrac{\lambda_{2}}{2\sum\limits_{i=1}^{n}X_{i}} \right].$$
+
+## Exemplo
+<hr>
+<br/>
+
+Supondo que temos uma amostra aleatória de tempos de vida de aparelhos eletrônicos, e queremos calcular o $IC(\theta, 90\%)$.
+
+$$\left\{
+\begin{array}{l}
+n=20\\
+\bar{X}=3,975 \Leftrightarrow \sum_{i=1}^{n}X_{i}=n*\bar{X}=20*3,975=79,5\\
+\chi_{2*20}^{2}=\chi_{40}^{2}\\
+\end{array}
+\right.$$
+
+
+Os valores de $\lambda_{1}$ e $\lambda_{2}$ são tais que $P(\lambda_{1}\leq  \chi_{40}^{2}\leq \lambda_{2})=90\%.$
+
+
+## Exemplo
+<hr>
+<br/>
+
+Como existirão vários pares de valores $(\lambda_1; \lambda_2)$ na distribuição $\chi_{40}^{2}$ satisfazendo a condição
+acima, tomaremos aquele par que satisfaz também
+
+$$P(\chi_{40}^{2}\leq \lambda_{1})=\dfrac{1-0,9}{2}=0,05=P(\chi_{40}^{2}\geq \lambda_{2})$$
+
+Logo, $\lambda_{1}=26,51$ e $\lambda_{2}=55,76$,
+
+
+$$IC(\theta, 90\%)=\left[\dfrac{26,51}{2*79,5}; \dfrac{55,76}{2*79,5}\right]=\left[0,17;0,35\right].$$
+
+. . .
+
+
+::: {.callout-note appearance="simple"}
+## Interpretação:
+
+Este intervalo contém o verdadeiro valor de $\theta$ com probabilidade de 90\%, ou seja, de cada 100 intervalos numéricos construídos desta forma, aproximadamente 90% deles vão conter o valor verdadeiro de $\theta$.
+:::
+
+## Graficamente
+
+Intervalos de confiança com $\gamma=0,9$.
+
+```{r fig_int, echo=FALSE, message=FALSE, warning=FALSE, comment="", fig.height=8, fig.width=8, fig.align='center'}
+	
+
+# ## Código para o intervalo de confiança:
+	# 
+	# 	# Número de réplicas:
+	# 	rept=10
+	# 	# Tamanho amostral para cada réplica:
+	# 	n=1000
+	# 	# Média:
+	# 	mu=10
+	# 	# Variância:
+	# 	sigma2=9
+	# 	# Confiança:
+	# 	gama=0.9
+	# 
+	# 	## Realizando o gráfico:
+	# 
+	# 	plot(x=0,y=0,ylim=c((mu-0.5),(mu+0.5)),xlim=c(0,(rept+1)), xlab="Amostras", ylab="IC 90%")
+	# 	abline(h=mu,col='red')
+	# 	for(r in 1:rept){
+	# 		x=rnorm(n,mu,sqrt(sigma2))
+	# 		erro=sqrt(sigma2)*qnorm((.5+gama/2))/sqrt(n)
+	# 		ic=c((mean(x)-erro),(mean(x)+erro))
+	# 		lines(y=ic,x=c(r,r))
+	# 		#Sys.sleep(0.2)
+	# 	}
+		
+		# Função para visualizar a interpretação de um intervalo de confiança
+library(ggplot2)
+library(gganimate)
+library(gifski)
+library(av)
+
+# Função para visualizar a interpretação de um intervalo de confiança com animação e salvar como GIF
+plot_confidence_intervals <- function(N = 30, mean = 0, sd = 1, n = 30, alpha = 0.05, filename = "intervalos_confiança.gif") {
+  set.seed(123)
+  intervals <- data.frame(
+    sample_id = 1:N,
+    lower = rnorm(N, mean, sd / sqrt(n)) - qnorm(1 - alpha / 2) * (sd / sqrt(n)),
+    upper = rnorm(N, mean, sd / sqrt(n)) + qnorm(1 - alpha / 2) * (sd / sqrt(n)),
+    contains_theta = NA
+  )
+  intervals$contains_theta <- ifelse(intervals$lower <= mean & intervals$upper >= mean, "Sim", "Não")
+  
+  p <- ggplot(intervals, aes(x = sample_id, ymin = lower, ymax = upper, color = contains_theta)) +
+    geom_errorbar(width = 0.3) +
+    geom_hline(yintercept = mean, linetype = "dashed", color = "black") +
+    scale_color_manual(values = c("Sim" = "blue", "Não" = "red")) +
+    ggtitle("") +
+    xlab("Amostras") + ylab("Intervalo de Confiança") +
+    theme_minimal() +
+    transition_states(sample_id, transition_length = 1, state_length = 1) +
+    enter_fade() + exit_fade()
+  
+  #anim <- animate(p, renderer = gifski_renderer(), width = 800, height = 600, fps = 10, duration = 5)
+  #anim_save(filename, animation = anim)
+  p
+}
+
+# Gerando e salvando gráfico animado
+plot_confidence_intervals(N = 10, mean = 5, sd = 1, n = 1000, alpha = 0.05, filename = "intervalos_confiança.gif")
+		
+		
+```
+
+
+
+# [Intervalo de confiança para populações normais]{style="float:right;text-align:right;"}{background-color="#027eb6"}
+
+## Caso de uma única 
+<hr>
+<br/>
+
+* Considere inicialmente uma o caso de somente uma amostra.
+
+* Neste caso é necessário adotar alguma suposições sobre a distribuição de probabilidade da característica $X$.
+
+* Dessa forma, assuma agora que a amostra aleatória tenha a seguinte suposição
+
+$$X_{1}, \dots, X_{n} \text{ uma a.a. de } X\sim N(\mu, \sigma^2).$$
+
+* Será apresentado a seguir alguns casos relacionados a suposição anteriormente assumida. 
+
+* Neste caso, sobre o conhecimento ou não de $\sigma^2$.
+
+## Caso 1: Intervalo para $\mu$ com $\sigma^2$ conhecido
+<hr>
+
+* Neste caso, uma quantidade pivotal para $\theta$, baseada na estatística suficiente $\sum\limits_{i=1}^{n} X_i = n\bar{X}$,
+é dada por
+
+$$Q(\textbf{X}; \mu) = \dfrac{\bar{X}-\mu}{\sigma/\sqrt{n}}\sim N(0,1). $$
+
+* Dessa forma, dado $\gamma$, determinamos $\lambda_1$ e $\lambda_2$ de modo que
+
+
+$$P\left(\lambda_1\leq  \dfrac{\bar{X}-\mu}{\sigma/\sqrt{n}}\leq \lambda_2 \right)=\gamma.$$
+
+* Como a distribuição $N(0, 1)$ é simétrica, o intervalo de menor comprimento é o intervalo simétrico. 
+
+* Assim, sejam $\lambda_1 = -z_{\alpha/2}$ e $\lambda_2 = z_{\alpha/2}$ tais que $P(Z \geq z_{\alpha/2}) = \alpha/2$, com $Z \sim N(0, 1)$ e $\alpha = 1 -\gamma$.
+
+
+## Caso 1: Intervalo para $\mu$ com $\sigma^2$ conhecido
+<hr>
+
+```{r fig_int1, echo=FALSE, message=FALSE, warning=FALSE, comment="", fig.height=8, fig.width=8, fig.align='center'}
+# plot(function(x) dnorm(x) ,xlim=c(-4, 4), ylim=c(0, 0.4), ylab="Densidade", lwd=2, col="black")
+# xx <- seq(-1.96, -0.01, l=200)
+# yy <- rbind(cbind(rev(xx), 0), cbind(xx, dnorm(xx)))
+# polygon(yy, col="lightblue")
+# text(-1, 0.1, labels=expression(gamma/2), col="black")
+# xx <- seq(0.01, 1.96, l=200)
+# yy <- rbind(cbind(rev(xx), 0), cbind(xx, dnorm(xx)))
+# polygon(yy, col="lightblue")
+# text(1, 0.1, labels=expression(gamma/2), col="black")
+# abline(h=0)
+
+
+
+# # Função para criar gráficos dos quantis
+# plot_quantiles <- function(distribution, df = NULL, alpha = 0.05, mean = 0, sd = 1) {
+#   x_seq <- seq(-4, 4, length.out = 1000)
+#   
+#   if (distribution == "normal") {
+#     x_seq <- seq(mean - 4*sd, mean + 4*sd, length.out = 1000)
+#     dens <- dnorm(x_seq, mean, sd)
+#     q_low <- qnorm(alpha/2, mean, sd)
+#     q_high <- qnorm(1 - alpha/2, mean, sd)
+#     dist_label <- "Distribuição Normal"
+#   } else if (distribution == "t") {
+#     x_seq <- seq(-4, 4, length.out = 1000)
+#     dens <- dt(x_seq, df)
+#     q_low <- qt(alpha/2, df)
+#     q_high <- qt(1 - alpha/2, df)
+#     dist_label <- paste("Distribuição t (df =", df, ")")
+#   } else if (distribution == "chisq") {
+#     x_seq <- seq(0, 20, length.out = 1000)
+#     dens <- dchisq(x_seq, df)
+#     q_low <- qchisq(alpha/2, df)
+#     q_high <- qchisq(1 - alpha/2, df)
+#     dist_label <- paste("Distribuição Qui-Quadrado (df =", df, ")")
+#   }
+#   
+#   data <- data.frame(x = x_seq, y = dens)
+#   
+#   ggplot(data, aes(x, y)) +
+#     geom_line(color = "blue") +
+#     geom_area(data = subset(data, x >= q_low & x <= q_high), aes(x, y), fill = "red", alpha = 0.5) +
+#     geom_vline(xintercept = c(q_low, q_high), linetype = "dashed", color = "black") +
+#     ggtitle(dist_label) +
+#     xlab("x") + ylab("Densidade") +
+#     theme_minimal()
+# }
+# 
+# # Gerando gráficos
+# p1 <- plot_quantiles("normal", mean = 0, sd = 1) # Média com variância conhecida
+# p1
+
+
+library(ggplot2)
+
+# Função para plotar a distribuição normal e destacar a região crítica para média (variância conhecida)
+plot_normal_distribution <- function(mean = 0, sd = 1, alpha = 0.05) {
+  x_vals <- seq(mean - 4 * sd, mean + 4 * sd, length.out = 1000)
+  y_vals <- dnorm(x_vals, mean, sd)
+  data <- data.frame(x = x_vals, y = y_vals)
+  
+  # Quantis críticos
+  z_lower <- qnorm(alpha / 2, mean, sd)
+  z_upper <- qnorm(1 - alpha / 2, mean, sd)
+  
+  ggplot(data, aes(x, y)) +
+    geom_line(color = "blue") +
+    geom_area(data = subset(data, x <= z_lower), aes(x, y), fill = "red", alpha = 0.5) +
+    geom_area(data = subset(data, x >= z_upper), aes(x, y), fill = "red", alpha = 0.5) +
+    geom_vline(xintercept = z_lower, linetype = "dashed", color = "black") +
+    geom_vline(xintercept = z_upper, linetype = "dashed", color = "black") +
+    labs(title = "Distribuição Normal e Intervalo de Confiança para Média (Variância Conhecida)",
+         x = "Z", y = "Densidade") +
+    theme_minimal()
+}
+plot_normal_distribution(mean = 0, sd = 1, alpha = 0.05)
+
+
+```
+
+
+## Caso 1: Intervalo para $\mu$ com $\sigma^2$ conhecido
+<hr>
+<br/>
+
+Portanto, o intervalo de menor comprimento é dado por
+
+
+$$-z_{\alpha/2}\leq  \dfrac{\bar{X}-\mu}{\sigma/\sqrt{n}}\leq z_{\alpha/2} \Leftrightarrow -z_{\alpha/2}\sigma/\sqrt{n}\leq  \bar{X}-\mu\leq z_{\alpha/2}\sigma/\sqrt{n}.$$
+Em que,
+
+$$ -\bar{X}-z_{\alpha/2}\sigma/\sqrt{n}\leq  -\mu\leq-\bar{X}+ z_{\alpha/2}\sigma/\sqrt{n}  \Leftrightarrow \bar{X}-z_{\alpha/2}\sigma/\sqrt{n}\leq  \mu\leq \bar{X}+ z_{\alpha/2}\sigma/\sqrt{n}.$$
+
+
+Logo, 
+
+$$IC(\mu, \gamma\%)=\left[ \bar{X}-z_{\alpha/2}\sigma/\sqrt{n}; \bar{X}+z_{\alpha/2}\sigma/\sqrt{n}  \right].$$
+
+
+
+## Caso 2: Intervalo para $\mu$ com $\sigma^2$ desconhecido
+<hr>
+
+
+* Vimos que
+$$Q(\textbf{X}; \mu) = \dfrac{\bar{X}-\mu}{S/\sqrt{n}}\sim t_{n-1}. $$
+
+
+* Ou seja, é uma `quantidade pivotal` para $\theta$. 
+
+
+* Assim, dado o coeficiente de confiança $\gamma$, podemos encontrar $\lambda_{1}$ e $\lambda_{2}$ na distribuição $t_{n-1}$, tais que
+$$P\left(\lambda_1\leq  \dfrac{\bar{X}-\mu}{S/\sqrt{n}}\leq \lambda_2 \right)=\gamma.$$
+
+* Como a distribuição $t_{n-1}$ é simétrica, tomamos $\lambda_1 = -t_{\alpha/2}$ e $\lambda_2 = t_{\alpha/2}$ tais que $P(T \geq t_{\alpha/2}) = \alpha/2$, com $T\sim t_{n-1}$ e $\alpha = 1 -\gamma$. Assim,
+
+
+$$IC(\mu, \gamma\%)=\left[ \bar{X}-z_{\alpha/2}S/\sqrt{n}; \bar{X}+z_{\alpha/2}S/\sqrt{n}  \right].$$
+
+
+## Caso 2: Intervalo para $\mu$ com $\sigma^2$ desconhecido
+<hr>
+
+
+```{r fig_int2, echo=FALSE, message=FALSE, warning=FALSE, comment="", fig.height=8, fig.width=8, fig.align='center'}
+
+# Função para plotar a distribuição t de Student para média (variância desconhecida)
+plot_t_distribution <- function(df, alpha = 0.05) {
+  x_vals <- seq(-4, 4, length.out = 1000)
+  y_vals <- dt(x_vals, df)
+  data <- data.frame(x = x_vals, y = y_vals)
+  
+  # Quantis críticos
+  t_lower <- qt(alpha / 2, df)
+  t_upper <- qt(1 - alpha / 2, df)
+  
+  ggplot(data, aes(x, y)) +
+    geom_line(color = "blue") +
+    geom_area(data = subset(data, x <= t_lower), aes(x, y), fill = "red", alpha = 0.5) +
+    geom_area(data = subset(data, x >= t_upper), aes(x, y), fill = "red", alpha = 0.5) +
+    geom_vline(xintercept = t_lower, linetype = "dashed", color = "black") +
+    geom_vline(xintercept = t_upper, linetype = "dashed", color = "black") +
+    labs(title = "Distribuição t de Student e Intervalo de Confiança para Média (Variância Desconhecida)",
+         x = "t", y = "Densidade") +
+    theme_minimal()
+}
+plot_t_distribution(df = 10, alpha = 0.05)
+```
+
+
+
+## Caso 2: Intervalo de confiança para $\sigma^2$
+<hr>
+
+
+* Vimos que
+$$Q(\textbf{X}; \sigma^2) = \dfrac{(n-1)S^2}{\sigma^2}\sim \chi^{2}_{n-1}. $$
+
+* $Q(\textbf{X}; \sigma^2)$ é uma quantidade pivotal para $\sigma^2$.
+
+* Assim, dado o coeficiente de confiança $\gamma$, podemos encontrar $\lambda_{1}$ e $\lambda_{2}$ na distribuição $\chi^{2}_{n-1}$, tais que
+
+$$P\left(\lambda_1\leq  \dfrac{(n-1)S^2}{\sigma^2}  \leq \lambda_2 \right)=\gamma.$$
+
+
+Considerando o intervalo simétrico, tomamos $\lambda_{1}$ e $\lambda_{2}$, tais que $P(\chi_{n-1}^{2} \geq \lambda_{2}) = P(\chi_{n-1}^{2} \leq \lambda_{1}) = \alpha/2$, com $\alpha = 1 -\gamma$. 
+
+
+
+## Caso 2: Intervalo de confiança para $\sigma^2$
+<hr>
+
+
+```{r fig_int3, echo=FALSE, message=FALSE, warning=FALSE, comment="", fig.height=8, fig.width=8, fig.align='center'}
+
+plot_chisq_distribution <- function(df, alpha = 0.05) {
+  x_vals <- seq(0, qchisq(0.999, df), length.out = 1000)
+  y_vals <- dchisq(x_vals, df)
+  data <- data.frame(x = x_vals, y = y_vals)
+  
+  # Quantis críticos
+  chi_lower <- qchisq(alpha / 2, df)
+  chi_upper <- qchisq(1 - alpha / 2, df)
+  
+  ggplot(data, aes(x, y)) +
+    geom_line(color = "blue") +
+    geom_area(data = subset(data, x <= chi_lower), aes(x, y), fill = "red", alpha = 0.5) +
+    geom_area(data = subset(data, x >= chi_upper), aes(x, y), fill = "red", alpha = 0.5) +
+    geom_vline(xintercept = chi_lower, linetype = "dashed", color = "black") +
+    geom_vline(xintercept = chi_upper, linetype = "dashed", color = "black") +
+    labs(title = "Distribuição Qui-Quadrado e Intervalo de Confiança para Variância",
+         x = "Chi-Quadrado", y = "Densidade") +
+    theme_minimal()
+}
+
+plot_chisq_distribution(df = 10, alpha = 0.05)
+
+```
+
+
+
+## Caso 2: Intervalo de confiança para $\sigma^2$
+<hr>
+
+
+Assim
+
+
+$$\lambda_1\leq  \dfrac{(n-1)S^2}{\sigma^2}  \leq \lambda_2 \Leftrightarrow \dfrac{\lambda_1}{(n-1)S^2}\leq  \dfrac{1}{\sigma^2}  \leq \dfrac{\lambda_2}{(n-1)S^2}.$$
+
+$$\dfrac{(n-1)S^2}{\lambda_2}\leq  \sigma^2 \leq \dfrac{(n-1)S^2}{\lambda_1}.$$
+
+Logo,
+
+$$IC(\sigma^2, \gamma\%)=\left[ \dfrac{(n-1)S^2}{\lambda_2}; \dfrac{(n-1)S^2}{\lambda_1} \right].$$
+
+
+## Observações:
+<hr>
+
+* A amplitude do intervalo de confiança é dada pela diferença entre o limite superior e o limite inferior;
+
+* É usual referir-se à semi-amplitude, como o erro envolvido na estimação.
+
+* Por exemplo, considerando o intervalo para a média com $\sigma^2$ conhecido, temos
+
+$$\begin{array}{ll}
+\text{amplitude} &= \bar{X}-z_{\alpha/2}\sigma/\sqrt{n} - (\bar{X}-z_{\alpha/2}\sigma/\sqrt{n})\\
+&= 2 \times z_{\alpha/2}\sigma/\sqrt{n}.
+\end{array}$$
+
+e
+
+$$\text{erro} = \dfrac{\text{amplitude}}{2} = z_{\alpha/2}\sigma/\sqrt{n}.$$
+
+
+## Relação entre medidas
+<hr>
+
+<br/>
+
+:::{.callout-note appearance="simple"}
+## Assim, observamos que a amplitude do intervalo depende de $\gamma$, $\sigma$ e $n$:
+
+* se aumentamos o $\gamma$, o valor de $z_{\alpha/2}$ aumenta e, consequentemente, a amplitude do intervalo também aumenta.
+
+* uma variância grande indica a possibilidade de um considerável distanciamento dos possíveis valores da amostra em relação à média populacional. A amostra pode fornecer um valor de $\bar{x}$ muito influenciado por valores extremos.
+
+* para uma mesma variabilidade $\sigma$ e confiança $\gamma$, valores maiores de $n$ produzem intervalos menores e, portanto, mais informativos.
+
+:::
+
+## Exemplos
+<hr>
+<br/>
+<br/>
+
+:::{#exm-exm1}
+Um provedor de acesso à Internet está monitorando a duração do tempo das conexões de seus clientes, com o objetivo de dimensionar seus equipamentos. São desconhecidas a média e a distribuição de probabilidade desse tempo, mas o desvio padrão,
+por analogia a outros serviços, é considerado igual a
+$\sqrt{50}$ minutos. Uma amostra de 500 conexões resultou num valor médio observado de 25 minutos. O que dizer da verdadeira
+média, com confiança 92\%?
+:::
+
+
+## Exemplos
+<hr>
+<br/>
+<br/>
+
+:::{#exm-exm2}
+Uma amostra de 61 cidades brasileiras, de até 20 mil habitantes, forneceu o valor médio da hora aula para os professores do ensino fundamental em escolas municipais
+de R\$ 2,5 e um desvio padrão igual a R\$ 1,1. Obtenha um I.C. para o valor médio nacional da hora aula em cidades do tipo mencionado. Use $\gamma= 0,95$.
+:::
+
+## Exemplos
+<hr>
+<br/>
+<br/>
+
+:::{#exm-exm3}
+A vida média de baterias automotivas de uma certa marca está sendo estudada. Baseado em estudos similares, com outras marcas, é possível admitir que a vida dessas baterias segue a distribuição Normal com desvio padrão de 4,5 meses. De qual
+tamanho deverá ser a amostra, para que a amplitude do intervalo de 90\% de confiança para a vida média seja de 3 meses?
+:::
+
+## Exemplos
+<hr>
+<br/>
+<br/>
+
+:::{#exm-exm4}
+Um fabricante deseja estudar a duração de baterias que são utilizadas em _smartwacths_. Uma amostra de vários lotes fabricados por uma mesma companhia foi submetida a testes acelerados e produziram os seguintes tempos de duração (em anos): 1,2; 1,4; 1,7; 1,3; 1,2; 2,3; 2,0; 1,5; 1,8; 1,4; 1,6; 1,5; 1,7; 1,5 e 1,3. Determine intervalos com 90\% de confiança para a média e a variância do tempo de duração dessas pilhas.
+:::
+
+# [Intervalos de confiança para populações não normais]{style="float:right;text-align:right;"}{background-color="#027eb6"}
+
+## Intervalo para a grandes amostras
+<hr>
+
+
+* E se a variável X avaliada em uma determinada população não é normal.
+
+* Como podemos construir intervalos de confiança para o nosso parâmetro de interesse?
+	
+* Há alguma aproximação usando o TCL, como vimos anteriormente?
+
+. . . 
+
+* Sim podemos!!
+
+* E dessa forma podemos obter intervalos de confiança para o parâmetro de interesse.
+
+* Nesse caso, o intervalo será construído com um coeficiente de confiança aproximadamente igual à $\gamma$.
+
+* Como na definição do `TCL`, quanto maior o tamanho amostral ($n$), melhor. (`Muito melhor`).
+
+$$
+IC(\mu;\gamma)\simeq\left[\hat{\theta}-z_{\gamma/2}\frac{\sigma}{\sqrt{n}};\hat{\theta}+z_{\gamma/2}\frac{\sigma}{\sqrt{n}}  \right].
+$$
+
+$z_{\gamma/2}$: representa o quantil da distribuição $N(0,1)$.
+
+# Intervalo de confiança para a proporção $p$
+
+## Intervalo para a proporção $p$
+<hr>
+
+* Vimos que pelo TCL, a distribuição amostral da proporção,
+
+$$
+\hat{p}\sim N\left(p, \frac{p(1-p)}{n}\right)
+$$
+
+* Dessa forma o IC é dado por,
+
+$$
+IC(p;\gamma)\simeq\left[\hat{p}-z_{\gamma/2}\frac{\sqrt{p(1-p)}}{\sqrt{n}};\hat{p}+z_{\gamma/2}\frac{\sqrt{p(1-p)}}{\sqrt{n}}  \right].
+$$
+
+
+
+
+## Intervalo para a proporção $p$
+<hr>
+
+* Note que na formula acima $p$ está como desconhecido.
+
+
+* Uma solução é usar $\hat{p}(1-\hat{p})$ ao invés de $p(1-p)$.
+
+* Assim, para um intervalo otimista:
+
+$$
+IC(p;\gamma)\simeq\left[\hat{p}-z_{\gamma/2}\frac{\sqrt{\hat{p}(1-\hat{p})}}{\sqrt{n}};\hat{p}+z_{\gamma/2}\frac{\sqrt{\hat{p}(1-\hat{p})}}{\sqrt{n}}  \right].
+$$
+
+* Outra abordagem é baseada no fato que a expressão $p(1-p)$ ter valor máximo igual à $1/4$. Assim, mais conservador
+
+$$
+IC(p;\gamma)\simeq\left[\hat{p}-z_{\gamma/2}\frac{\sqrt{1/4}}{\sqrt{n}};\hat{p}+z_{\gamma/2}\frac{\sqrt{1/4}}{\sqrt{n}}  \right].
+$$
+
+
+## Exercícios
+<hr>
+
+Em um certo lago, uma amostra aleatória de 1000 peixes acusou 290 Tilápias. Construa o intervalo de confiança de 95\% para a proporção verdadeira de Tilápias. Interprete-o.
+
+
+
+# [Intervalos de confiança para duas populações normais]{style="float:right;text-align:right;"}{background-color="#027eb6"}
+
+## Introdução
+<hr>
+
+* Podemos calcular intervalos de confiança para duas amostras.
+
+* Sempre com o objetivo de fazer comparações:
+
+  - Médias;
+  - Variâncias;
+
+* Assuma agora que se tenha duas amostras aleatórias com a seguinte suposição
+
+$$X_{1}, \dots, X_{n} \text{ uma a.a. de } X\sim N(\mu_1, \sigma^2)$$
+
+$$Y_{1}, \dots, Y_{m} \text{ uma a.a. de } X\sim N(\mu_2, \sigma^2)$$
+
+$$X\  \text{e} \ Y \ \text{independentes.}$$
+
+## Introdução
+<hr>
+
+* Sabemos que 
+
+$$\bar{X}-\bar{Y}\sim N\left(\mu_1 - \mu_2, \sigma^2 \left(\dfrac{1}{n}+\dfrac{1}{m}\right)  \right)$$
+
+de modo que, sendo $\theta = \mu_1 - \mu_2$, consideramos a quantidade pivotal
+
+$$Q(\textbf{X}, \textbf{Y};\theta)=\dfrac{\bar{X}-\bar{Y} - (\mu_1 - \mu_2)}{\sigma\sqrt{\dfrac{1}{n}+\dfrac{1}{m}}}\sim N\left(0,1  \right).$$
+
+
+# Caso 1: $\sigma^2$ conhecido
+
+## Caso 1: $\sigma^2$ conhecido
+<hr>
+
+* Nesse caso temos, como no caso de uma amostra, o intervalo
+
+
+$$IC(\theta, \gamma\%)=\bar{X}-\bar{Y} \pm z_{\alpha/2}\sigma\sqrt{\dfrac{1}{n}+\dfrac{1}{m}}$$
+
+onde $z_{\alpha/2}$ é tal que $P(Z \geq z_{\alpha/2}) = \alpha/2$, com $Z \sim N(0, 1)$ e $\alpha = 1 -\gamma$.
+
+
+# Caso 2: $\sigma^2$ desconhecido
+
+## Caso 2: $\sigma^2$ desconhecido
+<hr>
+
+* Considere a seguinte quantidade pivotal:
+
+$$Q(\textbf{X}, \textbf{Y};\theta)=\dfrac{\bar{X}-\bar{Y} - (\mu_1 - \mu_2)}{S_{p}\sqrt{\dfrac{1}{n}+\dfrac{1}{m}}}\sim t_{n+m-2}.$$
+
+
+onde
+$$S_{p}=\dfrac{(n-1)S_{x}^{2}+(m-1)S_{y}^{2}}{n+m-2},$$
+
+em que $S_{x}^{2}$ e $S_{y}^{2}$ são as variâncias amostrais.
+
+
+## Caso 2: $\sigma^2$ desconhecido
+
+
+* Dessa forma, o intervalo de confiança é dado por
+
+
+$$IC(\theta, \gamma\%)=\bar{X}-\bar{Y} \pm t_{\alpha/2}S_{p}\sqrt{\dfrac{1}{n}+\dfrac{1}{m}}$$
+
+em que $t_{\alpha/2}$ é o quantil de uma distribuição $t-student$.
+
+
+## Caso 2: IC para $\sigma^2$
+<hr>
+
+* Como 
+
+$$\dfrac{(n-1)S_{x}^{2}}{\sigma^2}\sim \chi^{2}_{n-1} \ \ \text{e} \ \ \dfrac{(m-1)S_{y}^{2}}{\sigma^2} \sim \chi^{2}_{m-1}$$
+
+como $S_{x}^{2}$ e $S_{y}^{2}$ são independentes,
+
+
+$$\dfrac{(n+m-2)S_{p}^{2}}{\sigma^2}=\dfrac{(n-1)S_{x}^{2}+(m-1)S_{y}^{2}}{\sigma^2} \sim \chi^{2}_{n+m-2}$$
+
+
+## Caso 2: IC para $\sigma^2$
+<hr>
+
+* Para construírmos um I.C. para $\sigma^2$, podemos considerar a quantidade pivotal
+
+
+$$Q(\textbf{X}, \textbf{Y};\sigma^2)=\dfrac{(n+m-2)S_{p}^{2}}{\sigma^2}=\dfrac{(n-1)S_{x}^{2}+(m-1)S_{y}^{2}}{\sigma^2} \sim \chi^{2}_{n+m-2}.$$
+
+* Temos então, $P(\chi_{n+m-2}^{2} \geq \lambda_{2}) = P(\chi_{n+m-2}^{2} \leq \lambda_{1}) = \alpha/2$, com $\alpha = 1 -\gamma$.
+
+* O intervalo de confiança para $\sigma^2$ é dado por
+
+
+$$IC(\sigma^2, \gamma\%)=\left[\dfrac{(n+m-2)S_{p}^{2}}{\lambda_2} ; \dfrac{(n+m-2)S_{p}^{2}}{\lambda_1}\right].$$
+
+
+
+
+# IC para comparação de variâncias
+
+## IC para comparação de variâncias
+<hr>
+
+* No caso em que $X\sim N(\mu_1, \sigma^2_{1})$ e $Y\sim N(\mu_2, \sigma^2_{2})$ e o interesse é a construção de um IC para $\sigma^2_1/\sigma^2_2$. 
+
+* A quatidade pivotal é dada por:
+
+
+$$Q(\textbf{X}, \textbf{Y};\theta)=\dfrac{(m-1)S_{y}^{2}/\sigma_{2}^{2}(m-1)}{(n-1)S_{x}^{2}/\sigma_{1}^{2}(n-1)}\sim F_{m-1;n-1}.$$
+
+onde $F_{m-1;n-1}$ denoda a distribuição F, com $m-1$ e $n-1$ graus de liberdade, é uma quantidade pivotal para $\theta=\sigma^2_1/\sigma^2_2$.
+
+
+## IC para comparação de variâncias
+<hr>
+
+* Assim, dado $\gamma$, podemos determinar $\lambda_1$ e $\lambda_2$, na distribuição $F_{m-1; n-1}$, em que
+
+$$P\left(  \lambda_1 \leq \dfrac{\sigma_{1}^{2}S_{y}^{2}}{\sigma_{2}^{2}S_{x}^{2}}  \leq \lambda_2 \right)=\gamma$$
+* Considerando um intervalo simétrico, ou seja, $\lambda_1=F_{1}$ e $\lambda_2=F_{2}$, de modo que, $P[F_{m-1; n-1}\geq F_{2}]=P[F_{m-1; n-1}\leq F_{1}]=\alpha/2$.
+
+
+* O intervalo de confiança para a comparação de variâncias de $\gamma\%$
+
+$$IC(\sigma^2, \gamma\%)=\left[F_1\dfrac{S_{x}^{2}}{S_{y}^{2}} ; F_2\dfrac{S_{x}^{2}}{S_{y}^{2}} \right]$$
+
+onde $F_1$ e $F_2$ são obtidos na tabela da distribuição $F$ com $m-1$ e $n-1$ graus de liberdade, e $\alpha=1-\gamma$.
+
+
+## IC para comparação de variâncias
+<hr>
+
+```{r fig_int4, echo=FALSE, message=FALSE, warning=FALSE, comment="", fig.height=8, fig.width=8, fig.align='center'}
+
+
+plot_f_distribution <- function(df1, df2, alpha = 0.05) {
+  x_vals <- seq(0, qf(0.999, df1, df2), length.out = 1000)
+  y_vals <- df(x_vals, df1, df2)
+  data <- data.frame(x = x_vals, y = y_vals)
+  
+  # Quantis críticos
+  f_lower <- qf(alpha / 2, df1, df2)
+  f_upper <- qf(1 - alpha / 2, df1, df2)
+  
+  ggplot(data, aes(x, y)) +
+    geom_line(color = "blue") +
+    geom_area(data = subset(data, x <= f_lower), aes(x, y), fill = "red", alpha = 0.5) +
+    geom_area(data = subset(data, x >= f_upper), aes(x, y), fill = "red", alpha = 0.5) +
+    geom_vline(xintercept = f_lower, linetype = "dashed", color = "black") +
+    geom_vline(xintercept = f_upper, linetype = "dashed", color = "black") +
+    labs(title = "Distribuição F e Intervalo de Confiança para Razão de Variâncias",
+         x = "F", y = "Densidade") +
+    theme_minimal()
+}
+plot_f_distribution(df1 = 10, df2 = 15, alpha = 0.05)
+```
+
+
+## Exemplos
+<hr>
+
+<br>
+Estão sendo estudados dois processos para conservar alimentos, cuja principal variável de interesse é o tempo de duração destes alimentos. No processo A, o tempo $X$ de duração segue a distribuição $N(\mu_A; 100)$, e no processo B o tempo Y obedece à distribuição $N(\mu_B ; 100)$. Sorteiam-se duas amostras independentes: a de A, com 16 latas, apresentou tempo médio de duração igual a 50, e a de B, com 25 latas, duração média igual a 60.
+<br>
+<br>
+
+Para verificar se os dois processos podem ter o mesmo desempenho, decidiu-se construir um I.C. para a diferença $\mu_A-\mu_B$. Pode-se concluir que existe evidência de igualdade dos dois processos?
+
+
+
+
+
+## Exemplos
+<hr>
+
+Admita que no exemplo anterior as variâncias dos dois processos sejam diferentes e desconhecidas. Suponha que a amostra das 16 latas do processo A produziu uma variância amostral $S_x^2=91$ e a amostra do processo B produziu uma variância amostral $S_y^2=100$. Construa um I.C. para a razão $\sigma_{1}^2/\sigma_{2}^2$, com coeficiente de confiança de 90\%.
+
+
+
+
