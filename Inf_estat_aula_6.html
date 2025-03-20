@@ -1236,7 +1236,9 @@ H_{0}: \mu_{1}=\mu_{2}&amp;\times&amp;(ii) H_{1}:\mu_{1}&gt;\mu_{2}. \text{(Unil
 <p><span class="math display">\[T=\frac{\overline{X}_{A}-\overline{X}_{B}-(\mu_{A}-\mu_{B})}{S_{p}\sqrt{\frac{1 }{n}+\frac{1}{m}}}\sim t_{25}\]</span></p>
 <p><strong>Passo 3:</strong> Sob <span class="math inline">\(H_{0}\)</span>, temos <span class="math inline">\(T=\frac{\overline{X}_{A}-\overline{X}_{B}}{S_{p}\sqrt{\frac{1}{n}+\frac{1}{m}}} \sim t_{25}\)</span></p>
 <p><span class="math display">\[RC=\{T\in\mathbb{R}:T&lt;t_{c}\}\,,\text{ com }0,05=P(T&lt;t_{c}|T\sim t_{25})\]</span></p>
+<div class="fragment">
 <p>Assim, temos <span class="math inline">\(t_{c}=-1,708\)</span>. E a regra de decisão é dada por: rejeitar <span class="math inline">\(H_{0}\)</span> se <span class="math inline">\(T&lt;-1,708\)</span>.</p>
+</div>
 </section>
 <section id="exemplo-23" class="slide level2">
 <h2>Exemplo</h2>
@@ -1321,9 +1323,152 @@ v = \frac{(x + y)^2}{\frac{x^2}{n - 1} + \frac{y^2}{m - 1}},
 <p><strong>Passo 4:</strong> O valor observado da estatística é</p>
 <p><span class="math display">\[t_{0}=\frac{70,5-84,3}{\sqrt{\frac{81,6}{15}+\frac{161,5}{20}}}=-3,75.\]</span></p>
 <p><strong>Passo 5:</strong> Como o valor observado de <span class="math inline">\(T\)</span> pertence a RC, rejeitamos <span class="math inline">\(H_{0}\)</span>, e concluímos que há evidências de que os dois tipos de vigas têm resistências médias diferentes.</p>
+</section></section>
+<section>
+<section id="teste-para-comparação-das-variâncias" class="title-slide slide level1">
+<h1>Teste para Comparação das Variâncias</h1>
+
+</section>
+<section id="teste-para-comparação-das-variâncias-1" class="slide level2">
+<h2>Teste para Comparação das Variâncias</h2>
+<hr>
+<p><br></p>
+<p><span class="math display">\[H_{0}:\sigma^{2}_{1}=\sigma^{2}_{2}\]</span></p>
+<p>A estatística do teste será</p>
+<p><span class="math display">\[F=\frac{S^{2}_{1}/\sigma^{2}_{1}}{S^{2}_{2}/\sigma^{2}_{2}}\sim F_{n-1,m-1}\]</span></p>
+<div class="fragment">
+<p><strong>Exemplo:</strong> Queremos verificar se duas máquinas produzem peças com a mesma homogeneidade quanto à resistência à tensão. Para isso, sorteamos duas amostras de seis peças de cada máquina, e obtivemos as seguintes resistências:</p>
+<ul>
+<li><p>Máquina A: 145, 127, 136, 142, 141, 137</p></li>
+<li><p>Máquina B: 143, 128, 132, 138, 142, 132</p></li>
+</ul>
+</div>
+</section>
+<section id="exemplo-27" class="slide level2">
+<h2>Exemplo</h2>
+<hr>
+<p><br></p>
+<p><strong>Passo 1:</strong> <span class="math inline">\(H_{0}:\sigma^{2}_{A}=\sigma^{2}_{B}\)</span> contra <span class="math inline">\(H_{1}:\sigma^{2}_{A}\neq\sigma^{2}_{B}\)</span></p>
+<p><strong>Passo 2:</strong></p>
+<p><span class="math display">\[F=\frac{S^{2}_{A}/\sigma^{2}_{A}}{S^{2}_{B}/\sigma^{2}_{B}}\sim F_{5,5}\]</span></p>
+<p><strong>Passo 3:</strong> Sob <span class="math inline">\(H_{0}\)</span>, temos que <span class="math inline">\(F=\frac{S^{2}_{A}}{S^{2}_{B}}\sim F_{5,5}\)</span></p>
+<p>Fixando <span class="math inline">\(\alpha=0,05\)</span>, a RC é dada por</p>
+<p><span class="math display">\[RC=\{F&lt;F_{1}\text{ ou }F&gt;F_{2}\},\]</span></p>
+<p>com <span class="math inline">\(F_{1}\)</span> e <span class="math inline">\(F_{2}\)</span> tais que</p>
+<p><span class="math display">\[0,025=P(F&lt;F_{1}|F\sim F_{5,5})\quad\text{e}\quad 0,025=P(F&gt;F_{2}|F\sim F_{5,5})\]</span></p>
+</section>
+<section id="exemplo-28" class="slide level2">
+<h2>Exemplo</h2>
+<hr>
+<p><br></p>
+<p>Temos então, <span class="math inline">\(F_{2}=7,15\)</span> e <span class="math inline">\(F_{1}=1/7,15=0,14\)</span>. Assim, a regra de decisão é:</p>
+<p><span class="math display">\[\text{Rejeitar}\ \ H_{0}\ \ \text{se}\ \  F&lt;0,14\ \ \text{ou}\ \  F&gt;7,15.\]</span></p>
+<p><strong>Passo 4:</strong> Com os dados apresentados, temos <span class="math inline">\(S^{2}_{A}=40\)</span> e <span class="math inline">\(S^{2}_{B}=37\)</span>. Portanto, o valor observado da estatística é <span class="math inline">\(F_{o}=40/37=1,08\)</span>.</p>
+<p><strong>Passo 5:</strong> Como o valor observado da estatística não pertence a RC, aceitamos <span class="math inline">\(H_{0}\)</span> e concluímos que as máquinas produzem com a mesma variabilidade.</p>
+</section></section>
+<section>
+<section id="duas-populações-normais-dependentes" class="title-slide slide level1">
+<h1>Duas Populações Normais dependentes</h1>
+
+</section>
+<section id="duas-populações-normais-dependentes-1" class="slide level2">
+<h2>Duas Populações Normais dependentes</h2>
+<hr>
+<p><br></p>
+<p>Aqui temos duas amostras <span class="math inline">\(X_{1},X_{2},\cdots,X_{n}\)</span> e <span class="math inline">\(Y_{1},Y_{2},\cdots,Y_{n}\)</span>, só que agora as observações são pareadas, isto é, temos uma amostra de pares</p>
+<p><span class="math display">\[(X_{1},Y_{1}),(X_{2},Y_{2}),\cdots,(X_{n},Y_{n})\]</span></p>
+<p>Se definirmos a v.a. <span class="math inline">\(D=X-Y\)</span>, teremos uma amostra <span class="math inline">\(D_{1},D_{2},\cdots,D_{n}\)</span>, resultante da diferença dos valores entre cada par. Reduzimos o problema de duas populações a um problema de uma única população, já visto anteriormente. Assim,</p>
+<p><span class="math display">\[\overline{D}=\frac{1}{n}\sum_{i=1}^{n}D_{i}=\frac{1}{n}\sum_{i=1}^{n}(X_{i}-Y_{i })=\frac{1}{n}\sum_{i=1}^{n}X_{i}-\frac{1}{n}\sum_{i=1}^{n}Y_{i}=\overline{X}- \overline{Y}\]</span></p>
+<p>terá distribuição <span class="math inline">\(N(\mu_{D},\sigma^{2}_{D}/n)\)</span>.</p>
+</section>
+<section id="duas-populações-normais-dependentes-2" class="slide level2">
+<h2>Duas Populações Normais dependentes :</h2>
+<hr>
+<p><br></p>
+<p>Considerando</p>
+<p><span class="math display">\[S^{2}_{D}=\frac{1}{n-1}\sum_{i=1}^{n}(D_{i}-\overline{D})^{2},\]</span></p>
+<p>temos que</p>
+<p><span class="math display">\[T=\frac{\sqrt{n}(\overline{D}-\mu_{D})}{S_{D}}\sim t_{n-1}\]</span></p>
+<p>Como <span class="math inline">\(\mu_{D}=E(D)=E(X-Y)=E(X)-E(Y)=\mu_{1}-\mu_{2}\)</span>, testar <span class="math inline">\(H_{0}:\mu_{D}=0\)</span> é equivalente a testar <span class="math inline">\(H_{0}:\mu_{1}=\mu_{2}\)</span>.</p>
+</section>
+<section id="exemplo-29" class="slide level2">
+<h2>Exemplo</h2>
+<hr>
+<p><br></p>
+<p><strong>Exemplo</strong>: Cinco operadores de certo tipo de máquina são treinados em máquinas de duas marcas diferentes, A e B. Mediu-se o tempo em que cada um deles gasta na realização de uma mesma tarefa, e os resultados estão na tabela a seguir.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Operador</th>
+<th style="text-align: center;">Marca A</th>
+<th style="text-align: center;">Marca B</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">80</td>
+<td style="text-align: center;">75</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">72</td>
+<td style="text-align: center;">70</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">65</td>
+<td style="text-align: center;">60</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">78</td>
+<td style="text-align: center;">72</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">E</td>
+<td style="text-align: center;">85</td>
+<td style="text-align: center;">78</td>
+</tr>
+</tbody>
+</table>
+<p>Ao nível de significância de <span class="math inline">\(10\%\)</span>, poderíamos afirmar que a tarefa realizada na Máquina A demora mais que na Máquina B?</p>
+</section>
+<section id="exemplo-30" class="slide level2">
+<h2>Exemplo</h2>
+<hr>
+<p><strong>Passo 1:</strong></p>
+<p><span class="math display">\[H_{0}:\mu_{A}=\mu_{B}\times H_{1}:\mu_{A}&gt;\mu_{B}\]</span></p>
+<p>Essas hipóteses são equivalentes a</p>
+<p><span class="math display">\[H_{0}:\mu_{D}=0 \times H_{1}:\mu_{D}&gt;0\]</span></p>
+<p><strong>Passo 2:</strong></p>
+<p><span class="math display">\[T=\frac{\sqrt{n}(\overline{D}-\mu_{D})}{S_{D}}\sim t_{4}\]</span></p>
+<p><strong>Passo 3:</strong> Como é o mesmo operador que realiza a tarefa nas duas máquinas, dizemos que as variáveis são emparelhadas. Sob <span class="math inline">\(H_{0}\)</span>, temos <span class="math inline">\(T=\frac{\sqrt{n}\overline{D}}{S_{D}}\sim t_{4}\)</span>. Assim, com <span class="math inline">\(\alpha=0,10\)</span>, temos</p>
+<p><span class="math display">\[P(T&gt;t_{c}|T\sim t_{4})=0,10.\]</span></p>
+<div class="fragment">
+<p>Portanto, <span class="math inline">\(t_{c}=1,533\)</span>, logo, a regra de decisão é: Rejeitar <span class="math inline">\(H_{0}\)</span> se <span class="math inline">\(T&gt;1,533\)</span>.</p>
+</div>
+</section>
+<section id="exemplo-31" class="slide level2">
+<h2>Exemplo</h2>
+<hr>
+<p><strong>Passo 4:</strong> Da Tabela de dados acima, obtemos os valores de <span class="math inline">\(D\)</span>:</p>
+<p><span class="math display">\[d_{i}:\quad 5,2,5,6,7\]</span></p>
+<p>e, portanto,</p>
+<p><span class="math display">\[\overline{d}=5,\quad\text{e}\quad s_{D}^{2}=3,5\]</span></p>
+<p>Logo, o valor observado da estatística <span class="math inline">\(\hat{e}\)</span></p>
+<p><span class="math display">\[t_{o}=(\sqrt{5}\times 5)/\sqrt{3,5}=5,98\]</span></p>
+<p><strong>Passo 5:</strong> Como o valor observado pertence a RC, rejeitamos <span class="math inline">\(H_{0}\)</span>, ou seja, demora-se mais para realizar a tarefa na máquina A.</p>
+<div class="fragment">
+<p>Podemos construir um I.C. para <span class="math inline">\(\mu_{D}\)</span>, adotando <span class="math inline">\(\gamma=0,90\)</span> :</p>
+<p><span class="math display">\[IC(\mu_{D};90\%)=\bar{D}\pm t_{\alpha/2}\times\sqrt{s_{D}^{2}}/\sqrt{n}\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[IC(\mu_{D};90\%) = 5\pm 1,78=[3,22\; ;\;6,78]\]</span></p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
+</div>
 </div>
 </div>
 </section></section>
